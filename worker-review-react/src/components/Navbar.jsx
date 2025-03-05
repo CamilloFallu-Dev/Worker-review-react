@@ -4,7 +4,7 @@ import logoWR from "../assets/logoWR.png";
 export default function Navbar() {
   return (
     <nav className="flex justify-between items-center p-4 shadow-md bg-white">
-      <Link to="/home">
+      <Link to="/">
         <img src={logoWR} alt="Logo" className="w-10 h-auto" />
       </Link>
       <button className="text-3xl">
