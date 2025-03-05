@@ -10,7 +10,7 @@ export default function Home() {
     },
     {
       imageUrl: "./../src/assets/wrimage.png",
-      title: "Aplle",
+      title: "Apple",
       descrizione:
         "è un'azienda multinazionale statunitense che produce sistemi operativi, smartphone, computer e dispositivi multimediali",
     },
