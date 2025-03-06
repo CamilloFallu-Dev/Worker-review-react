@@ -1,6 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import PaginaAzienda from "./pages/PaginaAzienda";
+
+import Footer from "./components/Footer";
+
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 
@@ -29,6 +32,10 @@ export default function App() {
         <Route path="/pagina-contatti" element={<PaginaContatti />} />
       </Routes>
       <Footer />
+
+    </Router>
+
+
     </div>
   );
 }
