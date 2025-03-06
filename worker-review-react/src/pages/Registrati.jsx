@@ -1,81 +1,82 @@
-import React from 'react'
+import { useState } from "react";
 
 function Registrati() {
-    const onLogin = (event) => {
-        event.preventDefault();
-    
-        const form = event.target;
-        console.log({
-          name: form.email.value,
-          name: form.password.value,
-          name: form.nome.value,
-          name: form.cognome.value,
-        });
-      };
-    
-      const loginWithFormData = (event) => {
-        event.preventDefault();
-    
-        const formData = new FormData(event.target.form);
-        console.log({
-          email: formData.get("email"),
-          password: formData.get("password"),
-          nome: formData.get("nome"),
-          cognome:formData.get("cognome"),
-        });
-      };
-    
+  const [formData, setFormData] = useState({
+    email: localStorage.getItem("email") || "",
+    password: localStorage.getItem("password") || "",
+    nome: localStorage.getItem("nome") || "",
+    cognome: localStorage.getItem("cognome") || "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => {
+      const newData = { ...prevData, [name]: value };
+      localStorage.setItem(name, value);
+      return newData;
+    });
+  };
+
+  const onLogin = (event) => {
+    event.preventDefault();
+    setFormData({ email: "", password: "", nome: "", cognome: "" });
+  };
+
   return (
-
     <div className="bg-green-600 py-16">
-    <div className="text-center text-white">
-      <h1 className="text-4xl font-bold">Worker Review</h1>
-      <h2 className="text-xl mt-2">Registrazione</h2>
-    </div>
+      <div className="text-center text-white">
+        <h1 className="text-4xl font-bold">Worker Review</h1>
+        <h2 className="text-xl mt-2">Registrazione</h2>
+      </div>
 
-    <div className="bg-white border-1 border-gray-400 rounded-md mx-4 p-6 w-72 mx-auto relative mt-12">
-      
-      <form onSubmit={onLogin}>
-        <p>Nome</p>
-      <input
-          type="text"
-          name="nome"
-          placeholder="Nome"
-          className="w-full p-2 mb-4 border border-gray-300 rounded-md"
-        />
-        <p>Cognome</p>
-         <input
-          type="text"
-          name="cognome"
-          placeholder="Cognome"
-          className="w-full p-2 mb-4 border border-gray-300 rounded-md"
-        />
-        <p>Email</p>
-        <input
-          type="email"
-          name="email"
-          placeholder="email"
-          className="w-full p-2 mb-4 border border-gray-300 rounded-md"
-        />
-        <p>Password</p>
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          className="w-full p-2 mb-4 border border-gray-300 rounded-md"
-        />
-        <button
-          type="button"
-          onClick={loginWithFormData}
-          className="bg-green-600 w-full rounded py-2 text-white hover:bg-green-700"
-        >
-          Accedi
-        </button>
-      </form>
+      <div className="bg-white border-1 border-gray-400 rounded-md mx-4 p-6 w-72 mx-auto relative mt-12 shadow-2xl">
+        <form onSubmit={onLogin}>
+          <label>Nome</label>
+          <input
+            type="text"
+            name="nome"
+            placeholder="Nome"
+            value={formData.nome}
+            onChange={handleChange}
+            className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+          />
+          <p>Cognome</p>
+          <input
+            type="text"
+            name="cognome"
+            placeholder="Cognome"
+            value={formData.cognome}
+            onChange={handleChange}
+            className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+          />
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+          />
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            value={formData.password}
+            onChange={handleChange}
+            className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+          />
+          <button
+            type="submit"
+            className="bg-green-600 w-full rounded py-2 text-white hover:bg-green-700 cursor-pointer "
+          >
+            Accedi
+          </button>
+        </form>
+      </div>
     </div>
-  </div>
-    
-  )
+  );
 }
 
-export default Registrati
+export default Registrati;
