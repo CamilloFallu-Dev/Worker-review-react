@@ -68,7 +68,7 @@ function Registrazioneazienda() {
             onClick={loginWithFormData}
             className="bg-green-600 w-full rounded py-2 text-white hover:bg-green-700"
           >
-            Registra Azienda
+            Registra-Azienda
           </button>
         </form>
        
