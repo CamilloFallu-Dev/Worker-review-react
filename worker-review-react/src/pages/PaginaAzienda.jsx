@@ -50,8 +50,6 @@ export default function PaginaAzienda () {
           <ReviewCard key={index} title={review.title} author={review.author} />
         ))}
       </div>
-
-      <Footer />
     </div>
   );
 }
