@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="">
+    <div>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
