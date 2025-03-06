@@ -1,5 +1,5 @@
 import React from "react";
-import{Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Formlogin() {
   const onLogin = (event) => {
@@ -20,7 +20,6 @@ function Formlogin() {
       email: formData.get("email"),
       password: formData.get("password"),
     });
-
   };
 
   return (
@@ -30,7 +29,7 @@ function Formlogin() {
         <h2 className="text-xl mt-2">Accedi ed inizia a recensire</h2>
       </div>
 
-      <div className="bg-white border-1 border-gray-400 rounded-md mx-4 p-6 w-72 mx-auto relative mt-12">
+      <div className="bg-white border-1 border-gray-400 rounded-md  p-6 w-72 mx-auto relative mt-12">
         <p>Email</p>
         <form onSubmit={onLogin}>
           <input
@@ -54,8 +53,9 @@ function Formlogin() {
             Accedi
           </button>
         </form>
-        <p className="mt-4 text-center text-black-600 cursor-pointer" >
-          Non sei registrato? <Link to="/Registrati">Registrati</Link></p>  
+        <p className="mt-4 text-center text-black-600 cursor-pointer">
+          Non sei registrato? <Link to="/Registrati">Registrati</Link>
+        </p>
       </div>
     </div>
   );
