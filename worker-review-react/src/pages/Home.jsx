@@ -37,7 +37,7 @@ export default function Home() {
       </div>
       <div className="bg-green-200 pb-20 pt-20">
         <p className="text-4xl font-bold p-2 text-center">
-          Le aizende più recensite
+          Le aziende più recensite
         </p>
         <p className="text-2xl pl-2 pb-10 text-center">Scopri di più...</p>
         <div className="lg:grid lg:grid-cols-2 lg:w-220 lg:mx-auto md:grid md:grid-cols-2 md:w-180 md:mx-auto gap-5 ">
