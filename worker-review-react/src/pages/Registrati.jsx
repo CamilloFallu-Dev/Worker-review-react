@@ -40,7 +40,7 @@ function Registrati() {
             onChange={handleChange}
             className="w-full p-2 mb-4 border border-gray-300 rounded-md"
           />
-          <p>Cognome</p>
+          <label>Cognome</label>
           <input
             type="text"
             name="cognome"
@@ -71,7 +71,7 @@ function Registrati() {
             type="submit"
             className="bg-green-600 w-full rounded py-2 text-white hover:bg-green-700 cursor-pointer "
           >
-            Accedi
+            Accedi.
           </button>
         </form>
       </div>
