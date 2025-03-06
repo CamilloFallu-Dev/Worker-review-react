@@ -56,6 +56,9 @@ function Formlogin() {
         <p className="mt-4 text-center text-black-600 cursor-pointer">
           Non sei registrato? <Link to="/Registrati">Registrati</Link>
         </p>
+        <p className="mt-4 text-center text-black-600 cursor-pointer">
+          Non sei registrato? <Link to="/Registrati">Registrati</Link>
+        </p>
       </div>
     </div>
   );

@@ -1,5 +1,3 @@
-import React from "react";
-
 function Registrazioneazienda() {
   const onLogin = (event) => {
     event.preventDefault();

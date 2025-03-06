@@ -14,16 +14,18 @@ import Formlogin from "./pages/Formlogin";
 import Registrati from "./pages/Registrati";
 import Registrazioneazienda from "./pages/Registrazioneazienda";
 
-
 export default function App() {
   return (
     <div>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Formlogin" element={<Formlogin/>}/>
-        <Route path="/Registrati" element={<Registrati/>}/>
-        <Route path="/Registrazioneazienda" element={<Registrazioneazienda/>}  />
+        <Route path="/Formlogin" element={<Formlogin />} />
+        <Route path="/Registrati" element={<Registrati />} />
+        <Route
+          path="/Registrazioneazienda"
+          element={<Registrazioneazienda />}
+        />
         <Route path="/pagina-azienda" element={<PaginaAzienda />} />
         <Route
           path="/pagina-ricerca-aziende"
@@ -32,10 +34,6 @@ export default function App() {
         <Route path="/pagina-contatti" element={<PaginaContatti />} />
       </Routes>
       <Footer />
-
-    </Router>
-
-
     </div>
   );
 }
