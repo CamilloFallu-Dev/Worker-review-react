@@ -1,63 +1,42 @@
-const people = [
-  {
-    name: "Camillo Fallù",
-    role: "Co-Founder / CEO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-  },
-  {
-    name: "Fabio Artudi",
-    role: "Co-Founder / CEO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-  },
-  {
-    name: "Michele Madrid Vitucci",
-    role: "Co-Founder / CEO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-  },
-  {
-    name: "Andrea Lo Muto",
-    role: "Co-Founder / CEO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-  },
-];
+import { useEffect, useState } from "react";
 
 export default function Team() {
+  const [staff, setStaff] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/staff")
+      .then((response) => response.json())
+      .then((data) => {
+        setStaff(data);
+      })
+      .catch((error) =>
+        console.error("Errore nel caricamento dei dati:", error)
+      );
+  }, []);
+
   return (
-    <div className="bg-green-200 py-24 sm:py-32">
-      <div className="mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-3">
-        <div className="max-w-xl">
-          <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">
-            Il nostro Team
-          </h2>
-        </div>
-        <ul
-          role="list"
-          className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2"
-        >
-          {people.map((person) => (
-            <li key={person.name}>
-              <div className="flex items-center gap-x-6">
-                <img
-                  alt=""
-                  src={person.imageUrl}
-                  className="size-16 rounded-full"
-                />
-                <div>
-                  <h3 className="text-base/7 font-semibold tracking-tight text-gray-900">
-                    {person.name}
-                  </h3>
-                  <p className="text-sm/6 font-semibold text-black">
-                    {person.role}
-                  </p>
-                </div>
+    <div>
+      <p className="text-3xl flex justify-center">Il nostro staff</p>
+      <div className="flex flex-wrap justify-center sm:flex-col gap-5 lg:flex-row md:flex-row ">
+        {staff.length > 0 ? (
+          staff.map((staff, index) => (
+            <div
+              key={index}
+              className="flex flex-col sm:flex-row sm:w-full mb-8 md:mb-0 p-5  lg:w-1/3 md:w-1/2 w-full"
+            >
+              <img
+                src={staff.url}
+                alt={staff.name}
+                className="rounded-full object-fill w-10 h-10 sm:w-12 sm:h-12 sm:rounded-full"
+              />
+              <div className="space-y-2 font-medium dark:text-white text-left rtl:text-right sm:ms-3">
+                <div className="text-black font-semibold">{staff.name}</div>
               </div>
-            </li>
-          ))}
-        </ul>
+            </div>
+          ))
+        ) : (
+          <p>Caricamento...</p>
+        )}
       </div>
     </div>
   );

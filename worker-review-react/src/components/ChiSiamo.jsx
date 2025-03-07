@@ -29,7 +29,7 @@ export default function ChiSiamo() {
         <img
           alt=""
           src="./../src/assets/ragazzalogo2.png"
-          className="h-56 w-170 object-cover sm:h-full md:h-full"
+          className="h-56 w-150 object-cover sm:h-full md:h-full"
         />
       </section>
     </div>
