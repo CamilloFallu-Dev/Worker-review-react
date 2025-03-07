@@ -1,0 +1,100 @@
+{
+  "companies": [
+    {
+      "id": 1,
+      "name": "Poste Italiane",
+      "country": "IT",
+      "address": "Via Roma 290, Milano",
+      "workSector": ["IT", "Finanza"],
+      "url": "/public/posteitaliane.jpg",
+      "description": "Poste Italiane è il più prezioso motore di innovazione e digitalizzazione del Paese.",
+      "email": "posteitaliane@gmail.com",
+      "password": "posteitaliane"
+    },
+    {
+      "id": 2,
+      "name": "Apple",
+      "country": "USA",
+      "address": "One Apple Park Way, Cupertino, California",
+      "workSector": ["IT", "AI"],
+      "url": "/public/apple.png",
+      "description": "Azienda multinazionale statunitense che produce sistemi operativi, smartphone, computer e dispositivi multimediali, con sede a Cupertino, in California. È considerata una delle società tecnologiche Big Tech, assieme ad Amazon, Google, Microsoft e Meta.",
+      "email": "apple@gmail.com",
+      "password": "apple"
+    },
+    {
+      "id": 3,
+      "name": "Goggle",
+      "country": "USA",
+      "address": "One Apple Park Way, Cupertino, California",
+      "workSector": ["IT", "AI"],
+      "url": "/public/google.png",
+      "description": "La Ricerca Google è un motore di ricerca completamente automatizzato che utilizza software chiamati web crawler per esplorare regolarmente il web e trovare pagine da aggiungere al suo indice",
+      "email": "google@gmail.com",
+      "password": "google"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "companyId": 1,
+      "text": "Ottimo servizio",
+      "userId": 1,
+      "vote": 4
+    },
+    {
+      "id": 2,
+      "companyId": 3,
+      "text": "Molto professionali",
+      "userId": 2,
+      "vote": 3
+    },
+    {
+      "id": 3,
+      "companyId": 2,
+      "text": "Servizio eccellente",
+      "userId": 3,
+      "vote": 5
+    }
+  ],
+
+  "users": [
+    {
+      "id": 1,
+      "name": "Marta",
+      "surname": "Franchi",
+      "email": "martafranchi@gmail.com",
+      "password": "martafranchi"
+    },
+    {
+      "id": 1,
+      "name": "Gianni",
+      "surname": "Rossi",
+      "email": "giannirossi@gmail.com",
+      "password": "giannirossi"
+    }
+  ],
+
+  "staff": [
+    {
+      "id": 1,
+      "name": "Camillo Fallù",
+      "url": "/public/camillofoto.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Fabio Artudi",
+      "url": "/public/camillofoto.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Michele Vitucci",
+      "url": "/public/camillofoto.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Andrea Lo Muto",
+      "url": "/public/camillofoto.jpg"
+    }
+  ]
+}

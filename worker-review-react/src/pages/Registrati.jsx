@@ -29,7 +29,7 @@ function Registrati() {
         <h2 className="text-xl mt-2">Registrazione</h2>
       </div>
 
-      <div className="bg-white border-1 border-gray-400 rounded-md mx-4 p-6 w-72 mx-auto relative mt-12 shadow-2xl">
+      <div className="bg-white border-1 border-gray-400 rounded-md p-6 w-72 mx-auto relative mt-12 shadow-2xl">
         <form onSubmit={onLogin}>
           <label>Nome</label>
           <input

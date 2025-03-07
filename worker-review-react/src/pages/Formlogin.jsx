@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function Formlogin() {
   const [formData, setFormData] = useState({
-    email: localStorage.getItem("email")|| ""  ,
-    password: localStorage.getItem("password") || "" ,
+    email: localStorage.getItem("email") || "",
+    password: localStorage.getItem("password") || "",
   });
 
   const handleChange = (event) => {
@@ -12,16 +12,14 @@ function Formlogin() {
     setFormData((prevData) => {
       const newData = { ...prevData, [name]: value };
       localStorage.setItem(name, value);
-      return newData
+      return newData;
     });
   };
 
   const onLogin = (event) => {
     event.preventDefault();
-    setFormData({ email: "", password: "", });
+    setFormData({ email: "", password: "" });
   };
-
- 
 
   return (
     <div className="bg-green-600 py-16">
