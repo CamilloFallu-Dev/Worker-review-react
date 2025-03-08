@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function RegistrazioneAzienda() {
   const [formData, setFormData] = useState({
