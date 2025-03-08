@@ -29,17 +29,17 @@ function PaginaContatti() {
   };
 
   return (
-    <div className="flex flex-col items-center ">
-      <h1 className="text-4xl font-bold mt-40">Worker Review</h1>
-      <h2 className="text-xl mt-6">Contattaci...</h2>
-      <div className="mt-10 mb-20 shadow-2xl w-70">
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-2 bg-green-400/20 p-4 rounded-lg border-1 border-gray-400"
-        >
+    <div className="flex flex-col items-center py-16 bg-green-400/20">
+      <div className="text-center text-black">
+        <h1 className="text-4xl font-bold">Worker Review</h1>
+        <h2 className="text-xl mt-2">Contattaci...</h2>
+      </div>
+
+      <div className="bg-white rounded-md p-6 w-72 mx-auto mt-12 shadow-2xl">
+        <form onSubmit={handleSubmit}>
           <label>Nome</label>
           <input
-            className="bg-white p-1 rounded-lg border-1 border-gray-400"
+            className="bg-white w-full p-2 mb-4 rounded-lg border border-gray-400"
             type="text"
             name="nome"
             value={formData.nome}
@@ -48,7 +48,7 @@ function PaginaContatti() {
           />
           <label>Cognome</label>
           <input
-            className="bg-white p-1 rounded-lg border-1 border-gray-400"
+            className="bg-white w-full p-2 mb-4 rounded-lg border border-gray-400"
             type="text"
             name="cognome"
             value={formData.cognome}
@@ -57,7 +57,7 @@ function PaginaContatti() {
           />
           <label>Email</label>
           <input
-            className="bg-white p-1 rounded-lg border-1 border-gray-400"
+            className="bg-white w-full p-2 mb-4 rounded-lg border border-gray-400"
             type="email"
             name="email"
             value={formData.email}
@@ -66,14 +66,14 @@ function PaginaContatti() {
           />
           <label>Messaggio</label>
           <textarea
-            className="bg-white p-1 rounded-lg border-1 border-gray-400"
+            className="bg-white w-full p-2 mb-4 rounded-lg border border-gray-400"
             name="messaggio"
             value={formData.messaggio}
             onChange={handleChange}
             placeholder="Scrivi qui il tuo messaggio..."
           />
           <button
-            className="bg-green-600 rounded-lg border-1 border-gray-400 text-white cursor-pointer"
+            className="bg-green-600 w-full rounded-lg py-2 text-white hover:bg-green-700 cursor-pointer"
             type="submit"
           >
             Invia

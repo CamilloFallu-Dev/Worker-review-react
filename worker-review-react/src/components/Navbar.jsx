@@ -7,7 +7,7 @@ export default function Navbar() {
       <Link to="/">
         <img src={logoWR} alt="Logo" className="w-10 h-auto" />
       </Link>
-      <button className="text-3xl">
+      <button className="text-3xl cursor-pointer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 30 30"

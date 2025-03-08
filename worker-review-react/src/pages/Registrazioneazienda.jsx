@@ -1,12 +1,11 @@
-
 import React, { useState } from "react";
 
-function Registrazioneazienda() {
+function RegistrazioneAzienda() {
   const [formData, setFormData] = useState({
-    name: localStorage.getItem("Azienda") || "",
-    sede: localStorage.getItem("Sede") || "",
-    settore: localStorage.getItem("Settore") || "",
-    descrizione: localStorage.getItem("Descrizione azienda") || "",
+    name: localStorage.getItem("azienda") || "",
+    sede: localStorage.getItem("sede") || "",
+    settore: localStorage.getItem("settore") || "",
+    descrizione: localStorage.getItem("descrizione") || "",
   });
 
   const handleChange = (event) => {
@@ -23,32 +22,6 @@ function Registrazioneazienda() {
     setFormData({ name: "", sede: "", settore: "", descrizione: "" });
   };
 
-
-function Registrazioneazienda() {
-  const onLogin = (event) => {
-    event.preventDefault();
-
-    const form = event.target;
-    console.log({
-      name: form.name.value,
-      sede: form.sede.value,
-      settore: form.settore.value,
-      textarea: form.textarea.value,
-    });
-  };
-
-  const loginWithFormData = (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(event.target.form);
-    console.log({
-      name: formData.get("name"),
-      sede: formData.get("sede"),
-      settore: formData.get("settore"),
-      Textarea: formData.get("Descrizione azienda"),
-    });
-  };
-
   return (
     <div className="bg-green-600 py-16">
       <div className="text-center text-white">
@@ -56,11 +29,7 @@ function Registrazioneazienda() {
         <h2 className="text-xl mt-2">Registra la tua azienda</h2>
       </div>
 
-
-      <div className="bg-white border border-gray-400 rounded-md mx-4 p-6 w-72 mx-auto relative mt-12">
-
-      <div className="bg-white border-1 border-gray-400 rounded-md  p-6 w-72 mx-auto relative mt-12">
-
+      <div className="bg-white border-1 border-gray-400 rounded-lg p-6 w-72 mx-auto mt-12 shadow-2xl">
         <p>Nome azienda</p>
         <form onSubmit={onLogin}>
           <input
@@ -69,7 +38,7 @@ function Registrazioneazienda() {
             onChange={handleChange}
             value={formData.name}
             placeholder="Nome azienda"
-            className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+            className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
           />
           <p>Sede principale</p>
           <input
@@ -78,7 +47,7 @@ function Registrazioneazienda() {
             placeholder="Sede"
             value={formData.sede}
             onChange={handleChange}
-            className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+            className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
           />
           <p>Settore</p>
           <input
@@ -87,30 +56,20 @@ function Registrazioneazienda() {
             placeholder="Settore"
             value={formData.settore}
             onChange={handleChange}
-            className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+            className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
           />
           <p>Descrizione azienda</p>
           <textarea
-
             name="descrizione"
             placeholder="Scrivi qui..."
             value={formData.descrizione}
             onChange={handleChange}
-            className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+            className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
           ></textarea>
-
-            name=""
-            id=""
-            placeholder="scrivi qui..."
-            className="w-full p-2 mb-4 border border-gray-300 rounded-md"
-          >
-            {" "}
-          </textarea>
-
 
           <button
             type="submit"
-            className="bg-green-600 w-full rounded py-2 text-white hover:bg-green-700"
+            className="bg-green-600 w-full rounded-lg py-2 text-white hover:bg-green-700"
           >
             Registra Azienda
           </button>
@@ -120,10 +79,4 @@ function Registrazioneazienda() {
   );
 }
 
-export default Registrazioneazienda;
-
-
-
-
-
-
+export default RegistrazioneAzienda;

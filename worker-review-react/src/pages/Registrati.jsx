@@ -29,7 +29,7 @@ function Registrati() {
         <h2 className="text-xl mt-2">Registrazione</h2>
       </div>
 
-      <div className="bg-white border-1 border-gray-400 rounded-md p-6 w-72 mx-auto relative mt-12 shadow-2xl">
+      <div className="bg-white border-1 border-gray-400 rounded-lg p-6 w-72 mx-auto mt-12 shadow-2xl">
         <form onSubmit={onLogin}>
           <label>Nome</label>
           <input
@@ -38,7 +38,7 @@ function Registrati() {
             placeholder="Nome"
             value={formData.nome}
             onChange={handleChange}
-            className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+            className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
           />
           <label>Cognome</label>
           <input
@@ -47,7 +47,7 @@ function Registrati() {
             placeholder="Cognome"
             value={formData.cognome}
             onChange={handleChange}
-            className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+            className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
           />
           <label>Email</label>
           <input
@@ -56,7 +56,7 @@ function Registrati() {
             placeholder="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+            className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
           />
           <label>Password</label>
           <input
@@ -65,13 +65,13 @@ function Registrati() {
             placeholder="password"
             value={formData.password}
             onChange={handleChange}
-            className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+            className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
           />
           <button
             type="submit"
-            className="bg-green-600 w-full rounded py-2 text-white hover:bg-green-700 cursor-pointer "
+            className="bg-green-600 w-full rounded-lg py-2 text-white hover:bg-green-700 cursor-pointer"
           >
-            Accedi.
+            Accedi
           </button>
         </form>
       </div>
