@@ -66,8 +66,8 @@ export const aziende = [
         vote: 2,
       },
       {
-        title: "Il migliore ti tutti i siti di spedizione!",
-        author: "Lucreazia Farina",
+        title: "Il migliore tra tutti i siti di spedizione!",
+        author: "Lucrezia Farina",
         vote: 5,
       },
     ],

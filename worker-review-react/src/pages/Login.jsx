@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Formlogin() {
+function Login() {
   const [formData, setFormData] = useState({
     email: localStorage.getItem("email") || "",
     password: localStorage.getItem("password") || "",
@@ -28,16 +28,16 @@ function Formlogin() {
         <h2 className="text-xl mt-2">Accedi ed inizia a recensire</h2>
       </div>
 
-      <div className="bg-white border-1 border-gray-400 rounded-md mx-4 p-6 w-72 mx-auto relative mt-12 shadow-2xl">
-        <label>Email</label>
+      <div className="bg-white border-1 border-gray-400 rounded-lg p-6 w-72 mx-auto mt-12 shadow-2xl">
         <form onSubmit={onLogin}>
+          <label>Email</label>
           <input
             type="email"
             name="email"
             placeholder="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+            className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
           />
           <label>Password</label>
           <input
@@ -46,11 +46,11 @@ function Formlogin() {
             placeholder="password"
             value={formData.password}
             onChange={handleChange}
-            className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+            className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
           />
           <button
             type="submit"
-            className="bg-green-600 w-full rounded py-2 text-white hover:bg-green-700 cursor-pointer"
+            className="bg-green-600 w-full rounded-lg py-2 text-white hover:bg-green-700 cursor-pointer"
           >
             Accedi
           </button>
@@ -63,4 +63,4 @@ function Formlogin() {
   );
 }
 
-export default Formlogin;
+export default Login;

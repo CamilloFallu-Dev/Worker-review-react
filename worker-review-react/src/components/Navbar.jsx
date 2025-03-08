@@ -20,6 +20,21 @@ export default function Navbar() {
         <p className="text-green-500 text-sm hidden md:block">WORKER REVIEW</p>
       </Link>
 
+      <button className="text-3xl cursor-pointer">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 30 30"
+          width="30"
+          height="30"
+        >
+          <rect x="5" y="6" width="20" height="2" />
+          <rect x="5" y="14" width="20" height="2" />
+          <rect x="5" y="22" width="20" height="2" />
+        </svg>
+      </button>
+    </nav>
+
+
       <div className="flex justify-between items-center gap-5 p-2 bg-white">
         <div className="hidden md:flex gap-5">
           <Link to="/" className="hover:bg-green-200 p-2 rounded-lg">
@@ -119,5 +134,6 @@ export default function Navbar() {
     // </div>
     // )}
     // </div>
+
   );
 }
