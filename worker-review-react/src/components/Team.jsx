@@ -15,23 +15,24 @@ export default function Team() {
   }, []);
 
   return (
-    <div>
-      <p className="text-3xl flex justify-center">Il nostro staff</p>
-      <div className="flex flex-wrap justify-center sm:flex-col gap-5 lg:flex-row md:flex-row ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2  bg-green-200">
+      <p className="text-4xl font-bold p-4 flex justify-center items-center">
+        Il nostro staff
+      </p>
+      <div className=" rounded-lg p-6 my-6 text-center lg:flex lg:flex-row lg:justify-around lg:gap-10 bg-white shadow-lg m-5">
         {staff.length > 0 ? (
           staff.map((staff, index) => (
             <div
               key={index}
-              className="flex flex-col sm:flex-row sm:w-full mb-8 md:mb-0 p-5  lg:w-1/3 md:w-1/2 w-full"
+              className="flex flex-col justify-center items-center"
             >
               <img
                 src={staff.url}
                 alt={staff.name}
-                className="rounded-full object-fill w-10 h-10 sm:w-12 sm:h-12 sm:rounded-full"
+                className=" w-20 rounded-full mb-4 shadow-lg"
               />
-              <div className="space-y-2 font-medium dark:text-white text-left rtl:text-right sm:ms-3">
-                <div className="text-black font-semibold">{staff.name}</div>
-              </div>
+
+              <p className="text-xl  w-full font-semibold mb-2">{staff.name}</p>
             </div>
           ))
         ) : (

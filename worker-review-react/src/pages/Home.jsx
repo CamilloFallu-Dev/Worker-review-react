@@ -1,7 +1,8 @@
 import CardAziendaHome from "../components/CardAziendaHome";
 import ChiSiamo from "../components/ChiSiamo";
 import Hero from "../components/Hero";
-import Team from "../components/Team";
+import StatsHomepage from "../components/StatsHomepage";
+// import Team from "../components/Team";
 
 export default function Home() {
   return (
@@ -21,8 +22,11 @@ export default function Home() {
       <div>
         <ChiSiamo />
       </div>
-      <div>
+      {/* <div>
         <Team />
+      </div> */}
+      <div>
+        <StatsHomepage />
       </div>
     </div>
   );
