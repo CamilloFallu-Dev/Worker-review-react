@@ -84,17 +84,35 @@
     {
       "id": 2,
       "name": "Fabio Artudi",
-      "url": "/public/camillofoto.jpg"
+      "url": "/public/fabioartudi.jpg"
     },
     {
       "id": 3,
       "name": "Michele Vitucci",
-      "url": "/public/camillofoto.jpg"
+      "url": "/public/michelevitucci.jpg"
     },
     {
       "id": 4,
       "name": "Andrea Lo Muto",
-      "url": "/public/camillofoto.jpg"
+      "url": "/public/andrealomuto.jpg"
+    }
+  ],
+
+  "stats": [
+    {
+      "id": 1,
+      "name": "Recensioni Totali",
+      "value": "315,679"
+    },
+    {
+      "id": 2,
+      "name": "Aiende Registrate",
+      "value": "1200"
+    },
+    {
+      "id": 3,
+      "name": "Utenti Registrati",
+      "value": "513,908 "
     }
   ]
 }
