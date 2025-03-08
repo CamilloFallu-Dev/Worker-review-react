@@ -17,10 +17,8 @@ export default function Navbar() {
     <div className="flex justify-between items-center p-2">
       <Link to="/" className="flex justify-center items-center font-bold">
         <img src={logoWR} alt="Logo" className="w-20 h-auto" />
-        <p className="text-green-500 text-sm hidden md:block">WORKER REVIEW</p>
       </Link>
-
-      <button className="text-3xl cursor-pointer">
+      {/* <button className="text-3xl cursor-pointer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 30 30"
@@ -31,10 +29,7 @@ export default function Navbar() {
           <rect x="5" y="14" width="20" height="2" />
           <rect x="5" y="22" width="20" height="2" />
         </svg>
-      </button>
-    </nav>
-
-
+      </button> */}
       <div className="flex justify-between items-center gap-5 p-2 bg-white">
         <div className="hidden md:flex gap-5">
           <Link to="/" className="hover:bg-green-200 p-2 rounded-lg">
@@ -66,7 +61,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <button className="text-3xl lg:hidden">
+        {/* <button className="text-3xl lg:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 30 30"
@@ -78,9 +73,8 @@ export default function Navbar() {
             <rect x="5" y="22" width="20" height="2" />
           </svg>
         </button>
-      </div>
-
-      {/* {isMenuOpen && (
+      </div> */}
+        {/* {isMenuOpen && (
         <div className="fixed inset-0 bg-transparent z-50" onClick={closeMenu}>
           <div
             className="bg-white w-3/4 sm:w-1/2 md:w-1/3 p-5 m-auto rounded-lg mt-20"
@@ -129,11 +123,10 @@ export default function Navbar() {
               >
                 <button>Registrati</button>
               </Link> */}
+      </div>
     </div>
-    //   </div>
     // </div>
     // )}
     // </div>
-
   );
 }

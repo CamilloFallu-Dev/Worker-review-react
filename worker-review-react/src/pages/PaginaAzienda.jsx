@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ReviewCard from "../components/ReviewCard";
-import { aziende } from "../Utilites/FakeData";
+// import { aziende } from "../Utilites/FakeData";
 
 export default function PaginaAzienda() {
   const [azienda, setAzienda] = useState(aziende[2]);
@@ -48,7 +48,11 @@ export default function PaginaAzienda() {
           onChange={(e) => setNome(e.target.value)}
         />
         <label className="self-start mb-1">Dai un voto</label>
-        <select className="w-full p-2 border rounded mb-2" value={voto} onChange={(e) => setVoto(Number(e.target.value))}>
+        <select
+          className="w-full p-2 border rounded mb-2"
+          value={voto}
+          onChange={(e) => setVoto(Number(e.target.value))}
+        >
           <option key={1} value={1}>
             1 ★
           </option>

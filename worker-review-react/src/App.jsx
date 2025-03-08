@@ -3,11 +3,12 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Registrati from "./pages/Registrati";
-import RegistrazioneAzienda from "./pages/RegistrazioneAzienda";
+import RegistrazioneAzienda from "./pages/Registrazioneazienda";
 import PaginaAzienda from "./pages/PaginaAzienda";
 import PaginaRicercaAziende from "./pages/PaginaRicercaAziende";
 import PaginaContatti from "./pages/PaginaContatti";
 import Footer from "./components/Footer";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/company-page" element={<PaginaAzienda />} />
         <Route path="/search" element={<PaginaRicercaAziende />} />
         <Route path="/contact" element={<PaginaContatti />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

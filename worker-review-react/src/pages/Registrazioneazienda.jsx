@@ -23,13 +23,21 @@ function RegistrazioneAzienda() {
   };
 
   return (
-    <div className="bg-green-600 py-16">
-      <div className="text-center text-white">
+    <div className="relative bg-green-600 py-16">
+      <div className="absolute inset-0">
+        <img
+          src="/registrazioneazienda.jpg"
+          alt="LAVORATORE-IMAGE"
+          className="object-cover object-center w-full h-full"
+        />
+        <div className="absolute inset-0 bg-green-950 opacity-50"></div>
+      </div>
+      <div className=" relative text-center text-white">
         <h1 className="text-4xl font-bold">Worker Review</h1>
         <h2 className="text-xl mt-2">Registra la tua azienda</h2>
       </div>
 
-      <div className="bg-white border-1 border-gray-400 rounded-lg p-6 w-72 mx-auto mt-12 shadow-2xl">
+      <div className=" relative bg-white border-1 border-gray-400 rounded-lg p-6 w-72 mx-auto mt-12 shadow-2xl">
         <p>Nome azienda</p>
         <form onSubmit={onLogin}>
           <input

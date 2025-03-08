@@ -29,13 +29,21 @@ function PaginaContatti() {
   };
 
   return (
-    <div className="flex flex-col items-center py-16 bg-green-400/20">
-      <div className="text-center text-black">
+    <div className=" relative flex flex-col items-center py-16 bg-green-400/20">
+      <div className="absolute inset-0">
+        <img
+          src="/contattipage.jpg"
+          alt="LAVORATORE-IMAGE"
+          className="object-cover object-center w-full h-full"
+        />
+        <div className="absolute inset-0 bg-green-950 opacity-50"></div>
+      </div>
+      <div className=" relative text-center text-black">
         <h1 className="text-4xl font-bold">Worker Review</h1>
-        <h2 className="text-xl mt-2">Contattaci...</h2>
+        <h2 className="text-xl mt-2">Contattaci per informazioni o problemi</h2>
       </div>
 
-      <div className="bg-white rounded-md p-6 w-72 mx-auto mt-12 shadow-2xl">
+      <div className=" relative bg-white rounded-md p-6 w-72 mx-auto mt-12 shadow-2xl">
         <form onSubmit={handleSubmit}>
           <label>Nome</label>
           <input
