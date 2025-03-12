@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import { Link } from "react-router-dom";
-import logoWR from "../assets/logoWR.png";
+import logoWR from "/public/logoWR.png";
 
 export default function Navbar() {
   // const [isMenuOpen, setIsMenuOpen] = useState(false);

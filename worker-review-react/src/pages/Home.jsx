@@ -1,5 +1,7 @@
+import Aziendepartner from "../components/Aziendepartner";
 import CardAziendaHome from "../components/CardAziendaHome";
 import ChiSiamo from "../components/ChiSiamo";
+import Chisiamodue from "../components/Chisiamodue";
 import Hero from "../components/Hero";
 import StatsHomepage from "../components/StatsHomepage";
 // import Team from "../components/Team";
@@ -27,6 +29,10 @@ export default function Home() {
       </div> */}
       <div>
         <StatsHomepage />
+      </div>
+      <div>
+        <Chisiamodue />
+        <Aziendepartner />
       </div>
     </div>
   );

@@ -1,14 +1,20 @@
-export default function ChiSiamo() {
+export default function Chisiamodue() {
   return (
     <div className="pt-10 pb-10">
       <section className="overflow-hidden sm:grid sm:grid-cols-2">
+        <img
+          alt=""
+          src="/public/imagewr.png"
+          className="h-56 w-150 object-cover shadow-2xl sm:h-full md:h-full"
+        />
+
         <div className="p-8 md:p-12 lg:px-16 lg:py-24">
           <div className="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
             <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
               Chi siamo...
             </h2>
 
-            <p className=" text-gray-500 md:mt-4 md:block">
+            <p className="text-gray-500 md:mt-4 md:block">
               La nostra app di recensioni per i lavoratori ti permette di
               scoprire cosa ti aspetta nel tuo prossimo impiego. Prima di
               prendere una decisione importante, consulta le esperienze di altri
@@ -30,12 +36,6 @@ export default function ChiSiamo() {
             </div>
           </div>
         </div>
-
-        <img
-          alt=""
-          src="./../src/assets/ragazzalogo2.png"
-          className="h-56 w-150 object-cover shadow-2xl sm:h-full md:h-full"
-        />
       </section>
     </div>
   );

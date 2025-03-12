@@ -7,7 +7,7 @@ export default function Footer() {
             <img
               width="175"
               height="100"
-              src="./../src/assets/logoWR.png"
+              src="/public/logoWR.png"
               className="transform transition duration-700 hover:scale-150"
             ></img>
           </p>
