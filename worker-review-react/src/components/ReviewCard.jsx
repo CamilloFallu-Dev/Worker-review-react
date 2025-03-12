@@ -1,6 +1,12 @@
-export default function ReviewCard({ title, author, vote }) {
+export default function ReviewCard({
+  reviewTitle,
+  reviewText,
+  author,
+  vote,
+  date,
+}) {
   return (
-    <div className="bg-green-600 text-black p-4 rounded-xl shadow-md">
+    <div className="bg-green-600 text-black p-4 rounded-xl shadow-md w-full aspect-[3/1]">
       <div className="flex gap-1 mb-2">
         {[...Array(5)].map((_, index) => (
           <svg
@@ -15,11 +21,18 @@ export default function ReviewCard({ title, author, vote }) {
           </svg>
         ))}
       </div>
-      <h2 className="font-bold">{title}</h2>
-      <h2 className="mt-2 font-bold">{author}</h2>
+      <h2 className="font-bold text-2xl break-words">{reviewTitle}</h2>
+      <p className="mt-2 break-words">{reviewText}</p>
+      <p className="mt-2 font-medium break-words">{author}</p>
+      {date && (
+        <p className="text-xs text-gray-600">
+          {new Date(date).toLocaleString()}
+        </p>
+      )}
     </div>
   );
 }
+
 
 {
   /** CODICE ALTERNATIVO PER LA SELEZIONE DELLE STELLE da sostituire a <svg>
