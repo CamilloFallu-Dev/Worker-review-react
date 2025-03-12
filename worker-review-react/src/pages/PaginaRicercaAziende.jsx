@@ -53,7 +53,7 @@ function PaginaRicercaAziende() {
         )}
         <div className="relative">
           <input
-            className="bg-white border border-gray-300 rounded-3xl p-2 lg:w-full"
+            className="bg-white border border-gray-300 rounded-3xl p-2"
             type="text"
             placeholder="Cerca..."
           />
