@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import CardAziendeRicerca from "../components/CardAziendeRicerca";
+
 function PaginaRicercaAziende() {
   const [modal, setModal] = useState(false);
 
@@ -12,7 +14,7 @@ function PaginaRicercaAziende() {
   return (
     <div>
       <div className="relative flex items-center justify-between w-full p-4 bg-green-500/20">
-        <button onClick={handleModal} className="cursor-pointer lg:hidden">
+        <button onClick={handleModal} className="cursor-pointer">
           <svg
             fill="#000000"
             width="50"
@@ -24,7 +26,7 @@ function PaginaRicercaAziende() {
           </svg>
         </button>
         {modal && (
-          <div className="absolute top-20 grid grid-cols-1 bg-green-300/70 p-2 rounded-lg">
+          <div className="absolute z-50 top-20 grid grid-cols-3 bg-green-300 p-3 rounded-lg">
             <div className="flex gap-2">
               <input type="checkbox" />
               <p>Agricoltura</p>
@@ -94,6 +96,9 @@ function PaginaRicercaAziende() {
             Peggiore valutazione
           </button>
         </div>
+      </div>
+      <div className="bg-green-500/20 pt-2 pb-2">
+        <CardAziendeRicerca />
       </div>
     </div>
   );
