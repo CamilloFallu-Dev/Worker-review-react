@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ChiSiamo from "../components/ChiSiamo";
+import { useDispatch, useSelector } from "react-redux";
+import { setUser } from "../features/global/globalSlice";
 
 function Login() {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.global);
+
   const [formData, setFormData] = useState({
     email: localStorage.getItem("email") || "",
     password: localStorage.getItem("password") || "",
@@ -19,7 +24,8 @@ function Login() {
 
   const onLogin = (event) => {
     event.preventDefault();
-    setFormData({ email: "", password: "" });
+    /* setFormData({ email: "", password: "" }); */
+    dispatch(setUser({ name: "Fabio" }));
   };
 
   return (
