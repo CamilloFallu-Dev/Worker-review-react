@@ -39,10 +39,10 @@ export default function Information() {
                       Recensioni sempre nuove
                     </h4>
                     <p className="mt-2 ">
-                      Offriamo opinioni aggiornate su Aziende e servizi, per
+                      Offriamo opinioni aggiornate su aziende e servizi, per
                       aiutarti a fare scelte consapevoli. Ogni recensione è
                       imparziale e tempestiva, garantendo contenuti freschi e
-                      utili. e .
+                      utili.
                     </p>
                   </div>
                 </div>
@@ -69,7 +69,7 @@ export default function Information() {
                       Verifica delle recensioni
                     </h4>
                     <p className="mt-2 ">
-                      Ci dedichiamo e garantire l affidabilità delle opinioni
+                      Ci dedichiamo e garantire l'affidabilità delle opinioni
                       online, filtrando informazioni false o ingannevoli.
                       Forniamo analisi accurate per aiutarti a distinguere le
                       recensioni autentiche da quelle manipolate.

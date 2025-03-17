@@ -18,13 +18,13 @@
       "address": "One Apple Park Way, Cupertino, California",
       "workSector": ["IT", "AI"],
       "url": "/public/apple.png",
-      "description": "Azienda multinazionale statunitense che produce sistemi operativi, smartphone, computer e dispositivi multimediali, con sede a Cupertino, in California. È considerata una delle società tecnologiche Big Tech, assieme ad Amazon, Google, Microsoft e Meta.",
+      "description": "Azienda multinazionale statunitense che produce sistemi operativi, smartphone, computer e dispositivi multimediali, con sede a Cupertino, in California. È considerata una delle più grandi società tecnologiche Big Tech, assieme ad Amazon, Google, Microsoft e Meta.",
       "email": "apple@gmail.com",
       "password": "apple"
     },
     {
       "id": 3,
-      "name": "Goggle",
+      "name": "Google",
       "country": "USA",
       "address": "One Apple Park Way, Cupertino, California",
       "workSector": ["IT", "AI"],
@@ -106,7 +106,7 @@
       "url": "/public/andrealomuto.jpg"
     }
   ],
-  
+
   "stats": [
     {
       "id": 1,
@@ -115,7 +115,7 @@
     },
     {
       "id": 2,
-      "name": "Aiende Registrate",
+      "name": "Aziende Registrate",
       "value": "1200"
     },
     {

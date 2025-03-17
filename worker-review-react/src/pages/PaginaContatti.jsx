@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Faqcontatti from "./../components/Faqcontatti";
+import FaqContatti from "./../components/Faqcontatti";
 
 function PaginaContatti() {
   const [formData, setFormData] = useState({
@@ -93,7 +93,7 @@ function PaginaContatti() {
           </form>
         </div>
       </div>
-      <Faqcontatti />
+      <FaqContatti />
     </div>
   );
 }

@@ -75,7 +75,7 @@ export default function Faqcontatti() {
                 </dt>
                 <dd className="mt-2 text-base/7 text-gray-600">
                   Interfaccia facile e intuitiva cosi da rendere facile e veloce
-                  l esperienza dell utente
+                  l'esperienza dell'utente
                 </dd>
               </div>
               <div className="relative pl-16">
@@ -95,7 +95,7 @@ export default function Faqcontatti() {
                   Recensione sicura
                 </dt>
                 <dd className="mt-2 text-base/7 text-gray-600">
-                  Quando invierai la recensione passerà una serie di controllo
+                  Quando invierai la recensione passerà una serie di controlli
                   per verificare la veridicità della recensione
                 </dd>
               </div>
