@@ -45,19 +45,19 @@ export default function Navbar() {
             to="/login"
             className="bg-green-600 hover:bg-green-200 p-2 rounded-lg"
           >
-            <button>Accedi</button>
+            Accedi
           </Link>
           <Link
             to="/register-company"
             className="bg-black hover:bg-green-200 hover:text-black text-white p-2 rounded-lg"
           >
-            <button>Registra Azienda</button>
+            Registra Azienda
           </Link>
           <Link
             to="/register"
             className="bg-black hover:bg-green-200 hover:text-black text-white p-2 rounded-lg"
           >
-            <button>Registrati</button>
+            Registrati
           </Link>
         </div>
 

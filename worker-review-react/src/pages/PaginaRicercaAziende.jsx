@@ -76,8 +76,8 @@ function PaginaRicercaAziende() {
             </svg>
           </span>
         </div>
-        <div className="bg-gray-200 p-1 rounded-lg hidden sm:block">
-          <select>
+        <div className="bg-gray-200 p-1 rounded-lg hidden sm:block cursor-pointer">
+          <select className="cursor-pointer">
             <option>Nuove aziende</option>
             <option>Migliore valutazione</option>
             <option>Peggiore valutazione</option>
@@ -86,13 +86,13 @@ function PaginaRicercaAziende() {
       </div>
       <div className="flex justify-end sm:block lg:hidden bg-green-500/20">
         <div className="flex gap-2 overflow-x-auto whitespace-nowrap px-2">
-          <button className="bg-gray-200 text-sm p-1 rounded-lg focus:bg-black focus:text-white">
+          <button className="bg-gray-200 text-sm p-1 rounded-lg focus:bg-black focus:text-white hover:bg-gray-300 cursor-pointer">
             Nuove aziende
           </button>
-          <button className="bg-gray-200 p-1 text-sm rounded-lg focus:bg-black focus:text-white">
+          <button className="bg-gray-200 p-1 text-sm rounded-lg focus:bg-black focus:text-white hover:bg-gray-300 cursor-pointer">
             Migliore valutazione
           </button>
-          <button className="bg-gray-200 p-1 text-sm rounded-lg focus:bg-black focus:text-white">
+          <button className="bg-gray-200 p-1 text-sm rounded-lg focus:bg-black focus:text-white hover:bg-gray-300 cursor-pointer">
             Peggiore valutazione
           </button>
         </div>
