@@ -10,7 +10,33 @@ export const apiService = createApi({
     login: builder.query({
       query: (email, password) => `users?email=${email}&password=${password}`,
     }),
+    register: builder.query({
+      query: (name, surname, email, password) =>
+        `users?name=${name}&surname=${surname}&email=${email}&password=${password}`,
+    }),
+    registerCompany: builder.query({
+      query: (
+        name,
+        country,
+        address,
+        workSector,
+        email,
+        password,
+        description
+      ) =>
+        `comapnies?name=${name}&country=${country}&address=${address}&workSector=${workSector}&email=${email}&password=${password}&description=${description}`,
+    }),
+    contacts: builder.query({
+      query: (name, surname, email, message) =>
+        `users?name=${name}&surname=${surname}&email=${email}&message=${message}`,
+    }),
   }),
 });
 
-export const { useGetStatsQuery } = apiService;
+export const {
+  useGetStatsQuery,
+  useLoginQuery,
+  useRegisterQuery,
+  useRegisterCompanyQuery,
+  useContactsQuery,
+} = apiService;

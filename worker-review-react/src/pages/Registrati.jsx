@@ -3,10 +3,10 @@ import Information from "../components/Information";
 
 function Registrati() {
   const [formData, setFormData] = useState({
-    email: localStorage.getItem("email") || "",
-    password: localStorage.getItem("password") || "",
     nome: localStorage.getItem("nome") || "",
     cognome: localStorage.getItem("cognome") || "",
+    email: localStorage.getItem("email") || "",
+    password: localStorage.getItem("password") || "",
   });
 
   const handleChange = (event) => {
@@ -20,7 +20,7 @@ function Registrati() {
 
   const onLogin = (event) => {
     event.preventDefault();
-    setFormData({ email: "", password: "", nome: "", cognome: "" });
+    setFormData({ nome: "", cognome: "", email: "", password: "" });
   };
 
   return (
