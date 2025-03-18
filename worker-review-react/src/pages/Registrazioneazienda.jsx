@@ -6,6 +6,8 @@ function RegistrazioneAzienda() {
     name: localStorage.getItem("azienda") || "",
     sede: localStorage.getItem("sede") || "",
     settore: localStorage.getItem("settore") || "",
+    email: localStorage.getItem("email") || "",
+    password: localStorage.getItem("password") || "",
     descrizione: localStorage.getItem("descrizione") || "",
   });
 
@@ -20,7 +22,14 @@ function RegistrazioneAzienda() {
 
   const onLogin = (event) => {
     event.preventDefault();
-    setFormData({ name: "", sede: "", settore: "", descrizione: "" });
+    setFormData({
+      name: "",
+      sede: "",
+      settore: "",
+      email: "",
+      password: "",
+      descrizione: "",
+    });
   };
 
   return (
@@ -40,7 +49,7 @@ function RegistrazioneAzienda() {
         </div>
 
         <div className=" relative bg-white border-1 border-gray-400 rounded-lg p-6 w-72 mx-auto mt-12 shadow-2xl">
-          <p>Nome azienda</p>
+          <label>Nome azienda</label>
           <form onSubmit={onLogin}>
             <input
               type="text"
@@ -50,7 +59,7 @@ function RegistrazioneAzienda() {
               placeholder="Nome azienda"
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
-            <p>Sede principale</p>
+            <label>Sede principale</label>
             <input
               type="text"
               name="sede"
@@ -59,7 +68,7 @@ function RegistrazioneAzienda() {
               onChange={handleChange}
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
-            <p>Settore</p>
+            <label>Settore</label>
             <input
               type="text"
               name="settore"
@@ -68,7 +77,25 @@ function RegistrazioneAzienda() {
               onChange={handleChange}
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
-            <p>Descrizione azienda</p>
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
+            />
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
+            />
+            <label>Descrizione azienda</label>
             <textarea
               name="descrizione"
               placeholder="Scrivi qui..."
