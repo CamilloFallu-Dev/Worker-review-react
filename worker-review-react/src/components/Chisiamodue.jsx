@@ -1,11 +1,11 @@
 export default function Chisiamodue() {
   return (
     <div className="pt-10 pb-10">
-      <section className="overflow-hidden sm:grid sm:grid-cols-2">
+      <section className="overflow-hidden sm:grid sm:grid-cols-2 ">
         <img
-          alt=""
+          alt="Descrizione immagine"
           src="/public/imagewr.png"
-          className="h-56 w-150 object-cover shadow-2xl sm:h-full md:h-full"
+          className="h-56 w-150 object-cover shadow-2xl sm:h-full mx-auto"
         />
 
         <div className="p-8 md:p-12 lg:px-16 lg:py-24">
