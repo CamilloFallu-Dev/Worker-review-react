@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function CardAziendaHome() {
   const [companies, setCompanies] = useState([]);
@@ -18,8 +19,9 @@ export default function CardAziendaHome() {
     <div className="flex flex-wrap justify-center sm:flex-col gap-5 lg:flex-row md:flex-row">
       {companies.length > 0 ? (
         companies.map((company, index) => (
-          <div
+          <Link
             key={index}
+            to={`/company-page/${company.name.toLowerCase().replace(/\s+/g, '-')}`} 
             className="flex flex-col sm:flex-row sm:w-full mb-8 md:mb-0 p-5 shadow-md rounded-xl lg:w-1/3 md:w-1/2 w-full bg-white transform transition duration-700 hover:scale-110"
           >
             <img
@@ -33,7 +35,7 @@ export default function CardAziendaHome() {
                 {company.description}
               </div>
             </div>
-          </div>
+          </Link>
         ))
       ) : (
         <p>Caricamento...</p>

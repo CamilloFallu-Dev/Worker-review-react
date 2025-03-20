@@ -19,7 +19,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Registrati />} />
         <Route path="/register-company" element={<RegistrazioneAzienda />} />
-        <Route path="/company-page" element={<PaginaAzienda />} />
+        <Route path="/company-page/:companyName" element={<PaginaAzienda />} />
         <Route path="/search" element={<PaginaRicercaAziende />} />
         <Route path="/contact" element={<PaginaContatti />} />
         <Route path="*" element={<NotFound />} />

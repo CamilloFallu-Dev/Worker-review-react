@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function CardAziendeRicerca() {
   const [companies, setCompanies] = useState([]);
@@ -18,8 +19,9 @@ function CardAziendeRicerca() {
     <div className="flex flex-wrap justify-center p-2 sm:flex-col gap-5 lg:grid lg:grid-cols-3">
       {companies.length > 0 ? (
         companies.map((company, index) => (
-          <div
+          <Link
             key={index}
+            to={`/company-page/${company.name.toLowerCase()}`}
             className="flex flex-col m-0 sm:flex-row sm:w-full mb-8 p-5 shadow-md rounded-xl bg-white transform transition duration-700 hover:scale-110"
           >
             <img
@@ -33,7 +35,7 @@ function CardAziendeRicerca() {
                 {company.description}
               </div>
             </div>
-          </div>
+          </Link>
         ))
       ) : (
         <p>Caricamento...</p>
