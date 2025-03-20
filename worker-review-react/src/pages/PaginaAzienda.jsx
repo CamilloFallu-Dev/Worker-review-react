@@ -157,25 +157,23 @@ export default function PaginaAzienda() {
             </div>
           </form>
         </div>
-
-        
       </div>
       {/* Recensioni */}
       <h2 className="mt-8 text-lg font-bold text-gray-800 text-center">
-          Recensioni azienda
-        </h2>
-        <div className="flex gap-5 justify-between ">
-          {azienda.reviews.map((review, index) => (
-            <ReviewCard
-              key={index}
-              reviewTitle={review.reviewTitle || review.text}
-              reviewText={review.reviewText || review.text}
-              author={review.author}
-              vote={review.vote}
-              date={review.date}
-            />
-          ))}
-        </div>
+        Recensioni azienda
+      </h2>
+      <div className="p-4 grid grid-cols-3 gap-3">
+        {azienda.reviews.map((review, index) => (
+          <ReviewCard
+            key={index}
+            reviewTitle={review.reviewTitle || review.text}
+            reviewText={review.reviewText || review.text}
+            author={review.author}
+            vote={review.vote}
+            date={review.date}
+          />
+        ))}
+      </div>
     </div>
   );
 }

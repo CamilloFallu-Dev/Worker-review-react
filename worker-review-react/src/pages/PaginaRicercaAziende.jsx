@@ -1,16 +1,43 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import CardAziendeRicerca from "../components/CardAziendeRicerca";
+import { useGetCompaniesQuery } from "../services/apiService";
 
 function PaginaRicercaAziende() {
   const [modal, setModal] = useState(false);
+  const [filterSector, setFilterSector] = useState([]);
+  const [companies, setCompanies] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const handleModal = () => {
-    if (modal === false) {
-      setModal(true);
-    } else setModal(false);
+  const handleModal = () => setModal((prev) => !prev);
+
+  const toggleFilterSector = (sector) => {
+    setFilterSector((prev) => {
+      if (prev.includes(sector)) {
+        return prev.filter((s) => s !== sector);
+      } else {
+        return [...prev, sector];
+      }
+    });
   };
 
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value.toLowerCase());
+  };
+
+  const { data, error, isLoading } = useGetCompaniesQuery();
+  // console.log(data);
+  const filteredCompanies =
+    data &&
+    data.filter((company) => {
+      const matchesSector =
+        filterSector.length === 0 ||
+        company.workSector.some((sector) => filterSector.includes(sector));
+
+      const matchesSearch = company.slug.toLowerCase().includes(searchQuery);
+
+      return matchesSector && matchesSearch;
+    });
+  // console.log(filteredCompanies);
   return (
     <div>
       <div className="relative flex items-center justify-between w-full p-4 bg-green-500/20">
@@ -28,36 +55,63 @@ function PaginaRicercaAziende() {
         {modal && (
           <div className="absolute z-50 top-20 grid grid-cols-3 bg-green-300 p-3 rounded-lg">
             <div className="flex gap-2">
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                checked={filterSector.includes("IT")}
+                onChange={() => toggleFilterSector("IT")}
+              />
+              <p>IT</p>
+            </div>
+            <div className="flex gap-2">
+              <input
+                type="checkbox"
+                checked={filterSector.includes("Finanza")}
+                onChange={() => toggleFilterSector("Finanza")}
+              />
+              <p>Finanza</p>
+            </div>
+            <div className="flex gap-2">
+              <input
+                type="checkbox"
+                checked={filterSector.includes("AI")}
+                onChange={() => toggleFilterSector("AI")}
+              />
+              <p>AI</p>
+            </div>
+            <div className="flex gap-2">
+              <input
+                type="checkbox"
+                checked={filterSector.includes("Agricoltura")}
+                onChange={() => toggleFilterSector("Agricoltura")}
+              />
               <p>Agricoltura</p>
             </div>
             <div className="flex gap-2">
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                checked={filterSector.includes("Edilizia")}
+                onChange={() => toggleFilterSector("Edilizia")}
+              />
               <p>Edilizia</p>
             </div>
             <div className="flex gap-2">
-              <input type="checkbox" />
-              <p>Elettrotecnica</p>
-            </div>
-            <div className="flex gap-2">
-              <input type="checkbox" />
-              <p>Informatica</p>
-            </div>
-            <div className="flex gap-2">
-              <input type="checkbox" />
-              <p>Ristorazione</p>
-            </div>
-            <div className="flex gap-2">
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                checked={filterSector.includes("Sanità")}
+                onChange={() => toggleFilterSector("Sanità")}
+              />
               <p>Sanità</p>
             </div>
           </div>
         )}
+
         <div className="relative">
           <input
             className="bg-white border border-gray-300 rounded-3xl p-2"
             type="text"
-            placeholder="Cerca..."
+            value={searchQuery}
+            onChange={handleSearch}
+            placeholder="Cerca azienda..."
           />
           <span className="absolute right-3 top-1/2 transform -translate-y-1/2">
             <svg
@@ -76,29 +130,18 @@ function PaginaRicercaAziende() {
             </svg>
           </span>
         </div>
-        <div className="bg-gray-200 p-1 rounded-lg hidden sm:block cursor-pointer">
-          <select className="cursor-pointer">
-            <option>Nuove aziende</option>
-            <option>Migliore valutazione</option>
-            <option>Peggiore valutazione</option>
-          </select>
-        </div>
-      </div>
-      <div className="flex justify-end sm:block lg:hidden bg-green-500/20">
-        <div className="flex gap-2 overflow-x-auto whitespace-nowrap px-2">
-          <button className="bg-gray-200 text-sm p-1 rounded-lg focus:bg-black focus:text-white hover:bg-gray-300 cursor-pointer">
-            Nuove aziende
-          </button>
-          <button className="bg-gray-200 p-1 text-sm rounded-lg focus:bg-black focus:text-white hover:bg-gray-300 cursor-pointer">
-            Migliore valutazione
-          </button>
-          <button className="bg-gray-200 p-1 text-sm rounded-lg focus:bg-black focus:text-white hover:bg-gray-300 cursor-pointer">
-            Peggiore valutazione
-          </button>
-        </div>
       </div>
       <div className="bg-green-500/20 pt-2 pb-2">
-        <CardAziendeRicerca />
+        {!isLoading && !error && filteredCompanies.length === 0 && (
+          <p>Nessuna azienda trovata.</p>
+        )}
+        {!isLoading &&
+          !error &&
+          filteredCompanies.map((company) => (
+            <CardAziendeRicerca key={company.id} company={company} />
+          ))}
+        {error && <p>Errore durante il caricamento</p>}
+        {isLoading && <p>Caricamento delle aziende</p>}
       </div>
     </div>
   );

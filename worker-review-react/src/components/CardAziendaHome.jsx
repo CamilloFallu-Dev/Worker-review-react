@@ -21,7 +21,7 @@ export default function CardAziendaHome() {
         companies.map((company, index) => (
           <Link
             key={index}
-            to={`/company-page/${company.name.toLowerCase().replace(/\s+/g, '-')}`} 
+            to={`/company-page/${company.slug}`}
             className="flex flex-col sm:flex-row sm:w-full mb-8 md:mb-0 p-5 shadow-md rounded-xl lg:w-1/3 md:w-1/2 w-full bg-white transform transition duration-700 hover:scale-110"
           >
             <img

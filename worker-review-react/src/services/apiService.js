@@ -7,6 +7,9 @@ export const apiService = createApi({
     getStats: builder.query({
       query: () => `stats`,
     }),
+    getCompanies: builder.query({
+      query: () => `companies`,
+    }),
     login: builder.query({
       query: (email, password) => `users?email=${email}&password=${password}`,
     }),
@@ -35,8 +38,9 @@ export const apiService = createApi({
 
 export const {
   useGetStatsQuery,
+  useGetCompaniesQuery,
   useLoginQuery,
-  useRegisterQuery,
-  useRegisterCompanyQuery,
+  useRegisterQuery, //cambiare export post
+  useRegisterCompanyQuery, //cambiare export post
   useContactsQuery,
 } = apiService;
