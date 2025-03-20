@@ -2,7 +2,7 @@
   "companies": [
     {
       "id": 1,
-      "name": "Poste Italiane",
+      "name": "Poste-Italiane",
       "country": "IT",
       "address": "Via Roma 290, Milano",
       "workSector": ["IT", "Finanza"],
