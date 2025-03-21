@@ -25,7 +25,7 @@ function PaginaRicercaAziende() {
   };
 
   const { data, error, isLoading } = useGetCompaniesQuery();
-  // console.log(data);
+
   const filteredCompanies =
     data &&
     data.filter((company) => {
@@ -37,7 +37,7 @@ function PaginaRicercaAziende() {
 
       return matchesSector && matchesSearch;
     });
-  // console.log(filteredCompanies);
+
   return (
     <div>
       <div className="relative flex items-center justify-between w-full p-4 bg-green-500/20">
