@@ -1,23 +1,12 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useGetCompaniesQuery } from "../services/apiService";
 
 export default function CardAziendaHome() {
-  const [companies, setCompanies] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3000/companies")
-      .then((response) => response.json())
-      .then((data) => {
-        setCompanies(data);
-      })
-      .catch((error) =>
-        console.error("Errore nel caricamento dei dati:", error)
-      );
-  }, []);
+  const { data: companies, isLoading, error } = useGetCompaniesQuery();
 
   return (
     <div className="flex flex-wrap justify-center sm:flex-col gap-5 lg:flex-row md:flex-row">
-      {companies.length > 0 ? (
+      {!isLoading && !error && companies.length > 0 ? (
         companies.map((company, index) => (
           <Link
             key={index}

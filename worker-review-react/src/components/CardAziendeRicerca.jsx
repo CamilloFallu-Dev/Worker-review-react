@@ -4,7 +4,7 @@ function CardAziendeRicerca({ company }) {
   return (
     <div className="flex flex-wrap justify-center p-2 sm:flex-col gap-5 lg:grid lg:grid-cols-3">
       <Link
-        to={`/company-page/${company.name.toLowerCase()}`}
+        to={`/company-page/${company.slug}`}
         className="flex flex-col m-0 sm:flex-row sm:w-full mb-8 p-5 shadow-md rounded-xl bg-white transform transition duration-700 hover:scale-110"
       >
         <img
