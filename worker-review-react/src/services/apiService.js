@@ -13,24 +13,24 @@ export const apiService = createApi({
     login: builder.query({
       query: (email, password) => `users?email=${email}&password=${password}`,
     }),
-    register: builder.query({
-      query: (name, surname, email, password) =>
+    register: builder.mutation({
+      mutation: ({ name, surname, email, password }) =>
         `users?name=${name}&surname=${surname}&email=${email}&password=${password}`,
     }),
-    registerCompany: builder.query({
-      query: (
+    registerCompany: builder.mutation({
+      mutation: ({
         name,
         country,
         address,
         workSector,
         email,
         password,
-        description
-      ) =>
+        description,
+      }) =>
         `comapnies?name=${name}&country=${country}&address=${address}&workSector=${workSector}&email=${email}&password=${password}&description=${description}`,
     }),
-    contacts: builder.query({
-      query: (name, surname, email, message) =>
+    contacts: builder.mutation({
+      mutation: ({ name, surname, email, message }) =>
         `users?name=${name}&surname=${surname}&email=${email}&message=${message}`,
     }),
   }),
@@ -39,8 +39,8 @@ export const apiService = createApi({
 export const {
   useGetStatsQuery,
   useGetCompaniesQuery,
-  useLoginQuery,
-  useRegisterQuery, //cambiare export post
-  useRegisterCompanyQuery, //cambiare export post
-  useContactsQuery,
+  useLazyLoginQuery,
+  useLazyRegisterQuery,
+  useLazyRegisterCompanyQuery,
+  useLazyContactsQuery,
 } = apiService;
