@@ -1,35 +1,20 @@
 import { useState } from "react";
 import Information from "../components/Information";
+import { useDispatch, useSelector } from "react-redux";
+import { setUser } from "../features/global/globalSlice";
+
 
 function RegistrazioneAzienda() {
-  const [formData, setFormData] = useState({
-    name: localStorage.getItem("azienda") || "",
-    sede: localStorage.getItem("sede") || "",
-    settore: localStorage.getItem("settore") || "",
-    email: localStorage.getItem("email") || "",
-    password: localStorage.getItem("password") || "",
-    descrizione: localStorage.getItem("descrizione") || "",
-  });
+const dispatch= useDispatch();
+const {user}= useSelector((state)=> state.global);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevData) => {
-      const newData = { ...prevData, [name]: value };
-      localStorage.setItem(name, value);
-      return newData;
-    });
-  };
+
 
   const onLogin = (event) => {
     event.preventDefault();
-    setFormData({
-      name: "",
-      sede: "",
-      settore: "",
-      email: "",
-      password: "",
-      descrizione: "",
-    });
+    dispatch(setUser({name:"",sede:"",settore:"",email:"",password:"",
+      descrizione:"",
+    }))
   };
 
   return (
@@ -54,8 +39,8 @@ function RegistrazioneAzienda() {
             <input
               type="text"
               name="name"
-              onChange={handleChange}
-              value={formData.name}
+              
+              
               placeholder="Nome azienda"
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
@@ -64,8 +49,8 @@ function RegistrazioneAzienda() {
               type="text"
               name="sede"
               placeholder="Sede"
-              value={formData.sede}
-              onChange={handleChange}
+             
+             
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
             <label>Settore</label>
@@ -73,8 +58,8 @@ function RegistrazioneAzienda() {
               type="text"
               name="settore"
               placeholder="Settore"
-              value={formData.settore}
-              onChange={handleChange}
+             
+             
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
             <label>Email</label>
@@ -82,8 +67,8 @@ function RegistrazioneAzienda() {
               type="email"
               name="email"
               placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
+              
+             
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
             <label>Password</label>
@@ -91,16 +76,15 @@ function RegistrazioneAzienda() {
               type="password"
               name="password"
               placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
+              
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
             <label>Descrizione azienda</label>
             <textarea
               name="descrizione"
               placeholder="Scrivi qui..."
-              value={formData.descrizione}
-              onChange={handleChange}
+              
+              
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             ></textarea>
 

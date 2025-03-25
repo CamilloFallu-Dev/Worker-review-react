@@ -1,26 +1,18 @@
 import { useState } from "react";
 import Information from "../components/Information";
+import { useDispatch, useSelector } from "react-redux";
+import { setUser } from "../features/global/globalSlice";
 
 function Registrati() {
-  const [formData, setFormData] = useState({
-    nome: localStorage.getItem("nome") || "",
-    cognome: localStorage.getItem("cognome") || "",
-    email: localStorage.getItem("email") || "",
-    password: localStorage.getItem("password") || "",
-  });
+const dispatch= useDispatch();
+const {user}= useSelector((state) => state.global);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevData) => {
-      const newData = { ...prevData, [name]: value };
-      localStorage.setItem(name, value);
-      return newData;
-    });
-  };
 
+
+  
   const onLogin = (event) => {
     event.preventDefault();
-    setFormData({ nome: "", cognome: "", email: "", password: "" });
+    dispatch(setUser({nome:"",cognome:"",email:"",password:""}))
   };
 
   return (
@@ -48,8 +40,8 @@ function Registrati() {
               type="text"
               name="nome"
               placeholder="Nome"
-              value={formData.nome}
-              onChange={handleChange}
+              
+              
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
             <label>Cognome</label>
@@ -57,8 +49,6 @@ function Registrati() {
               type="text"
               name="cognome"
               placeholder="Cognome"
-              value={formData.cognome}
-              onChange={handleChange}
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
             <label>Email</label>
@@ -66,8 +56,8 @@ function Registrati() {
               type="email"
               name="email"
               placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
+              
+              
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
             <label>Password</label>
@@ -75,8 +65,8 @@ function Registrati() {
               type="password"
               name="password"
               placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
+             
+            
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
             <button

@@ -13,14 +13,6 @@ function Login() {
     password: localStorage.getItem("password") || "",
   });
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevData) => {
-      const newData = { ...prevData, [name]: value };
-      localStorage.setItem(name, value);
-      return newData;
-    });
-  };
 
   const onLogin = (event) => {
     event.preventDefault();
@@ -52,8 +44,8 @@ function Login() {
               type="email"
               name="email"
               placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
+             
+              
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
             <label>Password</label>
@@ -61,8 +53,8 @@ function Login() {
               type="password"
               name="password"
               placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
+              
+              
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
             <button
