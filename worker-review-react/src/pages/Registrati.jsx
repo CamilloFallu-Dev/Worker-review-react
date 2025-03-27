@@ -1,18 +1,18 @@
-import { useState } from "react";
 import Information from "../components/Information";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../features/global/globalSlice";
 
 function Registrati() {
-const dispatch= useDispatch();
-const {user}= useSelector((state) => state.global);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.global.user) || {};
 
-
-
-  
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    dispatch(setUser({ ...user, [name]: value }));
+  };
   const onLogin = (event) => {
     event.preventDefault();
-    dispatch(setUser({nome:"",cognome:"",email:"",password:""}))
+    console.log("Dati registrati:", user);
   };
 
   return (
@@ -32,22 +32,23 @@ const {user}= useSelector((state) => state.global);
             Registrati e condividi con la community le tue esperienze
           </h2>
         </div>
-
         <div className="relative bg-white border-1 border-gray-400 rounded-lg p-6 w-72 mx-auto mt-12 shadow-2xl">
           <form onSubmit={onLogin}>
             <label>Nome</label>
             <input
               type="text"
               name="nome"
+              defaultValue={user.nome}
+              onChange={handleChange}
               placeholder="Nome"
-              
-              
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
             <label>Cognome</label>
             <input
               type="text"
               name="cognome"
+              defaultValue={user.cognome}
+              onChange={handleChange}
               placeholder="Cognome"
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
@@ -55,30 +56,29 @@ const {user}= useSelector((state) => state.global);
             <input
               type="email"
               name="email"
+              defaultValue={user.email}
+              onChange={handleChange}
               placeholder="Email"
-              
-              
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
             <label>Password</label>
             <input
               type="password"
               name="password"
+              defaultValue={user.password}
+              onChange={handleChange}
               placeholder="Password"
-             
-            
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
             <button
               type="submit"
               className="bg-green-600 w-full rounded-lg py-2 text-white hover:bg-green-700 cursor-pointer"
             >
-              Accedi
+              Registrati
             </button>
           </form>
         </div>
       </div>
-
       <Information />
     </div>
   );
