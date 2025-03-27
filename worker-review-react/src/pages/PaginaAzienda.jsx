@@ -61,6 +61,13 @@ export default function PaginaAzienda() {
     };
 
     try {
+      await new Promise((resolve) => {
+        setTimeout(
+          resolve,
+
+          5000
+        );
+      });
       await addReview(nuovaRecensione).unwrap();
       await refetch();
       setNome("");

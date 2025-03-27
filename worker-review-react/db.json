@@ -1,14 +1,11 @@
 {
   "companies": [
     {
-      "id": "1",
+      "id": "23",
       "name": "Poste Italiane",
       "country": "IT",
       "address": "Via Roma 290, Milano",
-      "workSector": [
-        "IT",
-        "Finanza"
-      ],
+      "workSector": ["IT", "Finanza"],
       "url": "/public/posteitaliane.jpg",
       "email": "posteitaliane@gmail.com",
       "password": "posteitaliane",
@@ -16,14 +13,11 @@
       "slug": "poste-italiane"
     },
     {
-      "id": "2",
+      "id": "22",
       "name": "Apple",
       "country": "USA",
       "address": "One Apple Park Way, Cupertino, California",
-      "workSector": [
-        "IT",
-        "AI"
-      ],
+      "workSector": ["IT", "AI"],
       "url": "/public/apple.png",
       "email": "apple@gmail.com",
       "password": "apple",
@@ -31,19 +25,220 @@
       "slug": "apple"
     },
     {
-      "id": "3",
+      "id": "21",
       "name": "Google",
       "country": "USA",
       "address": "One Apple Park Way, Cupertino, California",
-      "workSector": [
-        "IT",
-        "AI"
-      ],
+      "workSector": ["IT", "AI"],
       "url": "/public/google.png",
       "email": "google@gmail.com",
       "password": "google",
       "description": "La Ricerca Google è un motore di ricerca completamente automatizzato che utilizza software chiamati web crawler per esplorare regolarmente il web e trovare pagine da aggiungere al suo indice",
       "slug": "google"
+    },
+    {
+      "id": "3",
+      "name": "Microsoft",
+      "country": "USA",
+      "address": "Redmond, Washington",
+      "workSector": ["IT", "Software"],
+      "url": "/public/microsoft.png",
+      "email": "microsoft@gmail.com",
+      "password": "microsoft123",
+      "description": "Microsoft è una delle più grandi aziende tecnologiche del mondo, nota per il suo sistema operativo Windows e la suite di software Office.",
+      "slug": "microsoft"
+    },
+    {
+      "id": "4",
+      "name": "Amazon",
+      "country": "USA",
+      "address": "Seattle, Washington",
+      "workSector": ["E-commerce", "Cloud Computing"],
+      "url": "/public/amazon.png",
+      "email": "amazon@gmail.com",
+      "password": "amazon123",
+      "description": "Amazon è un gigante dell'e-commerce e dei servizi cloud, con un impatto significativo nel commercio e nelle tecnologie moderne.",
+      "slug": "amazon"
+    },
+    {
+      "id": "6",
+      "name": "Tesla",
+      "country": "USA",
+      "address": "Palo Alto, California",
+      "workSector": ["Automotive", "Renewable Energy"],
+      "url": "/public/tesla.png",
+      "email": "tesla@gmail.com",
+      "password": "tesla123",
+      "description": "Tesla è un leader mondiale nella produzione di veicoli elettrici e nelle soluzioni per energie rinnovabili.",
+      "slug": "tesla"
+    },
+    {
+      "id": "7",
+      "name": "Samsung",
+      "country": "South Korea",
+      "address": "Seoul, South Korea",
+      "workSector": ["IT", "Electronics"],
+      "url": "/public/samsung.png",
+      "email": "samsung@gmail.com",
+      "password": "samsung123",
+      "description": "Samsung è una delle più grandi aziende di elettronica e tecnologia al mondo, famosa per i suoi smartphone e dispositivi elettronici.",
+      "slug": "samsung"
+    },
+    {
+      "id": "8",
+      "name": "Facebook",
+      "country": "USA",
+      "address": "Menlo Park, California",
+      "workSector": ["Social Media", "AI"],
+      "url": "/public/facebook.png",
+      "email": "facebook@gmail.com",
+      "password": "facebook123",
+      "description": "Facebook è una delle principali piattaforme di social media, che ha rivoluzionato la comunicazione globale.",
+      "slug": "facebook"
+    },
+    {
+      "id": "9",
+      "name": "IBM",
+      "country": "USA",
+      "address": "Armonk, New York",
+      "workSector": ["IT", "AI", "Consulting"],
+      "url": "/public/ibm.png",
+      "email": "ibm@gmail.com",
+      "password": "ibm123",
+      "description": "IBM è un leader mondiale nella consulenza tecnologica e nelle soluzioni IT aziendali, con un focus crescente sull'intelligenza artificiale.",
+      "slug": "ibm"
+    },
+    {
+      "id": "10",
+      "name": "Sony",
+      "country": "Japan",
+      "address": "Tokyo, Japan",
+      "workSector": ["Electronics", "Entertainment"],
+      "url": "/public/sony.png",
+      "email": "sony@gmail.com",
+      "password": "sony123",
+      "description": "Sony è un gigante giapponese nell'elettronica e nell'intrattenimento, con prodotti che spaziano dalla musica ai videogiochi.",
+      "slug": "sony"
+    },
+    {
+      "id": "11",
+      "name": "Huawei",
+      "country": "China",
+      "address": "Shenzhen, China",
+      "workSector": ["Telecommunications", "IT"],
+      "url": "/public/huawei.png",
+      "email": "huawei@gmail.com",
+      "password": "huawei123",
+      "description": "Huawei è uno dei principali produttori mondiali di attrezzature per telecomunicazioni e dispositivi elettronici.",
+      "slug": "huawei"
+    },
+    {
+      "id": "12",
+      "name": "Netflix",
+      "country": "USA",
+      "address": "Los Gatos, California",
+      "workSector": ["Entertainment", "Streaming"],
+      "url": "/public/netflix.png",
+      "email": "netflix@gmail.com",
+      "password": "netflix123",
+      "description": "Netflix è una piattaforma di streaming che offre film, serie TV e contenuti originali in tutto il mondo.",
+      "slug": "netflix"
+    },
+    {
+      "id": "13",
+      "name": "Nvidia",
+      "country": "USA",
+      "address": "Santa Clara, California",
+      "workSector": ["IT", "Gaming", "AI"],
+      "url": "/public/nvidia.png",
+      "email": "nvidia@gmail.com",
+      "password": "nvidia123",
+      "description": "Nvidia è una delle aziende leader nella produzione di schede grafiche e soluzioni per il gaming e l'intelligenza artificiale.",
+      "slug": "nvidia"
+    },
+    {
+      "id": "14",
+      "name": "Twitter",
+      "country": "USA",
+      "address": "San Francisco, California",
+      "workSector": ["Social Media"],
+      "url": "/public/twitter.png",
+      "email": "twitter@gmail.com",
+      "password": "twitter123",
+      "description": "Twitter è una delle principali piattaforme di microblogging e social media, famosa per la sua rapidità nell'informare.",
+      "slug": "twitter"
+    },
+    {
+      "id": "15",
+      "name": "Spotify",
+      "country": "Sweden",
+      "address": "Stockholm, Sweden",
+      "workSector": ["Entertainment", "Music Streaming"],
+      "url": "/public/spotify.png",
+      "email": "spotify@gmail.com",
+      "password": "spotify123",
+      "description": "Spotify è una piattaforma di streaming musicale che offre milioni di brani e contenuti audio.",
+      "slug": "spotify"
+    },
+    {
+      "id": "16",
+      "name": "Uber",
+      "country": "USA",
+      "address": "San Francisco, California",
+      "workSector": ["Transportation", "Technology"],
+      "url": "/public/uber.png",
+      "email": "uber@gmail.com",
+      "password": "uber123",
+      "description": "Uber è una piattaforma di ride-hailing che ha cambiato il modo in cui le persone si spostano nelle città.",
+      "slug": "uber"
+    },
+    {
+      "id": "17",
+      "name": "Adobe",
+      "country": "USA",
+      "address": "San Jose, California",
+      "workSector": ["Software", "Creative Tools"],
+      "url": "/public/adobe.png",
+      "email": "adobe@gmail.com",
+      "password": "adobe123",
+      "description": "Adobe è una delle aziende leader nel settore del software creativo, con programmi come Photoshop, Illustrator e Premiere Pro.",
+      "slug": "adobe"
+    },
+    {
+      "id": "18",
+      "name": "Intel",
+      "country": "USA",
+      "address": "Santa Clara, California",
+      "workSector": ["IT", "Semiconductors"],
+      "url": "/public/intel.png",
+      "email": "intel@gmail.com",
+      "password": "intel123",
+      "description": "Intel è uno dei principali produttori mondiali di microprocessori e soluzioni tecnologiche.",
+      "slug": "intel"
+    },
+    {
+      "id": "19",
+      "name": "Pinterest",
+      "country": "USA",
+      "address": "San Francisco, California",
+      "workSector": ["Social Media", "Advertising"],
+      "url": "/public/pinterest.png",
+      "email": "pinterest@gmail.com",
+      "password": "pinterest123",
+      "description": "Pinterest è una piattaforma visiva di social media che consente agli utenti di creare e condividere bacheche virtuali.",
+      "slug": "pinterest"
+    },
+    {
+      "id": "20",
+      "name": "Airbnb",
+      "country": "USA",
+      "address": "San Francisco, California",
+      "workSector": ["Hospitality", "Technology"],
+      "url": "/public/airbnb.png",
+      "email": "airbnb@gmail.com",
+      "password": "airbnb123",
+      "description": "Airbnb è una piattaforma che consente di prenotare soggiorni in case e appartamenti privati.",
+      "slug": "airbnb"
     }
   ],
   "users": [
@@ -101,6 +296,24 @@
       "vote": 3,
       "date": "2025-03-27T16:48:02.772Z",
       "companyId": "3"
+    },
+    {
+      "id": "bd3f",
+      "reviewTitle": "1",
+      "reviewText": "1",
+      "author": "ciao",
+      "vote": 1,
+      "date": "2025-03-27T17:09:36.650Z",
+      "companyId": "1"
+    },
+    {
+      "id": "e9ea",
+      "reviewTitle": "11",
+      "reviewText": "11111",
+      "author": "Camillo Fallù",
+      "vote": 4,
+      "date": "2025-03-27T17:15:53.352Z",
+      "companyId": "1"
     }
   ],
   "team": [
