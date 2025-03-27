@@ -1,0 +1,216 @@
+{
+  "companies": [
+    {
+      "id": "1",
+      "name": "Poste Italiane",
+      "country": "IT",
+      "address": "Via Roma 290, Milano",
+      "workSector": [
+        "IT",
+        "Finanza"
+      ],
+      "url": "/public/posteitaliane.jpg",
+      "email": "posteitaliane@gmail.com",
+      "password": "posteitaliane",
+      "description": "Poste Italiane è il più prezioso motore di innovazione e digitalizzazione del Paese.",
+      "slug": "poste-italiane"
+    },
+    {
+      "id": "2",
+      "name": "Apple",
+      "country": "USA",
+      "address": "One Apple Park Way, Cupertino, California",
+      "workSector": [
+        "IT",
+        "AI"
+      ],
+      "url": "/public/apple.png",
+      "email": "apple@gmail.com",
+      "password": "apple",
+      "description": "Azienda multinazionale statunitense che produce sistemi operativi, smartphone, computer e dispositivi multimediali, con sede a Cupertino, in California. È considerata una delle più grandi società tecnologiche Big Tech, assieme ad Amazon, Google, Microsoft e Meta.",
+      "slug": "apple"
+    },
+    {
+      "id": "3",
+      "name": "Google",
+      "country": "USA",
+      "address": "One Apple Park Way, Cupertino, California",
+      "workSector": [
+        "IT",
+        "AI"
+      ],
+      "url": "/public/google.png",
+      "email": "google@gmail.com",
+      "password": "google",
+      "description": "La Ricerca Google è un motore di ricerca completamente automatizzato che utilizza software chiamati web crawler per esplorare regolarmente il web e trovare pagine da aggiungere al suo indice",
+      "slug": "google"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Marta",
+      "surname": "Franchi",
+      "email": "martafranchi@gmail.com",
+      "password": "martafranchi"
+    },
+    {
+      "id": "2",
+      "name": "Gianni",
+      "surname": "Rossi",
+      "email": "giannirossi@gmail.com",
+      "password": "giannirossi"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "companyId": 1,
+      "reviewTitle": "Ottimo servizio",
+      "reviewText": "Ottimo servizio",
+      "userId": 1,
+      "author": "Marta Franchi",
+      "vote": 4,
+      "date": "2025-03-12T10:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "companyId": 3,
+      "reviewTitle": "Esperienza positiva",
+      "reviewText": "Molto professionali",
+      "userId": 2,
+      "author": "Gianni Rossi",
+      "vote": 3,
+      "date": "2025-03-12T12:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "companyId": 2,
+      "reviewTitle": "Servizio eccellente",
+      "reviewText": "Servizio eccellente",
+      "userId": 3,
+      "author": "Utente Sconosciuto",
+      "vote": 5,
+      "date": "2025-03-12T14:00:00.000Z"
+    },
+    {
+      "id": "84d4",
+      "reviewTitle": "dsd",
+      "reviewText": "dsd",
+      "author": "dsds",
+      "vote": 1,
+      "date": "2025-03-25T18:03:14.876Z"
+    },
+    {
+      "id": "e3ea",
+      "reviewTitle": "ds",
+      "reviewText": "dsds",
+      "author": "dsd",
+      "vote": 1,
+      "date": "2025-03-27T15:31:41.862Z",
+      "companyId": "1"
+    },
+    {
+      "id": "5822",
+      "reviewTitle": "d",
+      "reviewText": "d",
+      "author": "d",
+      "vote": 1,
+      "date": "2025-03-27T15:31:46.698Z",
+      "companyId": "1"
+    },
+    {
+      "id": "3f1d",
+      "reviewTitle": "3",
+      "reviewText": "3",
+      "author": "3",
+      "vote": 1,
+      "date": "2025-03-27T15:37:05.383Z",
+      "companyId": "1"
+    },
+    {
+      "id": "2654",
+      "reviewTitle": "d",
+      "reviewText": "d",
+      "author": "d",
+      "vote": 1,
+      "date": "2025-03-27T15:38:46.731Z",
+      "companyId": "1"
+    },
+    {
+      "id": "706c",
+      "reviewTitle": "f",
+      "reviewText": "f",
+      "author": "f",
+      "vote": 1,
+      "date": "2025-03-27T15:38:54.807Z",
+      "companyId": "1"
+    },
+    {
+      "id": "d420",
+      "reviewTitle": "3",
+      "reviewText": "3",
+      "author": "3",
+      "vote": 1,
+      "date": "2025-03-27T15:39:27.239Z",
+      "companyId": "2"
+    },
+    {
+      "id": "bd87",
+      "reviewTitle": "d",
+      "reviewText": "d",
+      "author": "d",
+      "vote": 1,
+      "date": "2025-03-27T15:40:20.138Z",
+      "companyId": "3"
+    },
+    {
+      "id": "7e3b",
+      "reviewTitle": "d",
+      "reviewText": "d",
+      "author": "d",
+      "vote": 1,
+      "date": "2025-03-27T15:41:35.135Z",
+      "companyId": "3"
+    }
+  ],
+  "team": [
+    {
+      "id": "1",
+      "name": "Camillo Fallù",
+      "url": "/public/camillofoto.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Fabio Artudi",
+      "url": "/public/fabioartudi.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Michele Vitucci",
+      "url": "/public/michelevitucci.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Andrea Lo Muto",
+      "url": "/public/andrealomuto.jpg"
+    }
+  ],
+  "stats": [
+    {
+      "id": "1",
+      "name": "Recensioni Totali",
+      "value": "315,679"
+    },
+    {
+      "id": "2",
+      "name": "Aziende Registrate",
+      "value": "1200"
+    },
+    {
+      "id": "3",
+      "name": "Utenti Registrati",
+      "value": "513,908"
+    }
+  ]
+}
