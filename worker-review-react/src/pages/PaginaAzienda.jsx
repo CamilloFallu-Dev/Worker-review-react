@@ -1,34 +1,47 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ReviewCard from "../components/ReviewCard";
+import {
+  useGetCompanyBySlugQuery,
+  useGetReviewsQuery,
+} from "../services/apiService";
+import { useAddReviewMutation } from "../services/apiService";
 
 export default function PaginaAzienda() {
-  const { companyName } = useParams();
+  const { slug } = useParams();
   const [azienda, setAzienda] = useState(null);
   const [nome, setNome] = useState("");
   const [titolo, setTitolo] = useState("");
   const [recensione, setRecensione] = useState("");
   const [voto, setVoto] = useState(1);
+  const { data, error, isLoading } = useGetCompanyBySlugQuery(slug);
+  const [addReview] = useAddReviewMutation();
+  const { refetch } = useGetReviewsQuery(azienda?.id, { skip: !azienda });
 
   useEffect(() => {
-    fetch("/db.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const aziendaSelezionata = data.companies.find(
-          (c) => c.name.toLowerCase() === companyName.toLowerCase()
-        );
-        if (aziendaSelezionata) {
-          const recensioniAzienda = JSON.parse(
-            localStorage.getItem(`reviews-company-${aziendaSelezionata.id}`) ||
-              "[]"
-          );
-          setAzienda({ ...aziendaSelezionata, reviews: recensioniAzienda });
-        }
-      })
-      .catch((error) => console.error("Errore nel caricamento dati:", error));
-  }, [companyName]);
+    if (data) {
+      const aziendaSelezionata = Array.isArray(data) ? data[0] : data;
+      if (aziendaSelezionata) {
+        setAzienda(aziendaSelezionata);
+      }
+    }
+  }, [data]);
 
-  const handleSubmit = (e) => {
+  const {
+    data: reviewsData,
+    error: reviewsError,
+    isLoading: reviewsLoading,
+  } = useGetReviewsQuery(azienda?.id, {
+    skip: !azienda,
+  });
+
+  useEffect(() => {
+    if (reviewsData) {
+      setAzienda((prev) => ({ ...prev, reviews: reviewsData }));
+    }
+  }, [reviewsData]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (
       !azienda ||
@@ -47,20 +60,21 @@ export default function PaginaAzienda() {
       companyId: azienda.id,
     };
 
-    const newReviews = [...azienda.reviews, nuovaRecensione];
-    setAzienda((prev) => ({ ...prev, reviews: newReviews }));
-    localStorage.setItem(
-      `reviews-company-${azienda.id}`,
-      JSON.stringify(newReviews)
-    );
-
-    setNome("");
-    setTitolo("");
-    setRecensione("");
-    setVoto(1);
+    try {
+      await addReview(nuovaRecensione).unwrap();
+      await refetch();
+      setNome("");
+      setTitolo("");
+      setRecensione("");
+      setVoto(1);
+    } catch (error) {
+      console.error("Errore nell'invio della recensione:", error);
+    }
   };
 
-  if (!azienda) return <p>Caricamento...</p>;
+  if (isLoading || reviewsLoading) return <p>Caricamento...</p>;
+  if (error || reviewsError) return <p>Errore nel caricamento dati</p>;
+  if (!azienda) return <p>Nessuna azienda trovata</p>;
 
   return (
     <div>
@@ -74,7 +88,6 @@ export default function PaginaAzienda() {
               className="w-full h-[300px] md:h-[400px] object-cover transition-transform duration-500 hover:scale-105"
             />
           </div>
-
           <img
             src={azienda.url}
             alt={azienda.name}
@@ -83,7 +96,7 @@ export default function PaginaAzienda() {
         </div>
 
         {/* Sezione principale */}
-        <div className="w-full bg-white p-6 rounded-lg shadow-md flex flex-col items-center mt-10">
+        <div className="w-full p-6 flex flex-col items-center mt-10">
           <h1 className="mt-2 text-3xl md:text-5xl font-bold text-gray-800 tracking-wide">
             {azienda.name}
           </h1>
@@ -93,23 +106,21 @@ export default function PaginaAzienda() {
           <p className="mt-2 text-gray-700 md:text-xl md:font-bold md:text-black">
             {azienda.address}
           </p>
-          <p className="mt-2 text-gray-600">{azienda.description}</p>
+          <p className="mt-2 text-gray-600 w-3xl flex justify-center">
+            {azienda.description}
+          </p>
 
           {/* Form recensioni */}
-          <form
-            className="mt-6 w-full max-w-sm bg-white"
-            onSubmit={handleSubmit}
-          >
-            <h2 className="text-3xl p-3 font-bold text-green-600">
-              {" "}
-              Scrivi la tua recensione{" "}
+          <form className="mt-6 w-full max-w-sm" onSubmit={handleSubmit}>
+            <h2 className="text-3xl p-5 font-bold text-green-600 flex justify-center">
+              Scrivi la tua recensione
             </h2>
             <label className="mb-1 font-semibold text-gray-700">
               Nome e Cognome
             </label>
             <input
               placeholder="nome e cognome"
-              className="w-full p-2 border rounded-lg mb-2 focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"
+              className="mb-3 block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               type="text"
               value={nome}
               onChange={(e) => setNome(e.target.value)}
@@ -118,7 +129,7 @@ export default function PaginaAzienda() {
               Dai un voto
             </label>
             <select
-              className="w-full p-2 border rounded-lg mb-2 focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"
+              className="mb-3 block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               value={voto}
               onChange={(e) => setVoto(Number(e.target.value))}
             >
@@ -133,7 +144,7 @@ export default function PaginaAzienda() {
             </label>
             <input
               placeholder="titolo della recensione"
-              className="w-full p-2 border rounded-lg mb-2 focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"
+              className="mb-3 block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               type="text"
               value={titolo}
               onChange={(e) => setTitolo(e.target.value)}
@@ -143,14 +154,14 @@ export default function PaginaAzienda() {
             </label>
             <textarea
               placeholder="recensione..."
-              className="w-full p-2 border rounded-lg mb-2 focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"
+              className="mb-3 block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               value={recensione}
               onChange={(e) => setRecensione(e.target.value)}
             ></textarea>
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="bg-green-600 text-white text-s px-4 py-2 border rounded hover:bg-green-700 transition-colors"
+                className="mt-3 bg-green-600 text-white text-s px-4 py-2 border rounded hover:bg-green-700 transition-colors"
               >
                 Invia
               </button>
@@ -159,20 +170,27 @@ export default function PaginaAzienda() {
         </div>
       </div>
       {/* Recensioni */}
-      <h2 className="mt-8 text-lg font-bold text-gray-800 text-center">
-        Recensioni azienda
-      </h2>
-      <div className="p-4 grid grid-cols-3 gap-3">
-        {azienda.reviews.map((review, index) => (
-          <ReviewCard
-            key={index}
-            reviewTitle={review.reviewTitle || review.text}
-            reviewText={review.reviewText || review.text}
-            author={review.author}
-            vote={review.vote}
-            date={review.date}
-          />
-        ))}
+      <div className="bg-gray-50">
+        <h2 className="bg-gray-50 text-lg font-bold text-gray-800 text-center">
+          Recensioni azienda
+        </h2>
+      </div>
+      {/* Recensioni */}
+      <div className="bg-gray-50 p-4 grid grid-cols-3 gap-3">
+        {azienda.reviews && azienda.reviews.length > 0 ? (
+          azienda.reviews.map((review, index) => (
+            <ReviewCard
+              key={index}
+              reviewTitle={review.reviewTitle || review.text}
+              reviewText={review.reviewText || review.text}
+              author={review.author}
+              vote={review.vote}
+              date={review.date}
+            />
+          ))
+        ) : (
+          <p>Nessuna recensione disponibile.</p>
+        )}
       </div>
     </div>
   );

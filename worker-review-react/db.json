@@ -1,11 +1,14 @@
 {
   "companies": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Poste Italiane",
       "country": "IT",
       "address": "Via Roma 290, Milano",
-      "workSector": ["IT", "Finanza"],
+      "workSector": [
+        "IT",
+        "Finanza"
+      ],
       "url": "/public/posteitaliane.jpg",
       "email": "posteitaliane@gmail.com",
       "password": "posteitaliane",
@@ -13,11 +16,14 @@
       "slug": "poste-italiane"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Apple",
       "country": "USA",
       "address": "One Apple Park Way, Cupertino, California",
-      "workSector": ["IT", "AI"],
+      "workSector": [
+        "IT",
+        "AI"
+      ],
       "url": "/public/apple.png",
       "email": "apple@gmail.com",
       "password": "apple",
@@ -25,11 +31,14 @@
       "slug": "apple"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Google",
       "country": "USA",
       "address": "One Apple Park Way, Cupertino, California",
-      "workSector": ["IT", "AI"],
+      "workSector": [
+        "IT",
+        "AI"
+      ],
       "url": "/public/google.png",
       "email": "google@gmail.com",
       "password": "google",
@@ -37,27 +46,25 @@
       "slug": "google"
     }
   ],
-
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Marta",
       "surname": "Franchi",
       "email": "martafranchi@gmail.com",
       "password": "martafranchi"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Gianni",
       "surname": "Rossi",
       "email": "giannirossi@gmail.com",
       "password": "giannirossi"
     }
   ],
-
   "reviews": [
     {
-      "id": 1,
+      "id": "1",
       "companyId": 1,
       "reviewTitle": "Ottimo servizio",
       "reviewText": "Ottimo servizio",
@@ -67,7 +74,7 @@
       "date": "2025-03-12T10:00:00.000Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "companyId": 3,
       "reviewTitle": "Esperienza positiva",
       "reviewText": "Molto professionali",
@@ -77,7 +84,7 @@
       "date": "2025-03-12T12:00:00.000Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "companyId": 2,
       "reviewTitle": "Servizio eccellente",
       "reviewText": "Servizio eccellente",
@@ -85,45 +92,52 @@
       "author": "Utente Sconosciuto",
       "vote": 5,
       "date": "2025-03-12T14:00:00.000Z"
+    },
+    {
+      "id": "c5a8",
+      "reviewTitle": "312313",
+      "reviewText": "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv",
+      "author": "1321",
+      "vote": 3,
+      "date": "2025-03-27T16:48:02.772Z",
+      "companyId": "3"
     }
   ],
-
   "team": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Camillo Fallù",
       "url": "/public/camillofoto.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Fabio Artudi",
       "url": "/public/fabioartudi.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Michele Vitucci",
       "url": "/public/michelevitucci.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Andrea Lo Muto",
       "url": "/public/andrealomuto.jpg"
     }
   ],
-
   "stats": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Recensioni Totali",
       "value": "315,679"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Aziende Registrate",
       "value": "1200"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Utenti Registrati",
       "value": "513,908"
     }

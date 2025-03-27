@@ -14,7 +14,7 @@ export default function ReviewCard({
   };
 
   return (
-    <div className="text-black p-3 rounded-xl shadow-md bg-green-300 flex flex-col gap-2">
+    <div className="text-black p-3 rounded-xl shadow-md bg-white hover:border-2 hover: border-green-500 flex flex-col gap-2">
       <div className="flex gap-1">
         {[...Array(5)].map((_, index) => (
           <svg

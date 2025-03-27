@@ -1,8 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CardAziendeRicerca from "../components/CardAziendeRicerca";
 import { useGetCompaniesQuery } from "../services/apiService";
-import Aziende from "../components/Aziende";
-import AziendePartner from "../components/AziendePartner";
 
 function PaginaRicercaAziende() {
   const [modal, setModal] = useState(false);
@@ -133,14 +131,6 @@ function PaginaRicercaAziende() {
           </span>
         </div>
       </div>
-      <div className="bg-green-500/20 flex gap-2">
-        <button className="p-1 rounded-lg bg-gray-300 focus:bg-black focus:text-white hover:bg-gray-400 cursor-pointer">
-          Migliore valutazione
-        </button>
-        <button className="p-1 rounded-lg bg-gray-300 focus:bg-black focus:text-white hover:bg-gray-400 cursor-pointer">
-          Peggiore valutazione
-        </button>
-      </div>
       <div className="bg-green-500/20 pt-2 pb-2">
         {!isLoading && !error && filteredCompanies.length === 0 && (
           <p>Nessuna azienda trovata.</p>
@@ -153,8 +143,6 @@ function PaginaRicercaAziende() {
         {error && <p>Errore durante il caricamento</p>}
         {isLoading && <p>Caricamento delle aziende</p>}
       </div>
-      <Aziende />
-      <AziendePartner />
     </div>
   );
 }

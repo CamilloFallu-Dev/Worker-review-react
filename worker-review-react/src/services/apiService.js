@@ -4,6 +4,22 @@ export const apiService = createApi({
   reducerPath: "apiService",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000" }),
   endpoints: (builder) => ({
+    getCompanyBySlug: builder.query({
+      query: (slug) => `companies?slug=${slug}`,
+    }),
+
+    addReview: builder.mutation({
+      query: (review) => ({
+        url: "reviews",
+        method: "POST",
+        body: review,
+      }),
+    }),
+
+    getReviews: builder.query({
+      query: (companyId) => `reviews?companyId=${companyId}`,
+    }),
+
     getStats: builder.query({
       query: () => `stats`,
     }),
@@ -43,4 +59,7 @@ export const {
   useLazyRegisterQuery,
   useLazyRegisterCompanyQuery,
   useLazyContactsQuery,
+  useGetCompanyBySlugQuery,
+  useGetReviewsQuery,
+  useAddReviewMutation,
 } = apiService;
