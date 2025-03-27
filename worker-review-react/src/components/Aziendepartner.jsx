@@ -1,4 +1,4 @@
-export default function Aziendepartner() {
+export default function AziendePartner() {
   return (
     <div>
       <div className="bg-green-200 py-24 sm:py-32">
