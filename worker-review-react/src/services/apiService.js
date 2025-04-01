@@ -23,18 +23,25 @@ export const apiService = createApi({
     getStats: builder.query({
       query: () => `stats`,
     }),
+
     getCompanies: builder.query({
       query: () => `companies`,
     }),
+
     login: builder.query({
       query: (email, password) => `users?email=${email}&password=${password}`,
     }),
+
     register: builder.mutation({
-      mutation: ({ name, surname, email, password }) =>
-        `users?name=${name}&surname=${surname}&email=${email}&password=${password}`,
+      query: ({ name, surname, email, password }) => ({
+        url: "users",
+        method: "POST",
+        body: { name, surname, email, password },
+      }),
     }),
+
     registerCompany: builder.mutation({
-      mutation: ({
+      query: ({
         name,
         country,
         address,
@@ -42,12 +49,27 @@ export const apiService = createApi({
         email,
         password,
         description,
-      }) =>
-        `comapnies?name=${name}&country=${country}&address=${address}&workSector=${workSector}&email=${email}&password=${password}&description=${description}`,
+      }) => ({
+        url: "companies",
+        method: "POST",
+        body: {
+          name,
+          country,
+          address,
+          workSector,
+          email,
+          password,
+          description,
+        },
+      }),
     }),
+
     contacts: builder.mutation({
-      mutation: ({ name, surname, email, message }) =>
-        `users?name=${name}&surname=${surname}&email=${email}&message=${message}`,
+      query: ({ name, surname, email, message }) => ({
+        url: "contacts",
+        method: "POST",
+        body: { name, surname, email, message },
+      }),
     }),
   }),
 });
@@ -55,11 +77,11 @@ export const apiService = createApi({
 export const {
   useGetStatsQuery,
   useGetCompaniesQuery,
-  useLazyLoginQuery,
-  useLazyRegisterQuery,
-  useLazyRegisterCompanyQuery,
-  useLazyContactsQuery,
   useGetCompanyBySlugQuery,
   useGetReviewsQuery,
   useAddReviewMutation,
+  useLazyLoginQuery,
+  useRegisterMutation,
+  useRegisterCompanyMutation,
+  useContactsMutation,
 } = apiService;

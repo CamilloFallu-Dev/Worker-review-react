@@ -1,22 +1,47 @@
 import Information from "../components/Information";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../features/global/globalSlice";
+import { useRegisterMutation } from "../services/apiService";
+import toast, { Toaster } from "react-hot-toast";
+import { useEffect } from "react";
 
 function Registrati() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.global.user) || {};
+  const [register, { isLoading, error }] = useRegisterMutation();
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) {
+      dispatch(setUser(JSON.parse(savedUser)));
+    }
+  }, [dispatch]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     dispatch(setUser({ ...user, [name]: value }));
   };
-  const onLogin = (event) => {
+
+  const onRegister = async (event) => {
     event.preventDefault();
-    console.log("Dati registrati:", user);
+    try {
+      const response = await register({
+        name: user.nome,
+        surname: user.cognome,
+        email: user.email,
+        password: user.password,
+      }).unwrap();
+      localStorage.setItem("user", JSON.stringify(response));
+      dispatch(setUser(response));
+      toast.success("Registrazione riuscita!");
+    } catch (err) {
+      toast.error("Errore nella registrazione");
+    }
   };
 
   return (
     <div>
+      <Toaster position="center" reverseOrder={false} />
       <div className="relative bg-green-600 py-16">
         <div className="absolute inset-0">
           <img
@@ -33,7 +58,7 @@ function Registrati() {
           </h2>
         </div>
         <div className="relative bg-white border-1 border-gray-400 rounded-lg p-6 w-72 mx-auto mt-12 shadow-2xl">
-          <form onSubmit={onLogin}>
+          <form onSubmit={onRegister}>
             <label>Nome</label>
             <input
               type="text"
@@ -74,8 +99,13 @@ function Registrati() {
               type="submit"
               className="bg-green-600 w-full rounded-lg py-2 text-white hover:bg-green-700 cursor-pointer"
             >
-              Registrati
+              {isLoading ? "Registrazione..." : "Registrati"}
             </button>
+            {error && (
+              <p className="text-red-500 text-sm mt-2">
+                Errore: {error.data?.message || "Qualcosa è andato storto"}
+              </p>
+            )}
           </form>
         </div>
       </div>

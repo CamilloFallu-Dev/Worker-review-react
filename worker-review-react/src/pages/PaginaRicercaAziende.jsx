@@ -1,107 +1,89 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CardAziendeRicerca from "../components/CardAziendeRicerca";
 import { useGetCompaniesQuery } from "../services/apiService";
+
+const sectors = ["IT", "Finanza", "AI", "Agricoltura", "Edilizia", "Sanità"];
 
 function PaginaRicercaAziende() {
   const [modal, setModal] = useState(false);
   const [filterSector, setFilterSector] = useState([]);
-  const [companies, setCompanies] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleModal = () => setModal((prev) => !prev);
 
   const toggleFilterSector = (sector) => {
-    setFilterSector((prev) => {
-      if (prev.includes(sector)) {
-        return prev.filter((s) => s !== sector);
-      } else {
-        return [...prev, sector];
-      }
-    });
+    setFilterSector((prev) =>
+      prev.includes(sector)
+        ? prev.filter((s) => s !== sector)
+        : [...prev, sector]
+    );
   };
 
-  const handleSearch = (e) => {
-    setSearchQuery(e.target.value.toLowerCase());
-  };
+  const handleSearch = (e) => setSearchQuery(e.target.value.toLowerCase());
 
   const { data, error, isLoading } = useGetCompaniesQuery();
 
-  const filteredCompanies =
-    data &&
-    data.filter((company) => {
-      const matchesSector =
-        filterSector.length === 0 ||
-        company.workSector.some((sector) => filterSector.includes(sector));
+  const filteredCompanies = data
+    ? data.filter((company) => {
+        const matchesSector =
+          filterSector.length === 0 ||
+          (company.workSector || []).some((sector) =>
+            filterSector.includes(sector)
+          );
 
-      const matchesSearch = company.slug.toLowerCase().includes(searchQuery);
+        const matchesSearch = company.slug.toLowerCase().includes(searchQuery);
 
-      return matchesSector && matchesSearch;
-    });
+        return matchesSector && matchesSearch;
+      })
+    : [];
 
   return (
     <div>
       <div className="relative flex items-center justify-between w-full p-4 bg-green-500/20">
         <button onClick={handleModal} className="cursor-pointer">
           <svg
-            fill="#000000"
-            width="50"
-            height="50"
-            viewBox="-1 0 19 19"
             xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-8"
           >
-            <path d="M16.417 9.583A7.917 7.917 0 1 1 8.5 1.666a7.917 7.917 0 0 1 7.917 7.917zm-2.882-2.625a.396.396 0 0 0-.396-.396h-.855a1.58 1.58 0 0 0-3.058 0H3.912a.396.396 0 0 0 0 .792h5.314a1.58 1.58 0 0 0 3.058 0h.855a.396.396 0 0 0 .396-.396zm0 2.63a.396.396 0 0 0-.396-.396H7.825a1.58 1.58 0 0 0-3.058 0h-.855a.396.396 0 0 0 0 .792h.855a1.58 1.58 0 0 0 3.058 0h5.314a.396.396 0 0 0 .396-.396zm0 2.63a.396.396 0 0 0-.396-.396h-.855a1.58 1.58 0 0 0-3.058 0H3.912a.396.396 0 1 0 0 .791h5.314a1.58 1.58 0 0 0 3.058 0h.855a.396.396 0 0 0 .396-.396zm-6.452-2.63a.788.788 0 1 1-.787-.788.788.788 0 0 1 .787.788zm4.46-2.63a.787.787 0 1 1-.788-.787.788.788 0 0 1 .787.787zm0 5.26a.787.787 0 1 1-.788-.788.788.788 0 0 1 .787.787z" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5"
+            />
           </svg>
         </button>
+
         {modal && (
           <div className="absolute z-50 top-20 grid grid-cols-3 bg-green-300 p-3 rounded-lg">
-            <div className="flex gap-2">
-              <input
-                type="checkbox"
-                checked={filterSector.includes("IT")}
-                onChange={() => toggleFilterSector("IT")}
-              />
-              <p>IT</p>
-            </div>
-            <div className="flex gap-2">
-              <input
-                type="checkbox"
-                checked={filterSector.includes("Finanza")}
-                onChange={() => toggleFilterSector("Finanza")}
-              />
-              <p>Finanza</p>
-            </div>
-            <div className="flex gap-2">
-              <input
-                type="checkbox"
-                checked={filterSector.includes("AI")}
-                onChange={() => toggleFilterSector("AI")}
-              />
-              <p>AI</p>
-            </div>
-            <div className="flex gap-2">
-              <input
-                type="checkbox"
-                checked={filterSector.includes("Agricoltura")}
-                onChange={() => toggleFilterSector("Agricoltura")}
-              />
-              <p>Agricoltura</p>
-            </div>
-            <div className="flex gap-2">
-              <input
-                type="checkbox"
-                checked={filterSector.includes("Edilizia")}
-                onChange={() => toggleFilterSector("Edilizia")}
-              />
-              <p>Edilizia</p>
-            </div>
-            <div className="flex gap-2">
-              <input
-                type="checkbox"
-                checked={filterSector.includes("Sanità")}
-                onChange={() => toggleFilterSector("Sanità")}
-              />
-              <p>Sanità</p>
-            </div>
+            {sectors.map((sector) => (
+              <div
+                key={sector}
+                className="flex grid-cols-3 gap-2 items-center p-1"
+              >
+                <input
+                  type="checkbox"
+                  id={sector}
+                  className="hidden peer"
+                  checked={filterSector.includes(sector)}
+                  onChange={() => toggleFilterSector(sector)}
+                />
+                <label
+                  htmlFor={sector}
+                  className={`w-12 h-6 bg-gray-300 rounded-full flex items-center p-1 cursor-pointer transition-colors duration-300 peer-checked:bg-green-700`}
+                >
+                  <span
+                    className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
+                      filterSector.includes(sector) ? "translate-x-6" : ""
+                    }`}
+                  ></span>
+                </label>
+                <p>{sector}</p>
+              </div>
+            ))}
           </div>
         )}
 
@@ -131,6 +113,7 @@ function PaginaRicercaAziende() {
           </span>
         </div>
       </div>
+
       <div className="bg-green-500/20 pt-2 pb-2">
         {!isLoading && !error && filteredCompanies.length === 0 && (
           <p>Nessuna azienda trovata.</p>
@@ -141,7 +124,7 @@ function PaginaRicercaAziende() {
             <CardAziendeRicerca key={company.id} company={company} />
           ))}
         {error && <p>Errore durante il caricamento</p>}
-        {isLoading && <p>Caricamento delle aziende</p>}
+        {isLoading && <p>Caricamento delle aziende...</p>}
       </div>
     </div>
   );
