@@ -9,6 +9,7 @@ import PaginaRicercaAziende from "./pages/PaginaRicercaAziende";
 import PaginaContatti from "./pages/PaginaContatti";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
+import ProfiloUtente from "./components/ProfiloUtente";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/company-page/:slug" element={<PaginaAzienda />} />
         <Route path="/search" element={<PaginaRicercaAziende />} />
         <Route path="/contact" element={<PaginaContatti />} />
+        <Route path="/profile" element={<ProfiloUtente />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
