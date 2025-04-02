@@ -2,11 +2,30 @@ import { useState } from "react";
 import CardAziendeRicerca from "../components/CardAziendeRicerca";
 import { useGetCompaniesQuery } from "../services/apiService";
 
-const sectors = ["IT", "Finanza", "AI", "Agricoltura", "Edilizia", "Sanità"];
+const sectors = [
+  "Automotive",
+  "Cloud Computing",
+  "Consulting",
+  "E-commerce",
+  "Elettronics",
+  "Entertainment",
+  "Gaming",
+  "Hospitality",
+  "IA",
+  "IT",
+  "Music Streaming",
+  "Social Media",
+  "Software",
+  "Streaming",
+  "Technology",
+  "Telecommunications",
+  "Transportation",
+];
 
 function PaginaRicercaAziende() {
   const [modal, setModal] = useState(false);
   const [filterSector, setFilterSector] = useState([]);
+  const [filterRating, setFilterRating] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleModal = () => setModal((prev) => !prev);
@@ -17,6 +36,12 @@ function PaginaRicercaAziende() {
         ? prev.filter((s) => s !== sector)
         : [...prev, sector]
     );
+  };
+
+  const toggleFilterRating = (rating) => {
+    setFilterRating((prev) => prev.includes(rating))
+      ? prev.filter((r) => r !== rating)
+      : [...prev, rating];
   };
 
   const handleSearch = (e) => setSearchQuery(e.target.value.toLowerCase());
@@ -59,6 +84,7 @@ function PaginaRicercaAziende() {
 
         {modal && (
           <div className="absolute z-50 top-20 grid grid-cols-3 bg-green-300 p-3 rounded-lg">
+            <p className="p-2 font-bold">Filtra per:</p>
             {sectors.map((sector) => (
               <div
                 key={sector}
@@ -113,7 +139,14 @@ function PaginaRicercaAziende() {
           </span>
         </div>
       </div>
-
+      <div className="bg-green-500/20 flex gap-2 pl-2">
+        <button className="p-2 rounded-3xl bg-gray-300 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer">
+          Migliore valutazione
+        </button>
+        <button className="p-2 rounded-3xl bg-gray-300 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer">
+          Peggiore valutazione
+        </button>
+      </div>
       <div className="bg-green-500/20 pt-2 pb-2">
         {!isLoading && !error && filteredCompanies.length === 0 && (
           <p>Nessuna azienda trovata.</p>
