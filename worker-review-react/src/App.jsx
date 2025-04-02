@@ -9,10 +9,12 @@ import PaginaRicercaAziende from "./pages/PaginaRicercaAziende";
 import PaginaContatti from "./pages/PaginaContatti";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
+import { Toaster } from "react-hot-toast";
 
 export default function App() {
   return (
     <div>
+      <div><Toaster/></div>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
