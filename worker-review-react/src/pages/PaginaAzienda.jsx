@@ -6,6 +6,7 @@ import {
   useGetReviewsQuery,
 } from "../services/apiService";
 import { useAddReviewMutation } from "../services/apiService";
+import { toast } from "react-hot-toast";
 
 export default function PaginaAzienda() {
   const { slug } = useParams();
@@ -60,23 +61,24 @@ export default function PaginaAzienda() {
       companyId: azienda.id,
     };
 
-    try {
-      await new Promise((resolve) => {
-        setTimeout(
-          resolve,
+    const loadingToast = toast.loading("Invio recensione...");
 
-          5000
-        );
-      });
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+  
       await addReview(nuovaRecensione).unwrap();
       await refetch();
       setNome("");
       setTitolo("");
       setRecensione("");
       setVoto(1);
+  
+      toast.success("Recensione inviata con successo!", { id: loadingToast });
     } catch (error) {
       console.error("Errore nell'invio della recensione:", error);
+      toast.error("Errore nell'invio della recensione!", { id: loadingToast });
     }
+  
   };
 
   if (isLoading || reviewsLoading) return <p>Caricamento...</p>;
