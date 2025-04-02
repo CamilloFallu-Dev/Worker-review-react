@@ -1,24 +1,53 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../features/global/globalSlice";
+import { useRegisterCompanyMutation } from "../services/apiService";
+import toast, { Toaster } from "react-hot-toast";
 import Information from "../components/Information";
 
 function RegistrazioneAzienda() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.global.user) || {};
+  const company = useSelector((state) => state.global.company) || {};
+  const [register, { isLoading, error }] = useRegisterCompanyMutation();
 
+  useEffect(() => {
+    const savedCompany = localStorage.getItem("company");
+    if (savedCompany) {
+      dispatch(setCompany(JSON.parse(savedCompany)));
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    localStorage.setItem("Company", JSON.stringify(company));
+  }, [company]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    dispatch(setUser({ ...user, [name]: value }));
+    dispatch(setCompany({ ...user, [name]: value }));
   };
 
-  const onLogin = (event) => {
+  const onRegister = async (event) => {
     event.preventDefault();
-    console.log("Dati registrati:", user);
+    try {
+      const response = await register({
+        nome: company.nome,
+        sede: company.sede,
+        settore: company.settore,
+        email: company.email,
+        password: company.password,
+        descrizione: company.descrizione,
+      }).unwrap();
+      localStorage.setItem("company", JSON.stringify(response));
+      dispatch(setCompany(response));
+      toast.success("Registrazione riuscita!");
+    } catch (err) {
+      toast.error("Errore nella registrazione");
+    }
   };
 
   return (
     <div>
+      <Toaster position="center" reverseOrder={false} />
       <div className="relative bg-green-600 py-16">
         <div className="absolute inset-0">
           <img
@@ -33,14 +62,14 @@ function RegistrazioneAzienda() {
           <h2 className="text-xl mt-2">Registra la tua azienda</h2>
         </div>
 
-        <div className="relative bg-white border-1 border-gray-400 rounded-lg p-6 w-72 mx-auto mt-12 shadow-2xl">
-          <form onSubmit={onLogin}>
+        <div className="relative bg-white border border-gray-400 rounded-lg p-6 w-72 mx-auto mt-12 shadow-2xl">
+          <form onSubmit={onRegister}>
             <label>Nome azienda</label>
             <input
               type="text"
               name="nome"
               placeholder="Nome azienda"
-              defaultValue={user.nome}
+              value={company.nome || ""}
               onChange={handleChange}
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
@@ -50,7 +79,7 @@ function RegistrazioneAzienda() {
               type="text"
               name="sede"
               placeholder="Sede"
-              defaultValue={user.sede}
+              value={company.sede || ""}
               onChange={handleChange}
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
@@ -60,7 +89,7 @@ function RegistrazioneAzienda() {
               type="text"
               name="settore"
               placeholder="Settore"
-              defaultValue={user.settore}
+              value={company.settore || ""}
               onChange={handleChange}
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
@@ -70,7 +99,7 @@ function RegistrazioneAzienda() {
               type="email"
               name="email"
               placeholder="Email"
-              defaultValue={user.email}
+              value={company.email || ""}
               onChange={handleChange}
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
@@ -80,7 +109,7 @@ function RegistrazioneAzienda() {
               type="password"
               name="password"
               placeholder="Password"
-              defaultValue={user.password}
+              value={company.password || ""}
               onChange={handleChange}
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
@@ -89,7 +118,7 @@ function RegistrazioneAzienda() {
             <textarea
               name="descrizione"
               placeholder="Scrivi qui..."
-              defaultValue={user.descrizione}
+              value={company.descrizione || ""}
               onChange={handleChange}
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             ></textarea>
@@ -97,9 +126,12 @@ function RegistrazioneAzienda() {
             <button
               type="submit"
               className="bg-green-600 w-full rounded-lg py-2 text-white hover:bg-green-700"
+              disabled={isLoading}
             >
-              Registra Azienda
+              {isLoading ? "Registrazione in corso..." : "Registra Azienda"}
             </button>
+
+            {error && <p className="text-red-500 text-sm mt-2">Errore: {error.message}</p>}
           </form>
         </div>
       </div>

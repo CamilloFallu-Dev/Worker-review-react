@@ -7,17 +7,34 @@ import { setUser } from "../features/global/globalSlice";
 function Login() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.global);
+  const [register, { isLoading, error }] = useRegisterMutation();
 
-  const [formData, setFormData] = useState({
-    email: localStorage.getItem("email") || "",
-    password: localStorage.getItem("password") || "",
-  });
+  useEffect(() => {
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) {
+      dispatch(setUser(JSON.parse(savedUser)));
+    }
+  }, [dispatch]);
+ 
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    dispatch(setUser({ ...user, [name]: value }));
+  };
 
-  const onLogin = (event) => {
+  const onRegister = async (event) => {
     event.preventDefault();
-    /* setFormData({ email: "", password: "" }); */
-    dispatch(setUser({ name: "Fabio" }));
+    try {
+      const response = await register({
+        email: user.email,
+        password: user.password,
+      }).unwrap();
+      localStorage.setItem("user", JSON.stringify(response));
+      dispatch(setUser(response));
+      toast.success("Registrazione riuscita!");
+    } catch (err) {
+      toast.error("Errore nella registrazione");
+    }
   };
 
   return (
