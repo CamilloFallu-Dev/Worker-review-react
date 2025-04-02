@@ -10,20 +10,20 @@ export default function Chisiamodue() {
 
         <div className="p-8 md:p-12 lg:px-16 lg:py-24">
           <div className="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-            <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
-              Chi siamo...
+            <h2 className="text-2xl font-bold text-gray-900 md:text-3xl p-2">
+              Come lavoriamo...
             </h2>
 
-            <p className="text-gray-500 md:mt-4 md:block">
-              La nostra app di recensioni per i lavoratori ti permette di
-              scoprire cosa ti aspetta nel tuo prossimo impiego. Prima di
-              prendere una decisione importante, consulta le esperienze di altri
-              dipendenti e ottieni informazioni verificate su ambiente di
-              lavoro, retribuzione, orari e tanto altro. Evita passi falsi e fai
-              scelte più consapevoli per il tuo futuro professionale. Con
-              recensioni sincere e trasparenti, la nostra app ti aiuta a capire
-              se un azienda fa per te. Unisciti alla comunità e condividi la tua
-              esperienza per aiutare gli altri!
+            <p className="text-gray-500 md:mt-4 md:block text-left">
+              Nel nostro sito di recensioni, gli utenti possono creare un
+              profilo per condividere le loro esperienze con aziende, prodotti e
+              servizi. Ogni recensione è accompagnata da una valutazione da 1 a
+              5 stelle e può essere letta da altri utenti per aiutarli a
+              prendere decisioni informate. Le aziende possono rispondere alle
+              recensioni per mostrare trasparenza e impegno verso il
+              miglioramento. Offriamo filtri di ricerca per trovare facilmente
+              ciò che cerchi e garantiamo che tutte le recensioni siano
+              autentiche e rispettino le linee guida per un ambiente di fiducia.
             </p>
 
             <div className="mt-4 md:mt-8">

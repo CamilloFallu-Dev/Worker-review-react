@@ -285,6 +285,13 @@
       "surname": "Vitucci",
       "email": "michelemadrid@gmail.com",
       "password": "halamadrid"
+    },
+    {
+      "id": "7f0d",
+      "name": "Camillo",
+      "surname": "Fallu'",
+      "email": "camillofallu9920@gmail.com",
+      "password": "asdfsdafsadf"
     }
   ],
   "reviews": [
