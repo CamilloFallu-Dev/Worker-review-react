@@ -90,7 +90,7 @@ export default function PaginaAzienda() {
       <div className="p-4 bg-gray-50 min-h-screen flex flex-col items-center justify-center">
         {/* HERO */}
         <div className="relative w-full h-auto mb-10">
-          <div className="relative w-full max-h-[400px] overflow-hidden rounded-b-xl shadow-lg">
+          <div className="relative w-full max-h-[400px] overflow-hidden rounded-b-xl shadow-lg ">
             <img
               src="./../src/assets/Azienda-del-futuro.jpg"
               alt="LAVORATORE-IMAGE"
@@ -100,7 +100,7 @@ export default function PaginaAzienda() {
           <img
             src={azienda.url}
             alt={azienda.name}
-            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 max-w-40 h-auto rounded-full object-cover border-4 border-white shadow-xl hover:scale-105"
+            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 max-w-40 h-auto rounded-full object-cover border-4 border-white shadow-xl hover:scale-105 bg-white"
           />
         </div>
 

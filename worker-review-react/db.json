@@ -122,14 +122,14 @@
     },
     {
       "id": "14",
-      "name": "Twitter",
+      "name": "X",
       "country": "USA",
       "address": "San Francisco, California",
       "workSector": ["Social Media"],
       "url": "/public/twitter.png",
-      "email": "twitter@gmail.com",
-      "password": "twitter123",
-      "description": "Twitter è una delle principali piattaforme di microblogging e social media, famosa per la sua rapidità nell'informare.",
+      "email": "socialx@gmail.com",
+      "password": "x123",
+      "description": "X è una delle principali piattaforme di microblogging e social media, famosa per la sua rapidità nell'informare.",
       "slug": "twitter"
     },
     {
