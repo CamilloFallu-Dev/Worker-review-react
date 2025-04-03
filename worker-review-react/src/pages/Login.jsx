@@ -30,6 +30,12 @@ function Login() {
         email: user.email,
         password: user.password,
       }).unwrap();
+      if (response.length === 0) {
+        toast.error("Errore nell'accesso");
+        return;
+      }
+
+      console.log(response);
       localStorage.setItem("user", JSON.stringify(response));
       dispatch(setUser(response));
       toast.success("Accesso effettuato!");
