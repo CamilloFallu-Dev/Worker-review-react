@@ -2,7 +2,7 @@ import Information from "../components/Information";
 import { useDispatch, useSelector } from "react-redux";
 import { setCompany } from "../features/global/globalSlice";
 import { useRegisterCompanyMutation } from "../services/apiService";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useEffect } from "react";
 
 function RegistrazioneAzienda() {
@@ -39,7 +39,6 @@ function RegistrazioneAzienda() {
 
   return (
     <div>
-      <Toaster position="center" reverseOrder={false} />
       <div className="relative bg-green-600 py-16">
         <div className="absolute inset-0">
           <img
@@ -57,9 +56,9 @@ function RegistrazioneAzienda() {
         <div className="relative bg-white border border-gray-400 rounded-lg p-6 w-72 mx-auto mt-12 shadow-2xl">
           <form onSubmit={onRegister}>
             {[
-              { label: "Nome azienda", name: "nome", type: "text" },
-              { label: "Sede principale", name: "sede", type: "text" },
-              { label: "Settore", name: "settore", type: "text" },
+              { label: "Nome azienda", name: "name", type: "text" },
+              { label: "Sede principale", name: "address", type: "text" },
+              { label: "Settore", name: "workSector", type: "text" },
               { label: "Email", name: "email", type: "email" },
               { label: "Password", name: "password", type: "password" },
             ].map(({ label, name, type }) => (
@@ -78,13 +77,12 @@ function RegistrazioneAzienda() {
 
             <label>Descrizione azienda</label>
             <textarea
-              name="descrizione"
+              name="description"
               placeholder="Scrivi qui..."
-              value={company.descrizione || ""}
+              value={company.description || ""}
               onChange={handleChange}
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             ></textarea>
-
             <button
               type="submit"
               className="bg-green-600 w-full rounded-lg py-2 text-white hover:bg-green-700"

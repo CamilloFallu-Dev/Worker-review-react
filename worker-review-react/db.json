@@ -203,6 +203,15 @@
       "password": "airbnb123",
       "description": "Airbnb è una piattaforma che consente di prenotare soggiorni in case e appartamenti privati.",
       "slug": "airbnb"
+    },
+    {
+      "id": "34a0",
+      "name": "Poste Italiane",
+      "address": "Roma",
+      "workSector": "Finanza",
+      "email": "poste-italiane@gmail.com",
+      "password": "poastemerda",
+      "description": "ciao"
     }
   ],
   "users": [
@@ -247,6 +256,13 @@
       "surname": "Scalia",
       "email": "superdario@gmail.com",
       "password": "superdario99"
+    },
+    {
+      "id": "f625",
+      "name": "Andrea",
+      "surname": "Lo Muto",
+      "email": "andrealomuto@gmail.com",
+      "password": "andreee99"
     }
   ],
   "reviews": [
