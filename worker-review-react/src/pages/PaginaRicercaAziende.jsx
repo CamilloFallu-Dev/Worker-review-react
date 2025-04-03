@@ -56,15 +56,17 @@ function PaginaRicercaAziende() {
             filterSector.includes(sector)
           );
 
-        const matchesSearch = company.slug.toLowerCase().includes(searchQuery);
+        const matchesSearch = (company.slug || "")
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase());
 
         return matchesSector && matchesSearch;
       })
     : [];
 
   return (
-    <div>
-      <div className="relative flex items-center justify-between w-full p-4 bg-green-500/20">
+    <div className="">
+      <div className="lg:relative lg:flex lg:gap-10 lg:items-center lg:w-full lg:p-4 lg:bg-green-500/20 flex justify-center items-center p-2 ">
         <button onClick={handleModal} className="cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -81,41 +83,38 @@ function PaginaRicercaAziende() {
             />
           </svg>
         </button>
-
         {modal && (
-          <div className="absolute z-50 top-20 grid grid-cols-3 bg-green-300 p-3 rounded-lg">
-            <p className="p-2 font-bold">Filtra per:</p>
-            {sectors.map((sector) => (
-              <div
-                key={sector}
-                className="flex grid-cols-3 gap-2 items-center p-1"
-              >
-                <input
-                  type="checkbox"
-                  id={sector}
-                  className="hidden peer"
-                  checked={filterSector.includes(sector)}
-                  onChange={() => toggleFilterSector(sector)}
-                />
-                <label
-                  htmlFor={sector}
-                  className={`w-12 h-6 bg-gray-300 rounded-full flex items-center p-1 cursor-pointer transition-colors duration-300 peer-checked:bg-green-700`}
-                >
-                  <span
-                    className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
-                      filterSector.includes(sector) ? "translate-x-6" : ""
-                    }`}
-                  ></span>
-                </label>
-                <p>{sector}</p>
-              </div>
-            ))}
+          <div className="absolute z-50 left-53 sm:left-88 top-35 sm:top-20 transform -translate-x-1/2 w-full sm:w-auto bg-green-300 p-3 rounded-lg">
+            <p className="p-2 font-bold text-center">Filtra per:</p>
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {sectors.map((sector) => (
+                <div key={sector} className="flex items-center gap-2 p-1">
+                  <input
+                    type="checkbox"
+                    id={sector}
+                    className="hidden peer"
+                    checked={filterSector.includes(sector)}
+                    onChange={() => toggleFilterSector(sector)}
+                  />
+                  <label
+                    htmlFor={sector}
+                    className={`w-12 h-6 bg-gray-300 rounded-full flex items-center p-1 cursor-pointer transition-colors duration-300 peer-checked:bg-green-700`}
+                  >
+                    <span
+                      className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
+                        filterSector.includes(sector) ? "translate-x-6" : ""
+                      }`}
+                    ></span>
+                  </label>
+                  <p>{sector}</p>
+                </div>
+              ))}
+            </div>
           </div>
         )}
-
-        <div className="relative">
+        <div className="relative w-full">
           <input
-            className="bg-white border border-gray-300 rounded-3xl p-2"
+            className="bg-white border w-full border-gray-300 rounded-xl p-2"
             type="text"
             value={searchQuery}
             onChange={handleSearch}
@@ -138,26 +137,43 @@ function PaginaRicercaAziende() {
             </svg>
           </span>
         </div>
-      </div>
-      <div className="bg-green-500/20 flex gap-2 pl-2">
-        <button className="p-2 rounded-3xl bg-gray-300 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer">
+
+        <button className="p-2 rounded-xl bg-green-600 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer w-1/3 sm:block hidden">
           Migliore valutazione
         </button>
-        <button className="p-2 rounded-3xl bg-gray-300 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer">
+
+        <button className="p-2 rounded-xl bg-green-600 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer w-1/3 sm:block hidden">
           Peggiore valutazione
         </button>
       </div>
-      <div className="bg-green-500/20 pt-2 pb-2">
+
+      <div className="bg-green-500/20 text-center m-2 lg:hidden block">
+        <button className="p-2 rounded-xl bg-green-600 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer w-1/2">
+          Migliore valutazione
+        </button>
+        <button className="p-2 rounded-xl bg-green-600 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer w-1/2 ">
+          Peggiore valutazione
+        </button>
+      </div>
+      <div className="bg-green-500/20  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         {!isLoading && !error && filteredCompanies.length === 0 && (
-          <p>Nessuna azienda trovata.</p>
+          <p className="col-span-full text-center">Nessuna azienda trovata.</p>
         )}
         {!isLoading &&
           !error &&
           filteredCompanies.map((company) => (
             <CardAziendeRicerca key={company.id} company={company} />
           ))}
-        {error && <p>Errore durante il caricamento</p>}
-        {isLoading && <p>Caricamento delle aziende...</p>}
+        {error && (
+          <p className="col-span-full text-center">
+            Errore durante il caricamento
+          </p>
+        )}
+        {isLoading && (
+          <p className="col-span-full text-center">
+            Caricamento delle aziende...
+          </p>
+        )}
       </div>
     </div>
   );
