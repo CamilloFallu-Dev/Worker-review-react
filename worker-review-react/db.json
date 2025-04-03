@@ -240,6 +240,13 @@
       "surname": "Fallu'",
       "email": "camillofallu9920@gmail.com",
       "password": "asdfsdafsadf"
+    },
+    {
+      "id": "2236",
+      "name": "Dario",
+      "surname": "Scalia",
+      "email": "superdario@gmail.com",
+      "password": "superdario99"
     }
   ],
   "reviews": [
