@@ -1,13 +1,15 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import ChiSiamo from "../components/ChiSiamo";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../features/global/globalSlice";
+import { useLazyLoginQuery } from "../services/apiService";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 function Login() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.global);
-  const [register, { isLoading, error }] = useRegisterMutation();
+  const [login, { isLoading, error }] = useLazyLoginQuery();
 
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
@@ -15,25 +17,30 @@ function Login() {
       dispatch(setUser(JSON.parse(savedUser)));
     }
   }, [dispatch]);
- 
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     dispatch(setUser({ ...user, [name]: value }));
   };
 
-  const onRegister = async (event) => {
+  const onLogin = async (event) => {
     event.preventDefault();
     try {
-      const response = await register({
+      const response = await login({
         email: user.email,
         password: user.password,
       }).unwrap();
+      if (response.length === 0) {
+        toast.error("Errore nell'accesso");
+        return;
+      }
+
+      console.log(response);
       localStorage.setItem("user", JSON.stringify(response));
       dispatch(setUser(response));
-      toast.success("Registrazione riuscita!");
+      toast.success("Accesso effettuato!");
     } catch (err) {
-      toast.error("Errore nella registrazione");
+      toast.error("Errore nell'accesso");
     }
   };
 
@@ -60,26 +67,29 @@ function Login() {
             <input
               type="email"
               name="email"
+              onChange={handleChange}
               placeholder="Email"
-             
-              
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
             <label>Password</label>
             <input
               type="password"
               name="password"
+              onChange={handleChange}
               placeholder="Password"
-              
-              
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
             />
             <button
               type="submit"
               className="bg-green-600 w-full rounded-lg py-2 text-white hover:bg-green-700 cursor-pointer"
             >
-              Accedi
+              {isLoading ? "Login..." : "Accedi"}
             </button>
+            {error && (
+              <p className="text-red-500 text-sm mt-2">
+                Errore: {error.data?.message || "Qualcosa è andato storto"}
+              </p>
+            )}
           </form>
           <p className="mt-4 text-center text-black-600 cursor-pointer">
             Non sei registrato? <Link to="/Registrati">Registrati</Link>
