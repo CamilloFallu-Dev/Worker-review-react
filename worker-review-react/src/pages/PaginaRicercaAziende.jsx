@@ -52,9 +52,8 @@ function PaginaRicercaAziende() {
     ? data.filter((company) => {
         const matchesSector =
           filterSector.length === 0 ||
-          (company.workSector || []).some((sector) =>
-            filterSector.includes(sector)
-          );
+          (Array.isArray(company.workSector) &&
+            company.workSector.some((sector) => filterSector.includes(sector)));
 
         const matchesSearch = (company.slug || "")
           .toLowerCase()

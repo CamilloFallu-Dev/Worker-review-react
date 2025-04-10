@@ -32,17 +32,12 @@ export default function Footer() {
                 Lavora con noi
               </p>
             </div>
-            <div className="w-full md:w-auto p-3 ">
-              <p className="inline-block text-lg text-gray-500 hover:text-gray-600 font-medium cursor-pointer">
-                Altro
-              </p>
-            </div>
           </div>
         </div>
       </div>
       <div className="container px-4 mx-auto">
         <p className="py-10 md:pb-20 text-md text-gray-400 font-medium text-center">
-          © 2025 workerreview.it tutti i diritti riservati
+          © 2025 worker-review.it
         </p>
       </div>
     </footer>
