@@ -1,33 +1,23 @@
-
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../features/global/globalSlice";
-import { useLazyLoginQuery, useRegisterMutation } from "../services/apiService";
+import { useLazyLoginQuery } from "../services/apiService";
 import toast from "react-hot-toast";
 import ChiSiamo from "../components/ChiSiamo";
-
 
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.global);
-
-
-  const [triggerLogin, { isFetching }] = useLazyLoginQuery();
-  const [register] = useRegisterMutation();
-
-  const [login, { isLoading, error }] = useLazyLoginQuery();
-
+  const [triggerLogin, { isFetching, error }] = useLazyLoginQuery();
 
   useEffect(() => {
     if (!user && localStorage.getItem("user")) {
       const savedUser = JSON.parse(localStorage.getItem("user"));
-      dispatch(setUser(savedUser)); 
+      dispatch(setUser(savedUser));
     }
-
   }, [dispatch, user]);
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,9 +34,8 @@ function Login() {
         password: user?.password || "",
       }).unwrap();
 
-      console.log("Risposta dal server:", response); 
-
-      if (response.length === 1) { // Salva l'utente nel localStorage solo dopo un login riuscito
+      if (response.length === 1) {
+        // Salva l'utente nel localStorage solo dopo un login riuscito
         dispatch(setUser(response[0]));
         localStorage.setItem("user", JSON.stringify(response[0]));
         toast.success("Login riuscito!");
@@ -56,7 +45,6 @@ function Login() {
       }
     } catch (err) {
       toast.error("Errore durante il login");
-
     }
   };
 
@@ -84,10 +72,7 @@ function Login() {
               name="email"
               onChange={handleChange}
               placeholder="Email"
-
               value={user?.email || ""}
-              onChange={handleChange}
-
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
               required
             />
@@ -96,9 +81,8 @@ function Login() {
               type="password"
               name="password"
               onChange={handleChange}
-
+              placeholder="Password"
               value={user?.password || ""}
-
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
               required
             />
@@ -107,11 +91,7 @@ function Login() {
               className="bg-green-600 w-full rounded-lg py-2 text-white hover:bg-green-700 cursor-pointer"
               disabled={isFetching}
             >
-
               {isFetching ? "Accesso in corso..." : "Accedi"}
-
-              {isLoading ? "Login..." : "Accedi"}
-
             </button>
             {error && (
               <p className="text-red-500 text-sm mt-2">

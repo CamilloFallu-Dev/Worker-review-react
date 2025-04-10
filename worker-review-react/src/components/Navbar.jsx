@@ -6,7 +6,6 @@ import Avatar from "react-avatar";
 export default function Navbar() {
   const user = useSelector((state) => state.global.user);
   const isLoggedIn = user && user.email && user.password ? true : false;
-  console.log("Navbar: isLoggedIn =", isLoggedIn, "user =", user);
 
   const handleLogout = () => {
     localStorage.removeItem("user");
