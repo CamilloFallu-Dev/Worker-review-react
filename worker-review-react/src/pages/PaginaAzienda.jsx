@@ -65,20 +65,19 @@ export default function PaginaAzienda() {
 
     try {
       await new Promise((resolve) => setTimeout(resolve, 3000));
-  
+
       await addReview(nuovaRecensione).unwrap();
       await refetch();
       setNome("");
       setTitolo("");
       setRecensione("");
       setVoto(1);
-  
+
       toast.success("Recensione inviata con successo!", { id: loadingToast });
     } catch (error) {
       console.error("Errore nell'invio della recensione:", error);
       toast.error("Errore nell'invio della recensione!", { id: loadingToast });
     }
-  
   };
 
   if (isLoading || reviewsLoading) return <p>Caricamento...</p>;
@@ -87,7 +86,7 @@ export default function PaginaAzienda() {
 
   return (
     <div>
-      <div className="p-4 bg-gray-50 min-h-screen flex flex-col items-center justify-center">
+      <div className=" bg-gray-50 min-h-screen flex flex-col items-center justify-center">
         {/* HERO */}
         <div className="relative w-full h-auto mb-10">
           <div className="relative w-full max-h-[400px] overflow-hidden rounded-b-xl shadow-lg ">
@@ -109,6 +108,7 @@ export default function PaginaAzienda() {
           <h1 className="mt-2 text-3xl sm:text-5xl font-bold text-gray-800 tracking-wide">
             {azienda.name}
           </h1>
+
           <p className="mt-2 text-gray-700 sm:text-xl sm:font-bold sm:text-black">
             {azienda.country}
           </p>
@@ -116,12 +116,13 @@ export default function PaginaAzienda() {
             {azienda.address}
           </p>
           <p className="mt-2 text-gray-600 max-w-3xl mx-auto text-center p-3">
+
             {azienda.description}
           </p>
 
           {/* Form recensioni */}
           <form className="mt-6 w-full max-w-sm" onSubmit={handleSubmit}>
-            <h2 className="text-3xl p-5 font-bold text-green-600 flex justify-center">
+            <h2 className="text-2xl sm:text-3xl p-5 font-bold text-green-600 flex justify-center">
               Scrivi la tua recensione
             </h2>
             <label className="mb-1 font-semibold text-gray-700">
@@ -170,7 +171,7 @@ export default function PaginaAzienda() {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="mt-3 bg-green-600 text-white text-s px-4 py-2 border rounded hover:bg-green-700 transition-colors"
+                className="mt-3 bg-green-600 text-white px-8 py-2 border rounded-lg hover:bg-green-700"
               >
                 Invia
               </button>
@@ -185,7 +186,9 @@ export default function PaginaAzienda() {
         </h2>
       </div>
       {/* Recensioni */}
+
       <div className="bg-gray-50 p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+
         {azienda.reviews && azienda.reviews.length > 0 ? (
           azienda.reviews.map((review, index) => (
             <ReviewCard

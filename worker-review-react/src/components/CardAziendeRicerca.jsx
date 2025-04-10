@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 
 function CardAziendeRicerca({ company }) {
   return (
-    <div className="flex flex-wrap justify-center p-2 sm:flex-col gap-5 lg:grid lg:grid-cols-3">
+    <div className=" sm:flex-col ml-2 mr-2 mt-2 p-2 bg-white rounded-lg">
       <Link
         to={`/company-page/${company.slug}`}
-        className="flex flex-col m-0 sm:flex-row sm:w-full mb-8 p-5 shadow-md rounded-xl bg-white transform transition duration-700 hover:scale-110"
+        className="bg-white flex p-2 gap-2"
       >
         <img
           src={company.url}
           alt={company.name}
-          className="rounded-full object-contain w-10 h-10 sm:w-12 sm:h-12 sm:rounded-full"
+          className="rounded-full object-contain w-10 h-10 sm:w-12 sm:h-12 sm:rounded-full bg-white"
         />
         <div className="space-y-2 font-medium dark:text-white text-left rtl:text-right sm:ms-3">
           <div className="text-black font-semibold">{company.name}</div>

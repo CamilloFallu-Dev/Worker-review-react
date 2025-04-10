@@ -1,10 +1,9 @@
-import Aziendepartner from "../components/Aziendepartner";
+import AziendePartner from "../components/Aziendepartner";
 import CardAziendaHome from "../components/CardAziendaHome";
 import ChiSiamo from "../components/ChiSiamo";
-import Chisiamodue from "../components/Chisiamodue";
+import ChiSiamoDue from "../components/ChiSiamoDue";
 import Hero from "../components/Hero";
 import StatsHomepage from "../components/StatsHomepage";
-// import Team from "../components/Team";
 
 export default function Home() {
   return (
@@ -24,18 +23,13 @@ export default function Home() {
       <div>
         <ChiSiamo />
       </div>
-      {/* <div>
-        <Team />
-      </div> */}
       <div>
         <StatsHomepage />
       </div>
       <div>
-        <Chisiamodue />
-        <Aziendepartner />
+        <ChiSiamoDue />
+        <AziendePartner />
       </div>
     </div>
   );
 }
-
-//http://localhost:3000/companies?_embed=reviews

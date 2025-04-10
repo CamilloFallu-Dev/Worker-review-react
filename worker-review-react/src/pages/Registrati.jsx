@@ -1,9 +1,11 @@
 import Information from "../components/Information";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../features/global/globalSlice";
+
 import { useRegisterMutation, useGetUsersQuery } from "../services/apiService";
 import toast, { Toaster } from "react-hot-toast";
 import { useState, useEffect } from "react";
+
 
 function Registrati() {
   const dispatch = useDispatch();
@@ -54,7 +56,6 @@ function Registrati() {
 
   return (
     <div>
-      <Toaster position="center" reverseOrder={false} />
       <div className="relative bg-green-600 py-16">
         <div className="absolute inset-0">
           <img

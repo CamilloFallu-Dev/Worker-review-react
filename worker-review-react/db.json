@@ -255,6 +255,15 @@
       "password": "airbnb123",
       "description": "Airbnb è una piattaforma che consente di prenotare soggiorni in case e appartamenti privati.",
       "slug": "airbnb"
+    },
+    {
+      "id": "34a0",
+      "name": "Poste Italiane",
+      "address": "Roma",
+      "workSector": "Finanza",
+      "email": "poste-italiane@gmail.com",
+      "password": "poastemerda",
+      "description": "ciao"
     }
   ],
   "users": [
@@ -301,6 +310,7 @@
       "password": "superdario99"
     },
     {
+
       "id": "9633",
       "name": "Andrea",
       "surname": "Lo muto",
@@ -341,6 +351,13 @@
       "surname": "123",
       "email": "123@libero.it",
       "password": "123"
+
+      "id": "f625",
+      "name": "Andrea",
+      "surname": "Lo Muto",
+      "email": "andrealomuto@gmail.com",
+      "password": "andreee99"
+
     }
   ],
   "reviews": [
@@ -381,6 +398,24 @@
       "author": "1",
       "vote": 1,
       "date": "2025-04-02T08:19:00.353Z",
+      "companyId": "3"
+    },
+    {
+      "id": "92c6",
+      "reviewTitle": "cavallo cavallo",
+      "reviewText": "c'era una volta un cavallo di nome cavallo che andava galoppando per le praterie, un giorno si ruppe la zampa",
+      "author": "Cavallo genio",
+      "vote": 5,
+      "date": "2025-04-03T15:22:21.549Z",
+      "companyId": "3"
+    },
+    {
+      "id": "7bb6",
+      "reviewTitle": "cavallo di nome",
+      "reviewText": "Un altro punto forte è la durata della batteria: con un uso moderato, riesco a tirare avanti tranquillamente per due giorni senza dover ricaricare, il che è molto conveniente.\n\nTuttavia, ci sono alcuni piccoli difetti. La sincronizzazione con alcune app di terze parti può essere lenta e, ogni tanto, la connessione Bluetooth sembra perdere segnale per pochi secondi. Inoltre, il cinturino potrebbe essere più comodo per chi ha polsi sottili, dato che tende ad essere un po' rigido.",
+      "author": "Cavallo",
+      "vote": 1,
+      "date": "2025-04-03T15:23:18.395Z",
       "companyId": "3"
     }
   ],
