@@ -10,7 +10,7 @@ import PaginaContatti from "./pages/PaginaContatti";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
 
-import ProfiloUtente from "./components/ProfiloUtente";
+import UserPage from "./components/UserPage";
 
 import { Toaster } from "react-hot-toast";
 
@@ -29,8 +29,8 @@ export default function App() {
         <Route path="/company-page/:slug" element={<PaginaAzienda />} />
         <Route path="/search" element={<PaginaRicercaAziende />} />
         <Route path="/contact" element={<PaginaContatti />} />
-        <Route path="/profile" element={<ProfiloUtente />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/profile/:id" element={<UserPage />} />
       </Routes>
       <Footer />
     </div>

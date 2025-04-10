@@ -1,45 +1,62 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import ChiSiamo from "../components/ChiSiamo";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../features/global/globalSlice";
+import { useLazyLoginQuery, useRegisterMutation } from "../services/apiService";
+import toast from "react-hot-toast";
+import ChiSiamo from "../components/ChiSiamo";
 
 function Login() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { user } = useSelector((state) => state.global);
-  const [register, { isLoading, error }] = useRegisterMutation();
+
+  const [triggerLogin, { isFetching }] = useLazyLoginQuery();
+  const [register] = useRegisterMutation();
 
   useEffect(() => {
-    const savedUser = localStorage.getItem("user");
-    if (savedUser) {
-      dispatch(setUser(JSON.parse(savedUser)));
+    // Se l'utente non è già presente nello stato globale
+    if (!user && localStorage.getItem("user")) {
+      const savedUser = JSON.parse(localStorage.getItem("user"));
+      dispatch(setUser(savedUser)); // Aggiorna lo stato solo se non c'è già un utente
     }
-  }, [dispatch]);
- 
+  }, [dispatch, user]);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    dispatch(setUser({ ...user, [name]: value }));
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "email" || name === "password") {
+      // Non salvare nel localStorage durante la scrittura
+      dispatch(setUser({ ...user, [name]: value }));
+    }
   };
 
-  const onRegister = async (event) => {
-    event.preventDefault();
+  const onLogin = async (e) => {
+    e.preventDefault();
     try {
-      const response = await register({
-        email: user.email,
-        password: user.password,
+      const response = await triggerLogin({
+        email: user?.email || "",
+        password: user?.password || "",
       }).unwrap();
-      localStorage.setItem("user", JSON.stringify(response));
-      dispatch(setUser(response));
-      toast.success("Registrazione riuscita!");
+
+      if (response.length === 1) {
+        // Salva l'utente nel localStorage solo dopo un login riuscito
+        dispatch(setUser(response[0]));
+        localStorage.setItem("user", JSON.stringify({
+          email: response[0].email, // salva solo le informazioni necessarie
+          id: response[0].id,       // ad esempio, non la password
+        }));
+        toast.success("Login riuscito!");
+        navigate(`/profile/${response[0].id}`);
+      } else {
+        toast.error("Email o password errate");
+      }
     } catch (err) {
-      toast.error("Errore nella registrazione");
+      toast.error("Errore durante il login");
     }
   };
 
   return (
     <div>
-      {" "}
       <div className="relative bg-green-600 py-16">
         <div className="absolute inset-0">
           <img
@@ -49,40 +66,43 @@ function Login() {
           />
           <div className="absolute inset-0 bg-green-950 opacity-50"></div>
         </div>
-        <div className=" relative text-center text-white">
+        <div className="relative text-center text-white">
           <h1 className="text-4xl font-bold">Worker Review</h1>
           <h2 className="text-xl mt-2">Accedi ed inizia a recensire</h2>
         </div>
 
-        <div className=" relative bg-white border-1 border-gray-400 rounded-lg p-6 w-72 mx-auto mt-12 shadow-2xl">
+        <div className="relative bg-white border-1 border-gray-400 rounded-lg p-6 w-72 mx-auto mt-12 shadow-2xl">
           <form onSubmit={onLogin}>
             <label>Email</label>
             <input
               type="email"
               name="email"
               placeholder="Email"
-             
-              
+              value={user?.email || ""}
+              onChange={handleChange}
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
+              required
             />
             <label>Password</label>
             <input
               type="password"
               name="password"
               placeholder="Password"
-              
-              
+              value={user?.password || ""}
+              onChange={handleChange}
               className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
+              required
             />
             <button
               type="submit"
               className="bg-green-600 w-full rounded-lg py-2 text-white hover:bg-green-700 cursor-pointer"
+              disabled={isFetching}
             >
-              Accedi
+              {isFetching ? "Accesso in corso..." : "Accedi"}
             </button>
           </form>
           <p className="mt-4 text-center text-black-600 cursor-pointer">
-            Non sei registrato? <Link to="/Registrati">Registrati</Link>
+            Non sei registrato? <Link to="/Register">Registrati</Link>
           </p>
         </div>
       </div>
