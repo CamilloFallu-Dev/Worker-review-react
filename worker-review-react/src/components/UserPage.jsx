@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Avatar from "react-avatar";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { logoutUser } from "../features/global/globalSlice"; // Assicurati che il percorso sia corretto
+import { logoutUser } from "../features/global/globalSlice";
 
 function UserPage() {
   const { user } = useSelector((state) => state.global);

@@ -1,7 +1,7 @@
 import Information from "../components/Information";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../features/global/globalSlice";
-import { useRegisterMutation, useGetUsersQuery } from "../services/apiService"; // Importa la query per ottenere gli utenti
+import { useRegisterMutation, useGetUsersQuery } from "../services/apiService";
 import toast, { Toaster } from "react-hot-toast";
 import { useState, useEffect } from "react";
 
@@ -13,7 +13,6 @@ function Registrati() {
   const { data: users, error: usersError } = useGetUsersQuery();
 
   useEffect(() => {
-    // Se c'è un utente salvato in Redux, aggiorna lo stato locale
     if (storedUser) {
       setUserState(storedUser);
     }
@@ -21,7 +20,6 @@ function Registrati() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    // Modifica lo stato locale (campo del modulo)
     setUserState({ ...user, [name]: value });
   };
 

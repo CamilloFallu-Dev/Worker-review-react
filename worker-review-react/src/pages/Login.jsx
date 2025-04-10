@@ -15,17 +15,15 @@ function Login() {
   const [register] = useRegisterMutation();
 
   useEffect(() => {
-    // Se l'utente non è già presente nello stato globale
     if (!user && localStorage.getItem("user")) {
       const savedUser = JSON.parse(localStorage.getItem("user"));
-      dispatch(setUser(savedUser)); // Aggiorna lo stato solo se non c'è già un utente
+      dispatch(setUser(savedUser)); 
     }
   }, [dispatch, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "email" || name === "password") {
-      // Non salvare nel localStorage durante la scrittura
       dispatch(setUser({ ...user, [name]: value }));
     }
   };
@@ -38,12 +36,11 @@ function Login() {
         password: user?.password || "",
       }).unwrap();
 
-      if (response.length === 1) {
-        // Salva l'utente nel localStorage solo dopo un login riuscito
+      if (response.length === 1) { // Salva l'utente nel localStorage solo dopo un login riuscito
         dispatch(setUser(response[0]));
         localStorage.setItem("user", JSON.stringify({
-          email: response[0].email, // salva solo le informazioni necessarie
-          id: response[0].id,       // ad esempio, non la password
+          email: response[0].email,
+          id: response[0].id,
         }));
         toast.success("Login riuscito!");
         navigate(`/profile/${response[0].id}`);
