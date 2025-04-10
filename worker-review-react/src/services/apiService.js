@@ -29,7 +29,7 @@ export const apiService = createApi ({
     }),
 
     login: builder.query({
-      query: (email, password) => `users?email=${email}&password=${password}`,
+      query: ({ email, password }) => `users?email=${email}&password=${password}`,
     }),
 
     register: builder.mutation({
@@ -38,6 +38,10 @@ export const apiService = createApi ({
         method: "POST",
         body: { name, surname, email, password },
       }),
+    }),
+
+    getUsers: builder.query({
+      query: () => 'users',
     }),
 
     registerCompany: builder.mutation({
@@ -84,4 +88,5 @@ export const {
   useRegisterMutation,
   useRegisterCompanyMutation,
   useContactsMutation,
+  useGetUsersQuery,
 } = apiService;
