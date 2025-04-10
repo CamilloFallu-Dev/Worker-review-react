@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Recupera l'utente salvato in precedenza, se presente
-const userFromLocalStorage = JSON.parse(localStorage.getItem("user")) || null;
+const userFromLocalStorage = JSON.parse(localStorage.getItem("user")) || {
+  email: "",
+  password: "",
+};
 
 const initialState = {
   user: userFromLocalStorage,
@@ -17,7 +19,6 @@ export const globalSlice = createSlice({
       if (action.payload) {
         localStorage.setItem("user", JSON.stringify(action.payload));
       } else {
-        // Imposta il valore su "null" (che JSON.parse restituirà come null)
         localStorage.setItem("user", "null");
       }
     },

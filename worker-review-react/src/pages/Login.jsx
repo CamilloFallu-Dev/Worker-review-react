@@ -36,12 +36,11 @@ function Login() {
         password: user?.password || "",
       }).unwrap();
 
+      console.log("Risposta dal server:", response); 
+
       if (response.length === 1) { // Salva l'utente nel localStorage solo dopo un login riuscito
         dispatch(setUser(response[0]));
-        localStorage.setItem("user", JSON.stringify({
-          email: response[0].email,
-          id: response[0].id,
-        }));
+        localStorage.setItem("user", JSON.stringify(response[0]));
         toast.success("Login riuscito!");
         navigate(`/profile/${response[0].id}`);
       } else {
