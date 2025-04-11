@@ -9,8 +9,7 @@ import PaginaRicercaAziende from "./pages/PaginaRicercaAziende";
 import PaginaContatti from "./pages/PaginaContatti";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
-
-import UserPage from "./components/UserPage";
+import UserPage from "./pages/UserPage";
 
 import { Toaster } from "react-hot-toast";
 
