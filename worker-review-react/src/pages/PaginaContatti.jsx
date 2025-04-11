@@ -1,32 +1,45 @@
-import { useState } from "react";
 import FaqContatti from "./../components/Faqcontatti";
+import { useDispatch, useSelector } from "react-redux";
+import { setContacts } from "../features/global/globalSlice";
+import { useContactsMutation } from "../services/apiService";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 function PaginaContatti() {
-  const [formData, setFormData] = useState({
-    nome: localStorage.getItem("nome"),
-    cognome: localStorage.getItem("cognome"),
-    email: localStorage.getItem("email"),
-    messaggio: localStorage.getItem("messaggio"),
-  });
+  const dispatch = useDispatch();
+  const message = useSelector((state) => state.global.message) || {};
+  const [contacts, { isLoading, error }] = useContactsMutation();
+
+  useEffect(() => {
+    const savedContacts = localStorage.getItem("message");
+    if (savedContacts) {
+      dispatch(setContacts(JSON.parse(savedContacts)));
+    }
+  }, [dispatch]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => {
-      const newData = { ...prevData, [name]: value };
-      localStorage.setItem(name, value);
-      return newData;
-    });
+    const updatedMessage = {...message,[name]: value}
+    dispatch(setContacts(updatedMessage));
+    localStorage.setItem("message",JSON.stringify(updatedMessage))
   };
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Messaggio inviato!");
-    setFormData({
-      nome: "",
-      cognome: "",
-      email: "",
-      messaggio: "",
-    });
+    try {
+      const response = await contacts({
+        name: message.nome,
+        surname: message.cognome,
+        email: message.email,
+        message: message.messaggio,
+      }).unwrap();
+      localStorage.setItem("message", JSON.stringify(response));
+      dispatch(setContacts(response));
+      toast.success("Messaggio inviato!");
+    } catch (err) {
+      toast.error("Errore nell' invio del messaggio!");
+    }
   };
 
   return (
@@ -54,7 +67,7 @@ function PaginaContatti() {
               className="bg-white w-full p-2 mb-4 rounded-lg border border-gray-400"
               type="text"
               name="nome"
-              value={formData.nome}
+              value={contacts.nome}
               onChange={handleChange}
               placeholder="Nome"
             />
@@ -63,7 +76,7 @@ function PaginaContatti() {
               className="bg-white w-full p-2 mb-4 rounded-lg border border-gray-400"
               type="text"
               name="cognome"
-              value={formData.cognome}
+              value={contacts.cognome}
               onChange={handleChange}
               placeholder="Cognome"
             />
@@ -72,7 +85,7 @@ function PaginaContatti() {
               className="bg-white w-full p-2 mb-4 rounded-lg border border-gray-400"
               type="email"
               name="email"
-              value={formData.email}
+              value={contacts.email}
               onChange={handleChange}
               placeholder="Email"
             />
@@ -80,7 +93,7 @@ function PaginaContatti() {
             <textarea
               className="bg-white w-full p-2 mb-4 rounded-lg border border-gray-400"
               name="messaggio"
-              value={formData.messaggio}
+              value={contacts.messaggio}
               onChange={handleChange}
               placeholder="Scrivi qui il tuo messaggio..."
             />
@@ -88,8 +101,13 @@ function PaginaContatti() {
               className="bg-green-600 w-full rounded-lg py-2 text-white hover:bg-green-700 cursor-pointer"
               type="submit"
             >
-              Invia
+              {isLoading ? "Invio messaggio..." : "Invia"}
             </button>
+            {error && (
+              <p className="text-red-500 text-sm mt-2">
+                Errore: {error.data?.message || "Qualcosa è andato storto"}
+              </p>
+            )}
           </form>
         </div>
       </div>
