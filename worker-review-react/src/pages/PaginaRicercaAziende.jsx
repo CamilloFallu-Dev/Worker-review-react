@@ -48,7 +48,7 @@ function PaginaRicercaAziende() {
 
   const { data, error, isLoading } = useGetCompaniesQuery();
 
-  const filteredCompanies = data
+  let filteredCompanies = data
     ? data.filter((company) => {
         const matchesSector =
           filterSector.length === 0 ||
@@ -62,6 +62,8 @@ function PaginaRicercaAziende() {
         return matchesSector && matchesSearch;
       })
     : [];
+
+  filteredCompanies = filteredCompanies.sort();
 
   return (
     <div className="">
