@@ -15,9 +15,14 @@ export const globalSlice = createSlice({
     setCompany: (state, action) => {
       state.company = action.payload;
     },
+    setContacts: (state,action) =>{
+      state.contacts= action.payload;
+    },
   },
 });
 
-export const { setUser, setCompany } = globalSlice.actions;
+export const { setUser, setCompany,setContacts } = globalSlice.actions;
 
 export default globalSlice.reducer;
+
+
