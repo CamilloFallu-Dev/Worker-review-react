@@ -22,7 +22,7 @@ export default function ChiSiamo() {
 
             <div className="mt-4 md:mt-8">
               <a
-                href="#"
+                href="/search"
                 className="inline-block rounded-sm bg-emerald-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:ring-3 focus:ring-yellow-400 focus:outline-hidden"
               >
                 Inizia a recensire

@@ -1,19 +1,32 @@
-// import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import logoWR from "/public/logoWR.png";
+import Avatar from "react-avatar";
 
 export default function Navbar() {
+  const user = useSelector((state) => state.global.user);
+  const isLoggedIn = user && user.email && user.password ? true : false;
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    dispatch(logoutUser());
+    navigate("/login");
+  };
+
   return (
     <div className="flex justify-between items-center w-full">
       <div className="flex">
-        <Link to="/" className="flex justify-center items-center font-bold">
+        <Link
+          to={isLoggedIn ? `/profile/${user.id}` : "/"}
+          className="flex justify-center items-center font-bold"
+        >
           <img src={logoWR} alt="Logo" className="w-20 h-auto" />
         </Link>
       </div>
 
       <div className="flex justify-between">
         <div className="flex justify-between items-center gap-5 p-2 bg-white">
-          <div className="hidden md:flex gap-5 ">
+          <div className="hidden md:flex gap-5">
             <Link
               to="/"
               className="hover:bg-green-600 hover:text-white p-2 rounded-lg text-sm flex justify-center items-center gap-2"
@@ -36,7 +49,6 @@ export default function Navbar() {
               </span>
               <div>Home</div>
             </Link>
-
             <Link
               to="/search"
               className="hover:bg-green-600 hover:text-white p-2 rounded-lg text-sm flex justify-center items-center gap-2"
@@ -83,7 +95,7 @@ export default function Navbar() {
             </Link>
             <Link
               to="/register-company"
-              className=" hover:bg-green-600 hover:text-white  text-black p-2 rounded-lg text-sm flex justify-center items-center gap-2"
+              className="hover:bg-green-600 hover:text-white p-2 rounded-lg text-sm flex justify-center items-center gap-2"
             >
               <span>
                 <svg
@@ -103,73 +115,72 @@ export default function Navbar() {
               </span>
               <div>Registra Azienda</div>
             </Link>
-            <Link
-              to="/register"
-              className=" hover:bg-green-600 hover:text-white text-black p-2 rounded-lg text-sm flex justify-center items-center gap-2"
-            >
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="size-6"
+            {!isLoggedIn && (
+              <>
+                <Link
+                  to="/register"
+                  className="hover:bg-green-600 hover:text-white text-black p-2 rounded-lg text-sm flex justify-center items-center gap-2"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z"
-                  />
-                </svg>
-              </span>
-              <div>Registrati</div>
-            </Link>
-            <Link
-              to="/login"
-              className=" hover:bg-green-600 hover:text-white p-2 rounded-lg text-sm flex justify-center items-center gap-2"
-            >
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="size-6"
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="size-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z"
+                      />
+                    </svg>
+                  </span>
+                  <div>Registrati</div>
+                </Link>
+                <Link
+                  to="/login"
+                  className="hover:bg-green-600 hover:text-white p-2 rounded-lg text-sm flex justify-center items-center gap-2"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z"
-                  />
-                </svg>
-              </span>
-              <div>Accedi</div>
-            </Link>
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="size-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z"
+                      />
+                    </svg>
+                  </span>
+                  <div>Accedi</div>
+                </Link>
+              </>
+            )}
           </div>
+
           <div className="flex">
-            <Link
-              to="/profile"
-              className="bg-green-600  hover:text-white text-black p-2 rounded-full flex justify-center items-center gap-2"
-            >
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-                  />
-                </svg>
-              </span>
-            </Link>
+            {isLoggedIn && (
+              <Link
+                to={`/profile/${user.id}`}
+                className="bg-green-600 hover:text-white text-black p-2 rounded-full flex justify-center items-center gap-2"
+              >
+                <Avatar
+                  name={`${user.nome} ${user.cognome}`}
+                  size="32"
+                  round
+                  textSizeRatio={2}
+                  color="#ffffff"
+                  fgColor="#000000"
+                />
+              </Link>
+            )}
           </div>
         </div>
       </div>

@@ -93,26 +93,30 @@ export default function PaginaAzienda() {
             <img
               src="./../src/assets/Azienda-del-futuro.jpg"
               alt="LAVORATORE-IMAGE"
-              className="w-full h-[300px] md:h-[400px] object-cover transition-transform duration-500 hover:scale-105"
+              className="w-full h-[300px] sm:h-[400px] object-cover transition-transform duration-500 hover:scale-105"
             />
           </div>
           <img
             src={azienda.url}
             alt={azienda.name}
-            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 max-w-40 h-auto rounded-full object-cover border-4 border-white shadow-xl hover:scale-105 bg-white"
+            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 sm:max-w-45 max-w-35 h-auto rounded-full object-cover border-4 border-white shadow-xl hover:scale-105 bg-white"
           />
         </div>
 
         {/* Sezione principale */}
         <div className="w-full p-6 flex flex-col items-center mt-10">
-          <h1 className="mt-2 text-3xl md:text-5xl font-bold text-gray-800 tracking-wide">
+          <h1 className="mt-2 text-3xl sm:text-5xl font-bold text-gray-800 tracking-wide">
             {azienda.name}
           </h1>
-          <p className="mt-2 text-gray-700 md:text-xl md:font-bold md:text-black font-bold">
-            {azienda.country} | {azienda.address}
-          </p>
 
-          <p className="mt-2 text-gray-600 flex justify-center text-center">
+          <p className="mt-2 text-gray-700 sm:text-xl sm:font-bold sm:text-black">
+            {azienda.country}
+          </p>
+          <p className="mt-2 text-gray-700 sm:text-xl sm:font-bold sm:text-black">
+            {azienda.address}
+          </p>
+          <p className="mt-2 text-gray-600 max-w-3xl mx-auto text-center p-3">
+
             {azienda.description}
           </p>
 
@@ -182,7 +186,9 @@ export default function PaginaAzienda() {
         </h2>
       </div>
       {/* Recensioni */}
-      <div className="bg-gray-50 p-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-full">
+
+      <div className="bg-gray-50 p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+
         {azienda.reviews && azienda.reviews.length > 0 ? (
           azienda.reviews.map((review, index) => (
             <ReviewCard
