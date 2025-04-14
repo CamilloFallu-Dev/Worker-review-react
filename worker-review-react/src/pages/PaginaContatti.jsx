@@ -19,11 +19,10 @@ function PaginaContatti() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const updatedMessage = {...message,[name]: value}
+    const updatedMessage = { ...message, [name]: value };
     dispatch(setContacts(updatedMessage));
-    localStorage.setItem("message",JSON.stringify(updatedMessage))
+    localStorage.setItem("message", JSON.stringify(updatedMessage));
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,7 +66,7 @@ function PaginaContatti() {
               className="bg-white w-full p-2 mb-4 rounded-lg border border-gray-400"
               type="text"
               name="nome"
-              value={contacts.nome}
+              value={message.nome}
               onChange={handleChange}
               placeholder="Nome"
             />
@@ -76,7 +75,7 @@ function PaginaContatti() {
               className="bg-white w-full p-2 mb-4 rounded-lg border border-gray-400"
               type="text"
               name="cognome"
-              value={contacts.cognome}
+              value={message.cognome}
               onChange={handleChange}
               placeholder="Cognome"
             />
@@ -85,7 +84,7 @@ function PaginaContatti() {
               className="bg-white w-full p-2 mb-4 rounded-lg border border-gray-400"
               type="email"
               name="email"
-              value={contacts.email}
+              value={message.email}
               onChange={handleChange}
               placeholder="Email"
             />
@@ -93,7 +92,7 @@ function PaginaContatti() {
             <textarea
               className="bg-white w-full p-2 mb-4 rounded-lg border border-gray-400"
               name="messaggio"
-              value={contacts.messaggio}
+              value={message.messaggio}
               onChange={handleChange}
               placeholder="Scrivi qui il tuo messaggio..."
             />
