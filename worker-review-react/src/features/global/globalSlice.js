@@ -8,6 +8,7 @@ const userFromLocalStorage = JSON.parse(localStorage.getItem("user")) || {
 const initialState = {
   user: userFromLocalStorage,
   company: null,
+  contacts: null,
 };
 
 export const globalSlice = createSlice({
@@ -29,17 +30,13 @@ export const globalSlice = createSlice({
     setCompany: (state, action) => {
       state.company = action.payload;
     },
-    setContacts: (state,action) =>{
-      state.contacts= action.payload;
+    setContacts: (state, action) => {
+      state.message = action.payload;
     },
   },
 });
 
-
-
-export const { setUser, logoutUser, setCompany,setContacts } = globalSlice.actions;
-
+export const { setUser, logoutUser, setCompany, setContacts } =
+  globalSlice.actions;
 
 export default globalSlice.reducer;
-
-

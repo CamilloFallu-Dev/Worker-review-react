@@ -5,10 +5,7 @@
       "name": "Microsoft",
       "country": "USA",
       "address": "Redmond, Washington",
-      "workSector": [
-        "IT",
-        "Software"
-      ],
+      "workSector": ["IT", "Software"],
       "url": "/public/microsoft.png",
       "email": "microsoft@gmail.com",
       "password": "microsoft123",
@@ -20,10 +17,7 @@
       "name": "Amazon",
       "country": "USA",
       "address": "Seattle, Washington",
-      "workSector": [
-        "E-commerce",
-        "Cloud Computing"
-      ],
+      "workSector": ["E-commerce", "Cloud Computing"],
       "url": "/public/amazon.png",
       "email": "amazon@gmail.com",
       "password": "amazon123",
@@ -35,10 +29,7 @@
       "name": "Tesla",
       "country": "USA",
       "address": "Palo Alto, California",
-      "workSector": [
-        "Automotive",
-        "Renewable Energy"
-      ],
+      "workSector": ["Automotive", "Renewable Energy"],
       "url": "/public/tesla.png",
       "email": "tesla@gmail.com",
       "password": "tesla123",
@@ -50,10 +41,7 @@
       "name": "Samsung",
       "country": "South Korea",
       "address": "Seoul, South Korea",
-      "workSector": [
-        "IT",
-        "Electronics"
-      ],
+      "workSector": ["IT", "Electronics"],
       "url": "/public/samsung.png",
       "email": "samsung@gmail.com",
       "password": "samsung123",
@@ -65,10 +53,7 @@
       "name": "Facebook",
       "country": "USA",
       "address": "Menlo Park, California",
-      "workSector": [
-        "Social Media",
-        "AI"
-      ],
+      "workSector": ["Social Media", "AI"],
       "url": "/public/facebook.png",
       "email": "facebook@gmail.com",
       "password": "facebook123",
@@ -80,11 +65,7 @@
       "name": "IBM",
       "country": "USA",
       "address": "Armonk, New York",
-      "workSector": [
-        "IT",
-        "AI",
-        "Consulting"
-      ],
+      "workSector": ["IT", "AI", "Consulting"],
       "url": "/public/ibm.png",
       "email": "ibm@gmail.com",
       "password": "ibm123",
@@ -96,10 +77,7 @@
       "name": "Sony",
       "country": "Japan",
       "address": "Tokyo, Japan",
-      "workSector": [
-        "Electronics",
-        "Entertainment"
-      ],
+      "workSector": ["Electronics", "Entertainment"],
       "url": "/public/sony.png",
       "email": "sony@gmail.com",
       "password": "sony123",
@@ -111,10 +89,7 @@
       "name": "Huawei",
       "country": "China",
       "address": "Shenzhen, China",
-      "workSector": [
-        "Telecommunications",
-        "IT"
-      ],
+      "workSector": ["Telecommunications", "IT"],
       "url": "/public/huawei.png",
       "email": "huawei@gmail.com",
       "password": "huawei123",
@@ -126,10 +101,7 @@
       "name": "Netflix",
       "country": "USA",
       "address": "Los Gatos, California",
-      "workSector": [
-        "Entertainment",
-        "Streaming"
-      ],
+      "workSector": ["Entertainment", "Streaming"],
       "url": "/public/netflix.png",
       "email": "netflix@gmail.com",
       "password": "netflix123",
@@ -141,11 +113,7 @@
       "name": "Nvidia",
       "country": "USA",
       "address": "Santa Clara, California",
-      "workSector": [
-        "IT",
-        "Gaming",
-        "AI"
-      ],
+      "workSector": ["IT", "Gaming", "AI"],
       "url": "/public/nvidia.png",
       "email": "nvidia@gmail.com",
       "password": "nvidia123",
@@ -157,9 +125,7 @@
       "name": "X",
       "country": "USA",
       "address": "San Francisco, California",
-      "workSector": [
-        "Social Media"
-      ],
+      "workSector": ["Social Media"],
       "url": "/public/twitter.png",
       "email": "socialx@gmail.com",
       "password": "x123",
@@ -171,10 +137,7 @@
       "name": "Spotify",
       "country": "Sweden",
       "address": "Stockholm, Sweden",
-      "workSector": [
-        "Entertainment",
-        "Music Streaming"
-      ],
+      "workSector": ["Entertainment", "Music Streaming"],
       "url": "/public/spotify.png",
       "email": "spotify@gmail.com",
       "password": "spotify123",
@@ -186,10 +149,7 @@
       "name": "Uber",
       "country": "USA",
       "address": "San Francisco, California",
-      "workSector": [
-        "Transportation",
-        "Technology"
-      ],
+      "workSector": ["Transportation", "Technology"],
       "url": "/public/uber.png",
       "email": "uber@gmail.com",
       "password": "uber123",
@@ -201,10 +161,7 @@
       "name": "Adobe",
       "country": "USA",
       "address": "San Jose, California",
-      "workSector": [
-        "Software",
-        "Creative Tools"
-      ],
+      "workSector": ["Software", "Creative Tools"],
       "url": "/public/adobe.png",
       "email": "adobe@gmail.com",
       "password": "adobe123",
@@ -216,10 +173,7 @@
       "name": "Intel",
       "country": "USA",
       "address": "Santa Clara, California",
-      "workSector": [
-        "IT",
-        "Semiconductors"
-      ],
+      "workSector": ["IT", "Semiconductors"],
       "url": "/public/intel.png",
       "email": "intel@gmail.com",
       "password": "intel123",
@@ -231,10 +185,7 @@
       "name": "Pinterest",
       "country": "USA",
       "address": "San Francisco, California",
-      "workSector": [
-        "Social Media",
-        "Advertising"
-      ],
+      "workSector": ["Social Media", "Advertising"],
       "url": "/public/pinterest.png",
       "email": "pinterest@gmail.com",
       "password": "pinterest123",
@@ -246,10 +197,7 @@
       "name": "Airbnb",
       "country": "USA",
       "address": "San Francisco, California",
-      "workSector": [
-        "Hospitality",
-        "Technology"
-      ],
+      "workSector": ["Hospitality", "Technology"],
       "url": "/public/airbnb.png",
       "email": "airbnb@gmail.com",
       "password": "airbnb123",
@@ -262,25 +210,11 @@
       "address": "Roma",
       "workSector": "Finanza",
       "email": "poste-italiane@gmail.com",
-      "password": "poastemerda",
-      "description": "ciao"
+      "password": "postemerda",
+      "description": "Siamo incapaci"
     }
   ],
   "users": [
-    {
-      "id": "1",
-      "name": "Marta",
-      "surname": "Franchi",
-      "email": "martafranchi@gmail.com",
-      "password": "martafranchi"
-    },
-    {
-      "id": "2",
-      "name": "Gianni",
-      "surname": "Rossi",
-      "email": "giannirossi@gmail.com",
-      "password": "giannirossi"
-    },
     {
       "id": "69c0",
       "name": "Fabio",
@@ -308,54 +242,9 @@
       "surname": "Scalia",
       "email": "superdario@gmail.com",
       "password": "superdario99"
-    },
-    {
-      "id": "749a",
-      "name": "ads",
-      "surname": "dsds",
-      "email": "aaa@gmail.com",
-      "password": "aaa"
-    },
-    {
-      "id": "0da8",
-      "name": "123",
-      "surname": "123",
-      "email": "123@libero.it",
-      "password": "123",
-      "description": "dsadasdaddsadsadsa"
     }
   ],
   "reviews": [
-    {
-      "id": "1",
-      "companyId": 1,
-      "reviewTitle": "Ottimo servizio",
-      "reviewText": "Ottimo servizio",
-      "userId": 1,
-      "author": "Marta Franchi",
-      "vote": 4,
-      "date": "2025-03-12T10:00:00.000Z"
-    },
-    {
-      "id": "2",
-      "companyId": 3,
-      "reviewTitle": "Esperienza positiva",
-      "reviewText": "Molto professionali",
-      "userId": 2,
-      "author": "Gianni Rossi",
-      "vote": 3,
-      "date": "2025-03-12T12:00:00.000Z"
-    },
-    {
-      "id": "3",
-      "companyId": 2,
-      "reviewTitle": "Servizio eccellente",
-      "reviewText": "Servizio eccellente",
-      "userId": 3,
-      "author": "Utente Sconosciuto",
-      "vote": 5,
-      "date": "2025-03-12T14:00:00.000Z"
-    },
     {
       "id": "ed6d",
       "reviewTitle": "1",
@@ -384,28 +273,6 @@
       "companyId": "3"
     }
   ],
-  "team": [
-    {
-      "id": "1",
-      "name": "Camillo Fallù",
-      "url": "/public/camillofoto.jpg"
-    },
-    {
-      "id": "2",
-      "name": "Fabio Artudi",
-      "url": "/public/fabioartudi.jpg"
-    },
-    {
-      "id": "3",
-      "name": "Michele Vitucci",
-      "url": "/public/michelevitucci.jpg"
-    },
-    {
-      "id": "4",
-      "name": "Andrea Lo Muto",
-      "url": "/public/andrealomuto.jpg"
-    }
-  ],
   "stats": [
     {
       "id": "1",
@@ -425,8 +292,11 @@
   ],
   "contacts": [
     {
-      "id": "55f1"
+      "id": "26e5",
+      "name": "Fabio",
+      "surname": "Artudi",
+      "email": "payoartudi@hotmail.it",
+      "message": "ciao"
     }
-  
   ]
 }

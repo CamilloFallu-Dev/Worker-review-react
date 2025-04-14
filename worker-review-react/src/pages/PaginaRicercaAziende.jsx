@@ -1,6 +1,9 @@
 import { useState } from "react";
 import CardAziendeRicerca from "../components/CardAziendeRicerca";
-import { useGetCompaniesQuery } from "../services/apiService";
+import {
+  useGetCompaniesQuery,
+  useGetReviewsQuery,
+} from "../services/apiService";
 
 const sectors = [
   "Automotive",
@@ -25,8 +28,10 @@ const sectors = [
 function PaginaRicercaAziende() {
   const [modal, setModal] = useState(false);
   const [filterSector, setFilterSector] = useState([]);
-  const [filterRating, setFilterRating] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [sortByRating, setSortByRating] = useState("");
+  const { data: companies = [], error, isLoading } = useGetCompaniesQuery();
+  const { data: reviews = [] } = useGetReviewsQuery();
 
   const handleModal = () => setModal((prev) => !prev);
 
@@ -38,32 +43,43 @@ function PaginaRicercaAziende() {
     );
   };
 
-  const toggleFilterRating = (rating) => {
-    setFilterRating((prev) => prev.includes(rating))
-      ? prev.filter((r) => r !== rating)
-      : [...prev, rating];
-  };
-
   const handleSearch = (e) => setSearchQuery(e.target.value.toLowerCase());
 
-  const { data, error, isLoading } = useGetCompaniesQuery();
+  const calculateAverageRating = (companyId) => {
+    const companyReviews = reviews.filter(
+      (review) => review.companyId?.toString() === companyId.toString()
+    );
+    if (companyReviews.length === 0) return null;
+    const total = companyReviews.reduce((sum, r) => sum + r.vote, 0);
+    return total / companyReviews.length;
+  };
 
-  let filteredCompanies = data
-    ? data.filter((company) => {
-        const matchesSector =
-          filterSector.length === 0 ||
-          (Array.isArray(company.workSector) &&
-            company.workSector.some((sector) => filterSector.includes(sector)));
+  let filteredCompanies = companies.filter((company) => {
+    const matchesSector =
+      filterSector.length === 0 ||
+      (Array.isArray(company.workSector) &&
+        company.workSector.some((sector) => filterSector.includes(sector)));
 
-        const matchesSearch = (company.slug || "")
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase());
+    const matchesSearch = (company.slug || "")
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
 
-        return matchesSector && matchesSearch;
-      })
-    : [];
+    return matchesSector && matchesSearch;
+  });
 
-  filteredCompanies = filteredCompanies.sort();
+  if (sortByRating === "best") {
+    filteredCompanies.sort((a, b) => {
+      const ratingA = calculateAverageRating(a.id) || 0;
+      const ratingB = calculateAverageRating(b.id) || 0;
+      return ratingB - ratingA;
+    });
+  } else if (sortByRating === "worst") {
+    filteredCompanies.sort((a, b) => {
+      const ratingA = calculateAverageRating(a.id) || 0;
+      const ratingB = calculateAverageRating(b.id) || 0;
+      return ratingA - ratingB;
+    });
+  }
 
   return (
     <div className="">
@@ -139,20 +155,36 @@ function PaginaRicercaAziende() {
           </span>
         </div>
 
-        <button className="p-2 rounded-xl bg-green-600 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer w-1/3 sm:block hidden">
+        <button
+          checked={sortByRating === "best"}
+          onClick={() => setSortByRating("best")}
+          className="p-2 rounded-xl bg-green-600 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer w-1/3 sm:block hidden"
+        >
           Migliore valutazione
         </button>
 
-        <button className="p-2 rounded-xl bg-green-600 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer w-1/3 sm:block hidden">
+        <button
+          checked={sortByRating === "worst"}
+          onClick={() => setSortByRating("worst")}
+          className="p-2 rounded-xl bg-green-600 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer w-1/3 sm:block hidden"
+        >
           Peggiore valutazione
         </button>
       </div>
 
-      <div className="bg-green-500/20 text-center m-2 lg:hidden block">
+      <div
+        checked={sortByRating === "best"}
+        onClick={() => setSortByRating("best")}
+        className="bg-green-500/20 text-center m-2 lg:hidden block"
+      >
         <button className="p-2 rounded-xl bg-green-600 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer w-1/2">
           Migliore valutazione
         </button>
-        <button className="p-2 rounded-xl bg-green-600 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer w-1/2 ">
+        <button
+          checked={sortByRating === "worst"}
+          onClick={() => setSortByRating("worst")}
+          className="p-2 rounded-xl bg-green-600 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer w-1/2 "
+        >
           Peggiore valutazione
         </button>
       </div>
