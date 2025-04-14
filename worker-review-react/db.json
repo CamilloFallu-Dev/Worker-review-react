@@ -382,7 +382,97 @@
       "vote": 1,
       "date": "2025-04-03T15:23:18.395Z",
       "companyId": "3"
-    }
+    },
+    {
+      "id": "1b49",
+      "reviewTitle": "Molto Professionali!",
+      "reviewText": "Ho avuto modo di lavorare con Amazon e oltre ad essere una azienda seria, si sono comportati fin da subito in modo professionale con me.",
+      "author": "Andrea Lo Muto",
+      "vote": 5,
+      "date": "2025-04-14T08:54:57.773Z",
+      "companyId": "4"
+    },
+  {
+    "id": "1b50",
+    "reviewTitle": "Spedizione fulminea",
+    "reviewText": "Ordino spesso da Amazon, pacchi sempre puntuali e ben imballati. Non ho mai avuto problemi.",
+    "author": "Lucia Ferri",
+    "vote": 5,
+    "date": "2025-04-13T10:21:37.111Z",
+    "companyId": "4"
+  },
+  {
+    "id": "1b51",
+    "reviewTitle": "Esperienza lavorativa stressante",
+    "reviewText": "Come magazziniere mi sono trovato male, ritmi molto stressanti e poca considerazione per i dipendenti.",
+    "author": "Marco D'Angelo",
+    "vote": 2,
+    "date": "2025-04-12T14:02:10.987Z",
+    "companyId": "4"
+  },
+  {
+    "id": "1b52",
+    "reviewTitle": "Ottimo servizio clienti",
+    "reviewText": "Avevo ricevuto un prodotto difettoso e l'assistenza mi ha risolto tutto in 24 ore. Veramente efficienti.",
+    "author": "Serena Costa",
+    "vote": 4,
+    "date": "2025-04-11T17:45:29.320Z",
+    "companyId": "4"
+  },
+  {
+    "id": "1b53",
+    "reviewTitle": "Troppo sfruttamento",
+    "reviewText": "Ho lavorato nei centri di smistamento e la pressione era insostenibile. Mi aspettavo più umanità.",
+    "author": "Giulio Messina",
+    "vote": 1,
+    "date": "2025-04-10T09:13:44.509Z",
+    "companyId": "4"
+  },
+  {
+    "id": "1b54",
+    "reviewTitle": "Ampia scelta di prodotti",
+    "reviewText": "Come cliente, adoro la varietà che Amazon offre. Trovo sempre quello che cerco, spesso a buon prezzo.",
+    "author": "Paola Vinci",
+    "vote": 5,
+    "date": "2025-04-09T11:27:59.850Z",
+    "companyId": "4"
+  },
+  {
+    "id": "1b55",
+    "reviewTitle": "Buona esperienza lavorativa",
+    "reviewText": "Ho fatto uno stage come sviluppatore e mi sono trovato molto bene, ambiente dinamico e stimolante.",
+    "author": "Lorenzo Riva",
+    "vote": 4,
+    "date": "2025-04-08T08:05:16.734Z",
+    "companyId": "4"
+  },
+  {
+    "id": "1b56",
+    "reviewTitle": "Prime sempre utile",
+    "reviewText": "Uso Prime da anni: consegne rapidissime, film e musica inclusi. Vale ogni centesimo.",
+    "author": "Chiara Galli",
+    "vote": 5,
+    "date": "2025-04-07T19:33:48.190Z",
+    "companyId": "4"
+  },
+  {
+    "id": "1b57",
+    "reviewTitle": "Servizio buono, ma prezzi aumentati",
+    "reviewText": "Continuo a usare Amazon ma ho notato che i prezzi stanno salendo, soprattutto su alcuni articoli.",
+    "author": "Fabio Neri",
+    "vote": 3,
+    "date": "2025-04-06T15:18:07.214Z",
+    "companyId": "4"
+  },
+  {
+    "id": "1b58",
+    "reviewTitle": "Pessimo ambiente di lavoro",
+    "reviewText": "Mi aspettavo di più da un colosso del genere. Mi sono licenziata dopo pochi mesi per l'ambiente tossico.",
+    "author": "Martina Bianchi",
+    "vote": 1,
+    "date": "2025-04-05T12:49:32.001Z",
+    "companyId": "4"
+  }
   ],
   "team": [
     {
@@ -427,6 +517,5 @@
     {
       "id": "55f1"
     }
-  
   ]
 }
