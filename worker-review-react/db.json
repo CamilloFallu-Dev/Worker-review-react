@@ -203,15 +203,6 @@
       "password": "airbnb123",
       "description": "Airbnb è una piattaforma che consente di prenotare soggiorni in case e appartamenti privati.",
       "slug": "airbnb"
-    },
-    {
-      "id": "34a0",
-      "name": "Poste Italiane",
-      "address": "Roma",
-      "workSector": "Finanza",
-      "email": "poste-italiane@gmail.com",
-      "password": "postemerda",
-      "description": "Siamo incapaci"
     }
   ],
   "users": [
@@ -245,33 +236,6 @@
     }
   ],
   "reviews": [
-    {
-      "id": "ed6d",
-      "reviewTitle": "1",
-      "reviewText": "1",
-      "author": "1",
-      "vote": 1,
-      "date": "2025-04-02T08:19:00.353Z",
-      "companyId": "3"
-    },
-    {
-      "id": "92c6",
-      "reviewTitle": "cavallo cavallo",
-      "reviewText": "c'era una volta un cavallo di nome cavallo che andava galoppando per le praterie, un giorno si ruppe la zampa",
-      "author": "Cavallo genio",
-      "vote": 5,
-      "date": "2025-04-03T15:22:21.549Z",
-      "companyId": "3"
-    },
-    {
-      "id": "7bb6",
-      "reviewTitle": "cavallo di nome",
-      "reviewText": "Un altro punto forte è la durata della batteria: con un uso moderato, riesco a tirare avanti tranquillamente per due giorni senza dover ricaricare, il che è molto conveniente.\n\nTuttavia, ci sono alcuni piccoli difetti. La sincronizzazione con alcune app di terze parti può essere lenta e, ogni tanto, la connessione Bluetooth sembra perdere segnale per pochi secondi. Inoltre, il cinturino potrebbe essere più comodo per chi ha polsi sottili, dato che tende ad essere un po' rigido.",
-      "author": "Cavallo",
-      "vote": 1,
-      "date": "2025-04-03T15:23:18.395Z",
-      "companyId": "3"
-    },
     {
       "id": "1b49",
       "reviewTitle": "Molto Professionali!",
@@ -361,6 +325,891 @@
     "vote": 1,
     "date": "2025-04-05T12:49:32.001Z",
     "companyId": "4"
+  },
+  {
+    "id": "2a01",
+    "reviewTitle": "Ambiente stimolante",
+    "reviewText": "Lavorare in Microsoft è stata una delle esperienze più formative della mia carriera. Ottimo team e grandi opportunità.",
+    "author": "Giulia Montesi",
+    "vote": 5,
+    "date": "2025-04-14T09:10:00.000Z",
+    "companyId": "3"
+  },
+  {
+    "id": "2a02",
+    "reviewTitle": "Office 365 è imbattibile",
+    "reviewText": "Utilizzo Office 365 per lavoro e studio: affidabile, intuitivo e sempre aggiornato.",
+    "author": "Matteo Corsi",
+    "vote": 5,
+    "date": "2025-04-13T16:45:00.000Z",
+    "companyId": "3"
+  },
+  {
+    "id": "2a03",
+    "reviewTitle": "Troppa burocrazia interna",
+    "reviewText": "L'ambiente lavorativo era interessante ma molto lento nei processi decisionali. Difficile emergere.",
+    "author": "Stefano Biagi",
+    "vote": 3,
+    "date": "2025-04-12T13:22:00.000Z",
+    "companyId": "3"
+  },
+  {
+    "id": "2a04",
+    "reviewTitle": "Windows 11 migliorabile",
+    "reviewText": "Windows 11 ha una bella grafica ma spesso trovo bug fastidiosi. Spero in aggiornamenti più stabili.",
+    "author": "Laura Nanni",
+    "vote": 3,
+    "date": "2025-04-11T11:40:00.000Z",
+    "companyId": "3"
+  },
+  {
+    "id": "2a05",
+    "reviewTitle": "Ottimo supporto tecnico",
+    "reviewText": "Ho avuto un problema con una licenza e il servizio clienti ha risolto tutto in giornata.",
+    "author": "Davide Greco",
+    "vote": 4,
+    "date": "2025-04-10T15:55:00.000Z",
+    "companyId": "3"
+  },
+  {
+    "id": "2a06",
+    "reviewTitle": "Esperienza negativa",
+    "reviewText": "Mi aspettavo un ambiente più meritocratico. Dopo un anno, zero crescita professionale.",
+    "author": "Irene Satta",
+    "vote": 2,
+    "date": "2025-04-09T10:30:00.000Z",
+    "companyId": "3"
+  },
+  {
+    "id": "2a07",
+    "reviewTitle": "Azure top",
+    "reviewText": "Azure è la piattaforma cloud che preferisco per i miei progetti: stabile, potente e ben documentata.",
+    "author": "Luca Fabbri",
+    "vote": 5,
+    "date": "2025-04-08T17:20:00.000Z",
+    "companyId": "3"
+  },
+  {
+    "id": "2a08",
+    "reviewTitle": "Troppi cambi di direzione",
+    "reviewText": "Durante la mia esperienza in Microsoft ho vissuto diversi cambi di team e strategia, senza chiarezza.",
+    "author": "Francesco De Luca",
+    "vote": 2,
+    "date": "2025-04-07T12:12:00.000Z",
+    "companyId": "3"
+  },
+  {
+    "id": "2a09",
+    "reviewTitle": "Surface eccezionale",
+    "reviewText": "Ho acquistato un Surface Pro e lo trovo perfetto per lavoro e creatività. Leggero e veloce.",
+    "author": "Valentina Rizzo",
+    "vote": 5,
+    "date": "2025-04-06T09:00:00.000Z",
+    "companyId": "3"
+  },
+  {
+    "id": "2a0a",
+    "reviewTitle": "Aggiornamenti troppo frequenti",
+    "reviewText": "Windows si aggiorna troppo spesso, e a volte nel momento meno opportuno. Dovrebbero gestirlo meglio.",
+    "author": "Giorgio Martini",
+    "vote": 3,
+    "date": "2025-04-05T18:40:00.000Z",
+    "companyId": "3"
+  },{
+    "id": "3c01",
+    "reviewTitle": "Auto incredibile!",
+    "reviewText": "La mia Model 3 è fantastica: silenziosa, potente e con una tecnologia all'avanguardia.",
+    "author": "Federico Manca",
+    "vote": 5,
+    "date": "2025-04-14T10:00:00.000Z",
+    "companyId": "6"
+  },
+  {
+    "id": "3c02",
+    "reviewTitle": "Esperienza lavorativa intensa",
+    "reviewText": "Ho lavorato nella produzione: ambiente molto esigente, ma si impara tanto. Non per tutti.",
+    "author": "Alessio Ruggeri",
+    "vote": 3,
+    "date": "2025-04-13T16:20:00.000Z",
+    "companyId": "6"
+  },
+  {
+    "id": "3c03",
+    "reviewTitle": "Autopilot da migliorare",
+    "reviewText": "Uso spesso l'autopilot, ma ogni tanto ha comportamenti strani. Ottimo potenziale, ma non perfetto.",
+    "author": "Sabrina Longo",
+    "vote": 4,
+    "date": "2025-04-12T09:45:00.000Z",
+    "companyId": "6"
+  },
+  {
+    "id": "3c04",
+    "reviewTitle": "Stress e ritmi massacranti",
+    "reviewText": "In fabbrica si lavora con turni pesanti e aspettative altissime. Poca attenzione al benessere.",
+    "author": "Gianni Leone",
+    "vote": 2,
+    "date": "2025-04-11T08:10:00.000Z",
+    "companyId": "6"
+  },
+  {
+    "id": "3c05",
+    "reviewTitle": "Innovazione pura",
+    "reviewText": "Tesla è sinonimo di innovazione. Dopo averla provata, è difficile tornare a un'auto tradizionale.",
+    "author": "Elena Sartori",
+    "vote": 5,
+    "date": "2025-04-10T13:00:00.000Z",
+    "companyId": "6"
+  },
+  {
+    "id": "3c06",
+    "reviewTitle": "Assistenza clienti lenta",
+    "reviewText": "L'auto è ottima, ma l'assistenza clienti è lenta e poco disponibile. Aspettato settimane per un intervento.",
+    "author": "Marco De Santis",
+    "vote": 2,
+    "date": "2025-04-09T11:30:00.000Z",
+    "companyId": "6"
+  },{
+    "id": "4d01",
+    "reviewTitle": "Smartphone eccellente",
+    "reviewText": "Uso il Galaxy S23 da mesi, è veloce, ha un'ottima fotocamera e un display spettacolare.",
+    "author": "Luca Neri",
+    "vote": 5,
+    "date": "2025-04-14T10:30:00.000Z",
+    "companyId": "7"
+  },
+  {
+    "id": "4d02",
+    "reviewTitle": "Lavoro impegnativo ma stimolante",
+    "reviewText": "In Samsung ho trovato un ambiente internazionale e tecnologicamente avanzato. Pressione alta ma tanta crescita.",
+    "author": "Giada Russo",
+    "vote": 4,
+    "date": "2025-04-13T14:15:00.000Z",
+    "companyId": "7"
+  },
+  {
+    "id": "4d03",
+    "reviewTitle": "Esperienza negativa con l'assistenza",
+    "reviewText": "Ho avuto problemi con un tablet e il centro assistenza non ha risolto nulla. Deludente.",
+    "author": "Alberto Greco",
+    "vote": 2,
+    "date": "2025-04-12T17:50:00.000Z",
+    "companyId": "7"
+  },
+  {
+    "id": "4d04",
+    "reviewTitle": "Ottima qualità-prezzo",
+    "reviewText": "Uso prodotti Samsung da anni: affidabili, moderni e con un buon rapporto qualità/prezzo.",
+    "author": "Francesca Villa",
+    "vote": 5,
+    "date": "2025-04-11T11:00:00.000Z",
+    "companyId": "7"
+  },
+  {
+    "id": "4d05",
+    "reviewTitle": "Routine poco stimolante",
+    "reviewText": "Ho lavorato nel reparto marketing, ma le attività erano ripetitive e la burocrazia rallentava tutto.",
+    "author": "Andrea Colombo",
+    "vote": 3,
+    "date": "2025-04-10T09:40:00.000Z",
+    "companyId": "7"
+  },
+  {
+    "id": "4d06",
+    "reviewTitle": "Batteria che dura poco",
+    "reviewText": "Il telefono funziona bene, ma la batteria si scarica troppo in fretta. Un peccato.",
+    "author": "Martina Dotti",
+    "vote": 2,
+    "date": "2025-04-09T16:25:00.000Z",
+    "companyId": "7"
+  },{
+    "id": "5e01",
+    "reviewTitle": "Grande ambiente tecnologico",
+    "reviewText": "Ho lavorato in Facebook come sviluppatore: ambiente dinamico, colleghi brillanti e ottime risorse.",
+    "author": "Simone Rinaldi",
+    "vote": 5,
+    "date": "2025-04-14T11:00:00.000Z",
+    "companyId": "8"
+  },
+  {
+    "id": "5e02",
+    "reviewTitle": "Troppa pubblicità",
+    "reviewText": "Facebook è utile per restare in contatto, ma ormai è pieno di pubblicità fastidiose.",
+    "author": "Chiara Bassi",
+    "vote": 2,
+    "date": "2025-04-13T13:45:00.000Z",
+    "companyId": "8"
+  },
+  {
+    "id": "5e03",
+    "reviewTitle": "Ottimo posto per crescere",
+    "reviewText": "Ho fatto uno stage nel team design: cultura aziendale inclusiva e attenzione alla formazione.",
+    "author": "Marco Zanetti",
+    "vote": 4,
+    "date": "2025-04-12T15:10:00.000Z",
+    "companyId": "8"
+  },
+  {
+    "id": "5e04",
+    "reviewTitle": "App sempre più confusa",
+    "reviewText": "L'app Facebook è diventata pesante e difficile da usare. Preferivo le versioni più semplici.",
+    "author": "Elisa Conti",
+    "vote": 2,
+    "date": "2025-04-11T18:30:00.000Z",
+    "companyId": "8"
+  },
+  {
+    "id": "5e05",
+    "reviewTitle": "Tanto stress, poca vita privata",
+    "reviewText": "In Meta si lavora molto, ma l'equilibrio vita-lavoro è difficile da mantenere. Turni pesanti.",
+    "author": "Davide Moretti",
+    "vote": 3,
+    "date": "2025-04-10T10:20:00.000Z",
+    "companyId": "8"
+  },
+  {
+    "id": "5e06",
+    "reviewTitle": "Utile per il business",
+    "reviewText": "Gestisco campagne pubblicitarie su Facebook per la mia attività: funziona, anche se non economico.",
+    "author": "Giulia Ferri",
+    "vote": 4,
+    "date": "2025-04-09T08:55:00.000Z",
+    "companyId": "8"
+  },{
+    "id": "6f01",
+    "reviewTitle": "Ottima esperienza professionale",
+    "reviewText": "IBM è un colosso con una grande storia. Ho imparato tanto e lavorato con persone competenti.",
+    "author": "Lorenzo Gatti",
+    "vote": 5,
+    "date": "2025-04-14T11:20:00.000Z",
+    "companyId": "9"
+  },
+  {
+    "id": "6f02",
+    "reviewTitle": "Troppo lenta nel cambiamento",
+    "reviewText": "L'azienda è solida ma i processi sono molto burocratici. Innovazione frenata.",
+    "author": "Sara De Angelis",
+    "vote": 3,
+    "date": "2025-04-13T10:45:00.000Z",
+    "companyId": "9"
+  },
+  {
+    "id": "6f03",
+    "reviewTitle": "Supporto tecnico eccellente",
+    "reviewText": "Come cliente business, ho trovato il supporto IBM molto professionale e rapido.",
+    "author": "Daniele Vitale",
+    "vote": 4,
+    "date": "2025-04-12T14:30:00.000Z",
+    "companyId": "9"
+  },
+  {
+    "id": "6f04",
+    "reviewTitle": "Formazione continua",
+    "reviewText": "In IBM ho potuto seguire corsi, certificazioni e migliorare le mie competenze. Ambiente molto formativo.",
+    "author": "Giovanna Corsi",
+    "vote": 5,
+    "date": "2025-04-11T16:00:00.000Z",
+    "companyId": "9"
+  },
+  {
+    "id": "6f05",
+    "reviewTitle": "Prodotti costosi",
+    "reviewText": "Le soluzioni IBM sono valide, ma spesso troppo costose per piccole aziende.",
+    "author": "Franco Bellini",
+    "vote": 2,
+    "date": "2025-04-10T12:15:00.000Z",
+    "companyId": "9"
+  },
+  {
+    "id": "6f06",
+    "reviewTitle": "Gestione da rivedere",
+    "reviewText": "Ottima azienda, ma ho notato una certa disorganizzazione interna nel mio team.",
+    "author": "Chiara Valentini",
+    "vote": 3,
+    "date": "2025-04-09T09:50:00.000Z",
+    "companyId": "9"
+  },{
+    "id": "7g01",
+    "reviewTitle": "PlayStation sempre al top",
+    "reviewText": "Cliente fedele da anni, la PS5 è spettacolare sotto ogni punto di vista.",
+    "author": "Nicola Marchetti",
+    "vote": 5,
+    "date": "2025-04-14T11:35:00.000Z",
+    "companyId": "10"
+  },
+  {
+    "id": "7g02",
+    "reviewTitle": "Creatività e tecnologia",
+    "reviewText": "Lavorare in Sony è stato stimolante, soprattutto nel settore audio. Tanta passione e innovazione.",
+    "author": "Beatrice Mori",
+    "vote": 4,
+    "date": "2025-04-13T13:10:00.000Z",
+    "companyId": "10"
+  },
+  {
+    "id": "7g03",
+    "reviewTitle": "Servizio clienti lento",
+    "reviewText": "Ho avuto problemi con le cuffie wireless e l’assistenza è stata lenta nel rispondere.",
+    "author": "Andrea Vacca",
+    "vote": 2,
+    "date": "2025-04-12T17:05:00.000Z",
+    "companyId": "10"
+  },
+  {
+    "id": "7g04",
+    "reviewTitle": "Grande attenzione al dettaglio",
+    "reviewText": "Ho lavorato nel reparto design: standard altissimi e grande cura nei prodotti.",
+    "author": "Elena Righi",
+    "vote": 5,
+    "date": "2025-04-11T15:30:00.000Z",
+    "companyId": "10"
+  },
+  {
+    "id": "7g05",
+    "reviewTitle": "Smart TV eccezionale",
+    "reviewText": "La mia TV Sony ha un’immagine spettacolare e un'interfaccia molto fluida. Consigliata!",
+    "author": "Marta Esposito",
+    "vote": 5,
+    "date": "2025-04-10T10:50:00.000Z",
+    "companyId": "10"
+  },
+  {
+    "id": "7g06",
+    "reviewTitle": "Troppa pressione sul lavoro",
+    "reviewText": "La cultura aziendale è solida, ma i ritmi sono spesso stressanti e poco bilanciati.",
+    "author": "Gabriele Serra",
+    "vote": 3,
+    "date": "2025-04-09T08:25:00.000Z",
+    "companyId": "10"
+  },{
+    "id": "8h01",
+    "reviewTitle": "Ottimo smartphone",
+    "reviewText": "Uso Huawei da anni e la qualità è sempre eccellente, anche senza servizi Google.",
+    "author": "Valerio Neri",
+    "vote": 4,
+    "date": "2025-04-14T12:00:00.000Z",
+    "companyId": "11"
+  },
+  {
+    "id": "8h02",
+    "reviewTitle": "Esperienza lavorativa stimolante",
+    "reviewText": "Ho lavorato in Huawei Italia, team giovane e molto internazionale. Buone opportunità.",
+    "author": "Sonia Bresciani",
+    "vote": 5,
+    "date": "2025-04-13T15:10:00.000Z",
+    "companyId": "11"
+  },
+  {
+    "id": "8h03",
+    "reviewTitle": "App limitate",
+    "reviewText": "Il telefono è potente, ma senza il Play Store molte app mancano. Poco pratico per me.",
+    "author": "Davide Mancini",
+    "vote": 2,
+    "date": "2025-04-12T09:45:00.000Z",
+    "companyId": "11"
+  },
+  {
+    "id": "8h04",
+    "reviewTitle": "Ottima fotocamera",
+    "reviewText": "La fotocamera del mio Huawei P50 è tra le migliori che abbia mai usato.",
+    "author": "Irene Cattaneo",
+    "vote": 5,
+    "date": "2025-04-11T11:20:00.000Z",
+    "companyId": "11"
+  },
+  {
+    "id": "8h05",
+    "reviewTitle": "Troppa pressione",
+    "reviewText": "Ambiente molto competitivo e ritmi veloci. Non adatto a tutti.",
+    "author": "Luca Barone",
+    "vote": 3,
+    "date": "2025-04-10T13:30:00.000Z",
+    "companyId": "11"
+  },
+  {
+    "id": "8h06",
+    "reviewTitle": "Servizio clienti ok",
+    "reviewText": "Ho avuto un problema con il telefono e il centro assistenza è stato efficiente.",
+    "author": "Martina Foti",
+    "vote": 4,
+    "date": "2025-04-09T08:40:00.000Z",
+    "companyId": "11"
+  },{
+    "id": "9i01",
+    "reviewTitle": "Serie fantastiche",
+    "reviewText": "Netflix continua a produrre contenuti di qualità. Adoro le serie originali.",
+    "author": "Giorgia Leone",
+    "vote": 5,
+    "date": "2025-04-14T12:10:00.000Z",
+    "companyId": "12"
+  },
+  {
+    "id": "9i02",
+    "reviewTitle": "Stress nel team creativo",
+    "reviewText": "Buon salario, ma ritmi frenetici e poca flessibilità. Poca stabilità nei progetti.",
+    "author": "Fabio Romano",
+    "vote": 3,
+    "date": "2025-04-13T16:00:00.000Z",
+    "companyId": "12"
+  },
+  {
+    "id": "9i03",
+    "reviewTitle": "Troppi aumenti di prezzo",
+    "reviewText": "Il servizio è buono, ma i continui rincari stanno diventando esagerati.",
+    "author": "Teresa Olmi",
+    "vote": 2,
+    "date": "2025-04-12T10:30:00.000Z",
+    "companyId": "12"
+  },
+  {
+    "id": "9i04",
+    "reviewTitle": "App intuitiva",
+    "reviewText": "Uso l'app ogni giorno, semplice e comoda su qualsiasi dispositivo.",
+    "author": "Stefano Galli",
+    "vote": 4,
+    "date": "2025-04-11T12:50:00.000Z",
+    "companyId": "12"
+  },
+  {
+    "id": "9i05",
+    "reviewTitle": "Buona cultura aziendale",
+    "reviewText": "In Netflix mi sono sentita valorizzata, buona comunicazione interna e attenzione alla diversità.",
+    "author": "Camilla Donati",
+    "vote": 5,
+    "date": "2025-04-10T09:10:00.000Z",
+    "companyId": "12"
+  },
+  {
+    "id": "9i06",
+    "reviewTitle": "Contenuti che vanno e vengono",
+    "reviewText": "Troppi contenuti spariscono dal catalogo all'improvviso. Dovrebbero avvisare.",
+    "author": "Andrea Pugliese",
+    "vote": 3,
+    "date": "2025-04-09T07:25:00.000Z",
+    "companyId": "12"
+  },{
+    "id": "10j01",
+    "reviewTitle": "Schede grafiche imbattibili",
+    "reviewText": "La mia RTX 4080 è una bestia. Nvidia è sempre un passo avanti.",
+    "author": "Pietro Silvestri",
+    "vote": 5,
+    "date": "2025-04-14T12:15:00.000Z",
+    "companyId": "13"
+  },
+  {
+    "id": "10j02",
+    "reviewTitle": "Ottima azienda tech",
+    "reviewText": "Ho lavorato in R&D: ambiente geek e molto competente. Si respira innovazione.",
+    "author": "Laura Bigazzi",
+    "vote": 5,
+    "date": "2025-04-13T14:25:00.000Z",
+    "companyId": "13"
+  },
+  {
+    "id": "10j03",
+    "reviewTitle": "Prezzi alle stelle",
+    "reviewText": "I prodotti Nvidia sono ottimi, ma i prezzi sono troppo alti per i gamer medi.",
+    "author": "Mirko Rizzi",
+    "vote": 2,
+    "date": "2025-04-12T11:35:00.000Z",
+    "companyId": "13"
+  },
+  {
+    "id": "10j04",
+    "reviewTitle": "Buon supporto driver",
+    "reviewText": "Aggiornamenti frequenti, driver sempre aggiornati. Esperienza fluida.",
+    "author": "Giada Fontana",
+    "vote": 4,
+    "date": "2025-04-11T10:50:00.000Z",
+    "companyId": "13"
+  },
+  {
+    "id": "10j05",
+    "reviewTitle": "Tanta competizione interna",
+    "reviewText": "Lavoro interessante ma molto competitivo, bisogna sempre essere al massimo.",
+    "author": "Marco Santi",
+    "vote": 3,
+    "date": "2025-04-10T08:00:00.000Z",
+    "companyId": "13"
+  },
+  {
+    "id": "10j06",
+    "reviewTitle": "Tecnologia top",
+    "reviewText": "Nvidia continua a innovare nel campo IA e gaming. Impressionante!",
+    "author": "Elena Travaini",
+    "vote": 5,
+    "date": "2025-04-09T07:15:00.000Z",
+    "companyId": "13"
+  }, {
+    "id": "11k01",
+    "reviewTitle": "Troppi cambiamenti",
+    "reviewText": "Dopo il rebranding da Twitter a X l'app è peggiorata, poca chiarezza e confusione.",
+    "author": "Luigi Parisi",
+    "vote": 2,
+    "date": "2025-04-14T12:20:00.000Z",
+    "companyId": "14"
+  },
+  {
+    "id": "11k02",
+    "reviewTitle": "Lavoro interessante",
+    "reviewText": "Ambiente dinamico e sfidante. Tanti cambiamenti, ma anche occasioni di crescita.",
+    "author": "Sara Milani",
+    "vote": 4,
+    "date": "2025-04-13T15:50:00.000Z",
+    "companyId": "14"
+  },
+  {
+    "id": "11k03",
+    "reviewTitle": "Ancora utile per notizie",
+    "reviewText": "Nonostante tutto, è ancora la mia fonte principale per aggiornamenti veloci.",
+    "author": "Federico Leone",
+    "vote": 3,
+    "date": "2025-04-12T09:00:00.000Z",
+    "companyId": "14"
+  },
+  {
+    "id": "11k04",
+    "reviewTitle": "Licenziamenti improvvisi",
+    "reviewText": "Clima di incertezza, molti colleghi licenziati in modo brusco. Stressante.",
+    "author": "Alessandra Corsi",
+    "vote": 2,
+    "date": "2025-04-11T13:15:00.000Z",
+    "companyId": "14"
+  },
+  {
+    "id": "11k05",
+    "reviewTitle": "Funzionalità nuove ma confuse",
+    "reviewText": "X prova tante cose, ma non tutte funzionano bene. Preferivo il vecchio Twitter.",
+    "author": "Gianluca Foti",
+    "vote": 3,
+    "date": "2025-04-10T11:40:00.000Z",
+    "companyId": "14"
+  },
+  {
+    "id": "11k06",
+    "reviewTitle": "Ancora top per viralità",
+    "reviewText": "Se vuoi che qualcosa diventi virale, X è ancora il posto giusto.",
+    "author": "Chiara Bruno",
+    "vote": 4,
+    "date": "2025-04-09T08:35:00.000Z",
+    "companyId": "14"
+  },{
+    "id": "12l01",
+    "reviewTitle": "Musica ovunque",
+    "reviewText": "Uso Spotify ogni giorno. Playlist perfette e qualità audio ottima.",
+    "author": "Tommaso Lanza",
+    "vote": 5,
+    "date": "2025-04-14T12:25:00.000Z",
+    "companyId": "15"
+  },
+  {
+    "id": "12l02",
+    "reviewTitle": "Lavoro da remoto ok",
+    "reviewText": "Buona cultura aziendale, molto flessibili con il lavoro da casa. Tecnologia aggiornata.",
+    "author": "Roberta Gualtieri",
+    "vote": 4,
+    "date": "2025-04-13T14:00:00.000Z",
+    "companyId": "15"
+  },
+  {
+    "id": "12l03",
+    "reviewTitle": "Troppa pubblicità",
+    "reviewText": "La versione gratuita ha pubblicità troppo invasive. Obbliga quasi a pagare.",
+    "author": "Matteo Ferrara",
+    "vote": 2,
+    "date": "2025-04-12T12:10:00.000Z",
+    "companyId": "15"
+  },
+  {
+    "id": "12l04",
+    "reviewTitle": "Podcast ben fatti",
+    "reviewText": "Ascolto tanti podcast su Spotify, produzione ottima e interfaccia comoda.",
+    "author": "Lucia Cattaneo",
+    "vote": 5,
+    "date": "2025-04-11T09:30:00.000Z",
+    "companyId": "15"
+  },
+  {
+    "id": "12l05",
+    "reviewTitle": "Team competente",
+    "reviewText": "In Spotify ho trovato colleghi preparati e un ambiente creativo.",
+    "author": "Gabriele Nuzzo",
+    "vote": 4,
+    "date": "2025-04-10T10:10:00.000Z",
+    "companyId": "15"
+  },
+  {
+    "id": "12l06",
+    "reviewTitle": "Problemi con il download",
+    "reviewText": "A volte i brani offline spariscono senza motivo. Da migliorare.",
+    "author": "Angela Bellucci",
+    "vote": 3,
+    "date": "2025-04-09T08:00:00.000Z",
+    "companyId": "15"
+  },{
+    "id": "13m01",
+    "reviewTitle": "Comodo e veloce",
+    "reviewText": "Uso Uber spesso quando viaggio. App chiara e servizio affidabile.",
+    "author": "Gianni Colombo",
+    "vote": 5,
+    "date": "2025-04-14T12:30:00.000Z",
+    "companyId": "16"
+  },
+  {
+    "id": "13m02",
+    "reviewTitle": "Turni estenuanti",
+    "reviewText": "Come autista Uber, lavoro molto e guadagno poco. Serve maggiore tutela.",
+    "author": "Salvatore Ruggeri",
+    "vote": 2,
+    "date": "2025-04-13T10:45:00.000Z",
+    "companyId": "16"
+  },
+  {
+    "id": "13m03",
+    "reviewTitle": "Ottimo per emergenze",
+    "reviewText": "Mi ha salvato più volte la sera tardi. Sempre un’auto disponibile.",
+    "author": "Eleonora Marini",
+    "vote": 4,
+    "date": "2025-04-12T09:00:00.000Z",
+    "companyId": "16"
+  },
+  {
+    "id": "13m04",
+    "reviewTitle": "Supporto assente",
+    "reviewText": "Quando ho avuto un problema, il supporto è stato poco utile.",
+    "author": "Andrea Ricci",
+    "vote": 1,
+    "date": "2025-04-11T13:15:00.000Z",
+    "companyId": "16"
+  },
+  {
+    "id": "13m05",
+    "reviewTitle": "Esperienza lavorativa flessibile",
+    "reviewText": "Lavorare con Uber mi ha dato libertà negli orari, ottimo come secondo lavoro.",
+    "author": "Debora Vanni",
+    "vote": 4,
+    "date": "2025-04-10T17:40:00.000Z",
+    "companyId": "16"
+  },
+  {
+    "id": "13m06",
+    "reviewTitle": "Prezzi troppo variabili",
+    "reviewText": "Il prezzo a volte raddoppia per lo stesso tragitto. Un po' frustrante.",
+    "author": "Franco Bianchi",
+    "vote": 3,
+    "date": "2025-04-09T08:55:00.000Z",
+    "companyId": "16"
+  },{
+    "id": "14n01",
+    "reviewTitle": "Strumenti eccezionali",
+    "reviewText": "Uso Photoshop e Premiere da anni, insostituibili nel mio lavoro creativo.",
+    "author": "Alessandro Villa",
+    "vote": 5,
+    "date": "2025-04-14T12:35:00.000Z",
+    "companyId": "17"
+  },
+  {
+    "id": "14n02",
+    "reviewTitle": "Abbonamenti troppo cari",
+    "reviewText": "Ottimo software ma i costi mensili sono esagerati per un freelance.",
+    "author": "Giulia Ferri",
+    "vote": 2,
+    "date": "2025-04-13T10:15:00.000Z",
+    "companyId": "17"
+  },
+  {
+    "id": "14n03",
+    "reviewTitle": "Ottimo ambiente lavorativo",
+    "reviewText": "Ho lavorato in Adobe per 3 anni: grande attenzione al benessere dei dipendenti.",
+    "author": "Marco Longo",
+    "vote": 5,
+    "date": "2025-04-12T11:20:00.000Z",
+    "companyId": "17"
+  },
+  {
+    "id": "14n04",
+    "reviewTitle": "Suite completa",
+    "reviewText": "Creative Cloud offre tutto il necessario per grafica, video e design.",
+    "author": "Serena Piva",
+    "vote": 4,
+    "date": "2025-04-11T14:00:00.000Z",
+    "companyId": "17"
+  },
+  {
+    "id": "14n05",
+    "reviewTitle": "Software pesanti",
+    "reviewText": "I programmi Adobe sono potenti, ma troppo pesanti su macchine non recenti.",
+    "author": "Luca Gallo",
+    "vote": 3,
+    "date": "2025-04-10T10:50:00.000Z",
+    "companyId": "17"
+  },
+  {
+    "id": "14n06",
+    "reviewTitle": "Supporto veloce",
+    "reviewText": "Ho avuto problemi con Lightroom e il supporto clienti ha risolto in fretta.",
+    "author": "Elena Rota",
+    "vote": 4,
+    "date": "2025-04-09T09:35:00.000Z",
+    "companyId": "17"
+  },{
+    "id": "15o01",
+    "reviewTitle": "Processori affidabili",
+    "reviewText": "Uso CPU Intel da anni, mai un problema. Stabilità top.",
+    "author": "Carlo Tosi",
+    "vote": 5,
+    "date": "2025-04-14T12:40:00.000Z",
+    "companyId": "18"
+  },
+  {
+    "id": "15o02",
+    "reviewTitle": "Ambiente competitivo",
+    "reviewText": "Esperienza lavorativa interessante ma molto sfidante, pressione costante.",
+    "author": "Lucia Baroni",
+    "vote": 3,
+    "date": "2025-04-13T09:30:00.000Z",
+    "companyId": "18"
+  },
+  {
+    "id": "15o03",
+    "reviewTitle": "Innovazione continua",
+    "reviewText": "Intel investe molto in ricerca e sviluppo. Tecnologie sempre nuove.",
+    "author": "Francesco De Vita",
+    "vote": 5,
+    "date": "2025-04-12T13:10:00.000Z",
+    "companyId": "18"
+  },
+  {
+    "id": "15o04",
+    "reviewTitle": "Consumi alti",
+    "reviewText": "Alcuni modelli consumano troppo rispetto alla concorrenza. Da ottimizzare.",
+    "author": "Chiara Lupo",
+    "vote": 2,
+    "date": "2025-04-11T11:25:00.000Z",
+    "companyId": "18"
+  },
+  {
+    "id": "15o05",
+    "reviewTitle": "Tecnologia solida",
+    "reviewText": "Lavoro in data center: i processori Intel sono sinonimo di stabilità.",
+    "author": "Nicola Prati",
+    "vote": 4,
+    "date": "2025-04-10T08:45:00.000Z",
+    "companyId": "18"
+  },
+  {
+    "id": "15o06",
+    "reviewTitle": "Documentazione tecnica eccellente",
+    "reviewText": "Facile integrare le soluzioni Intel grazie a guide e supporto dettagliati.",
+    "author": "Annalisa Conti",
+    "vote": 4,
+    "date": "2025-04-09T07:20:00.000Z",
+    "companyId": "18"
+  },{
+    "id": "16p01",
+    "reviewTitle": "Fonte infinita d’ispirazione",
+    "reviewText": "Pinterest è il mio punto di riferimento per progetti creativi e idee.",
+    "author": "Marianna Russo",
+    "vote": 5,
+    "date": "2025-04-14T12:45:00.000Z",
+    "companyId": "19"
+  },
+  {
+    "id": "16p02",
+    "reviewTitle": "Ambiente positivo",
+    "reviewText": "Lavorare in Pinterest è stato stimolante, focus su creatività e benessere.",
+    "author": "Stefano Nardi",
+    "vote": 5,
+    "date": "2025-04-13T12:10:00.000Z",
+    "companyId": "19"
+  },
+  {
+    "id": "16p03",
+    "reviewTitle": "Troppe pubblicità",
+    "reviewText": "Negli ultimi mesi Pinterest è invaso da contenuti sponsorizzati.",
+    "author": "Claudia Bassani",
+    "vote": 3,
+    "date": "2025-04-12T08:35:00.000Z",
+    "companyId": "19"
+  },
+  {
+    "id": "16p04",
+    "reviewTitle": "Interfaccia gradevole",
+    "reviewText": "Semplice da usare e bellissima da vedere. Esperienza molto fluida.",
+    "author": "Paolo Fabbri",
+    "vote": 4,
+    "date": "2025-04-11T14:40:00.000Z",
+    "companyId": "19"
+  },
+  {
+    "id": "16p05",
+    "reviewTitle": "Manca supporto in italiano",
+    "reviewText": "App utilissima, ma la mancanza di supporto in italiano si fa sentire.",
+    "author": "Veronica Pini",
+    "vote": 3,
+    "date": "2025-04-10T13:55:00.000Z",
+    "companyId": "19"
+  },
+  {
+    "id": "16p06",
+    "reviewTitle": "Buon work-life balance",
+    "reviewText": "Team gentile, orari flessibili. Perfetto per creativi e designer.",
+    "author": "Giorgio Messina",
+    "vote": 4,
+    "date": "2025-04-09T09:05:00.000Z",
+    "companyId": "19"
+  }, {
+    "id": "17q01",
+    "reviewTitle": "Esperienze uniche",
+    "reviewText": "Grazie ad Airbnb ho scoperto alloggi particolari in giro per il mondo.",
+    "author": "Sabrina Rizzi",
+    "vote": 5,
+    "date": "2025-04-14T12:50:00.000Z",
+    "companyId": "20"
+  },
+  {
+    "id": "17q02",
+    "reviewTitle": "Host poco controllati",
+    "reviewText": "Alcune case non erano come descritte. Servirebbe un controllo più serio.",
+    "author": "Edoardo Valli",
+    "vote": 2,
+    "date": "2025-04-13T11:20:00.000Z",
+    "companyId": "20"
+  },
+  {
+    "id": "17q03",
+    "reviewTitle": "Buon supporto clienti",
+    "reviewText": "Ho avuto un problema e Airbnb ha rimborsato tutto in 48 ore.",
+    "author": "Chiara Montesi",
+    "vote": 4,
+    "date": "2025-04-12T10:10:00.000Z",
+    "companyId": "20"
+  },
+  {
+    "id": "17q04",
+    "reviewTitle": "Lavoro vario e dinamico",
+    "reviewText": "Ottima esperienza come account manager. Molto contatto col cliente.",
+    "author": "Lorenzo Biagini",
+    "vote": 5,
+    "date": "2025-04-11T08:50:00.000Z",
+    "companyId": "20"
+  },
+  {
+    "id": "17q05",
+    "reviewTitle": "Commissioni alte",
+    "reviewText": "Sia da host che da cliente, le commissioni sono un po' troppo elevate.",
+    "author": "Marta Falcone",
+    "vote": 3,
+    "date": "2025-04-10T12:30:00.000Z",
+    "companyId": "20"
+  },
+  {
+    "id": "17q06",
+    "reviewTitle": "App molto funzionale",
+    "reviewText": "Trovare un alloggio è semplicissimo. Ottimo design e usabilità.",
+    "author": "Daniele Lorenzetti",
+    "vote": 4,
+    "date": "2025-04-09T08:00:00.000Z",
+    "companyId": "20"
   }
   ],
   "stats": [
