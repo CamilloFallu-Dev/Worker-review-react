@@ -7,6 +7,7 @@ import {
 } from "../services/apiService";
 import { useAddReviewMutation } from "../services/apiService";
 import { toast } from "react-hot-toast";
+import Avatar from "react-avatar";
 
 export default function PaginaAzienda() {
   const { slug } = useParams();
@@ -96,11 +97,23 @@ export default function PaginaAzienda() {
               className="w-full h-[300px] sm:h-[400px] object-cover transition-transform duration-500 hover:scale-105"
             />
           </div>
-          <img
-            src={azienda.url}
-            alt={azienda.name}
-            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 sm:max-w-45 max-w-35 h-auto rounded-full object-cover border-4 border-white shadow-xl hover:scale-105 bg-white"
-          />
+          {azienda.url ? (
+            <img
+              src={azienda.url}
+              alt={azienda.name}
+              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 sm:max-w-45 max-w-35 h-auto rounded-full object-cover border-4 border-white shadow-xl hover:scale-105 bg-white"
+            />
+          ) : (
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-[130px] h-[130px] flex items-center justify-center rounded-full border-4 border-white shadow-xl bg-green-500">
+              <Avatar
+                name={azienda.name}
+                size="130"
+                round={true}
+                textSizeRatio={2}
+                className="w-full h-full"
+              />
+            </div>
+          )}
         </div>
 
         {/* Sezione principale */}
@@ -116,7 +129,6 @@ export default function PaginaAzienda() {
             {azienda.address}
           </p>
           <p className="mt-2 text-gray-600 max-w-3xl mx-auto text-center p-3">
-
             {azienda.description}
           </p>
 
@@ -188,7 +200,6 @@ export default function PaginaAzienda() {
       {/* Recensioni */}
 
       <div className="bg-gray-50 p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
-
         {azienda.reviews && azienda.reviews.length > 0 ? (
           azienda.reviews.map((review, index) => (
             <ReviewCard

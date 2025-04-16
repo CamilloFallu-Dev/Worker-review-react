@@ -1,19 +1,34 @@
 import { Link } from "react-router-dom";
+import Avatar from "react-avatar";
 
 function CardAziendeRicerca({ company, rating }) {
   return (
     <div className="sm:flex-col ml-2 mr-2 mt-2 p-2 bg-white rounded-lg">
       <Link
         to={`/company-page/${company.slug}`}
-        className="bg-white flex p-2 gap-2"
+        className="bg-white flex items-center p-2 gap-2"
       >
-        <img
-          src={company.url}
-          alt={company.name}
-          className="rounded-full object-contain w-10 h-10 sm:w-12 sm:h-12 sm:rounded-full bg-white"
-        />
-        <div className="space-y-2 font-medium dark:text-white text-left rtl:text-right sm:ms-3">
+        {company.url ? (
+          <img
+            src={company.url}
+            alt={company.name}
+            className="rounded-full object-contain w-10 h-10 sm:w-12 sm:h-12 bg-white"
+          />
+        ) : (
+          <Avatar
+            name={company.name}
+            size="48"
+            round={true}
+            color="#22c55e"
+            textSizeRatio={2}
+            className="shadow border border-white"
+          />
+        )}
+        <div className="space-y-1 font-medium text-left sm:ms-3">
           <div className="text-black font-semibold">{company.name}</div>
+
+          <div className="text-sm text-gray-500">{company.description}</div>
+
           <div className="text-sm text-gray-500 dark:text-gray-400">
             {company.description}
           </div>
@@ -27,6 +42,7 @@ function CardAziendeRicerca({ company, rating }) {
               Nessuna valutazione
             </div>
           )}
+
         </div>
       </Link>
     </div>
@@ -34,3 +50,4 @@ function CardAziendeRicerca({ company, rating }) {
 }
 
 export default CardAziendeRicerca;
+
