@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import CardAziendeRicerca from "../components/CardAziendeRicerca";
 import {
   useGetCompaniesQuery,
@@ -30,10 +30,34 @@ function PaginaRicercaAziende() {
   const [filterSector, setFilterSector] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortByRating, setSortByRating] = useState("");
-  const { data: companies = [], error, isLoading } = useGetCompaniesQuery();
-  const { data: reviews = [] } = useGetReviewsQuery();
+  const { data: companies, error, isLoading } = useGetCompaniesQuery();
+  const { data: reviews, isLoading: isLoadingReviews } = useGetReviewsQuery();
 
   const handleModal = () => setModal((prev) => !prev);
+
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        const filterButton = document.querySelector(
+          'button[onClick="handleModal"]'
+        );
+        if (!filterButton || !filterButton.contains(event.target)) {
+          setModal(false);
+        }
+      }
+    };
+    if (modal) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [modal]);
 
   const toggleFilterSector = (sector) => {
     setFilterSector((prev) =>
@@ -49,37 +73,54 @@ function PaginaRicercaAziende() {
     const companyReviews = reviews.filter(
       (review) => review.companyId?.toString() === companyId.toString()
     );
-    if (companyReviews.length === 0) return null;
-    const total = companyReviews.reduce((sum, r) => sum + r.vote, 0);
+    console.log(companies);
+    console.log(reviews);
+    if (companyReviews.length === 0) return 0;
+    const total = companyReviews.reduce((sum, r) => sum + Number(r.vote), 0);
     return total / companyReviews.length;
   };
 
-  let filteredCompanies = companies.filter((company) => {
-    const matchesSector =
-      filterSector.length === 0 ||
-      (Array.isArray(company.workSector) &&
-        company.workSector.some((sector) => filterSector.includes(sector)));
+  if (isLoadingReviews || isLoading) {
+    return (
+      <div className="p-10 text-center text-lg">
+        Caricamento dei dati in corso...
+      </div>
+    );
+  }
 
-    const matchesSearch = (company.slug || "")
-      .toLowerCase()
-      .includes(searchQuery.toLowerCase());
+  let filteredCompanies = companies
+    .map((company) => ({
+      ...company,
+      averageRating: calculateAverageRating(company.id),
+    }))
+    .filter((company) => {
+      const matchesSector =
+        filterSector.length === 0 ||
+        (Array.isArray(company.workSector) &&
+          company.workSector.some((sector) => filterSector.includes(sector)));
 
-    return matchesSector && matchesSearch;
-  });
+      const matchesSearch = (company.slug || "")
+        .toLowerCase()
+        .includes(searchQuery);
+
+      return matchesSector && matchesSearch;
+    });
 
   if (sortByRating === "best") {
-    filteredCompanies.sort((a, b) => {
-      const ratingA = calculateAverageRating(a.id) || 0;
-      const ratingB = calculateAverageRating(b.id) || 0;
-      return ratingB - ratingA;
-    });
+    filteredCompanies = filteredCompanies.sort(
+      (a, b) => (b.averageRating || 0) - (a.averageRating || 0)
+    );
   } else if (sortByRating === "worst") {
-    filteredCompanies.sort((a, b) => {
-      const ratingA = calculateAverageRating(a.id) || 0;
-      const ratingB = calculateAverageRating(b.id) || 0;
-      return ratingA - ratingB;
-    });
+    filteredCompanies = filteredCompanies.sort(
+      (a, b) => (a.averageRating || 0) - (b.averageRating || 0)
+    );
   }
+
+  const resetAllFilters = () => {
+    setFilterSector([]);
+    setSearchQuery("");
+    setSortByRating("");
+  };
 
   return (
     <div className="">
@@ -101,7 +142,10 @@ function PaginaRicercaAziende() {
           </svg>
         </button>
         {modal && (
-          <div className="absolute z-50 left-53 sm:left-88 top-35 sm:top-20 transform -translate-x-1/2 w-full sm:w-auto bg-green-300 p-3 rounded-lg">
+          <div
+            ref={modalRef}
+            className="absolute z-50 left-53 sm:left-88 top-35 sm:top-20 transform -translate-x-1/2 w-full sm:w-auto bg-green-300 p-3 rounded-lg"
+          >
             <p className="p-2 font-bold text-center">Filtra per:</p>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {sectors.map((sector) => (
@@ -156,47 +200,74 @@ function PaginaRicercaAziende() {
         </div>
 
         <button
-          checked={sortByRating === "best"}
           onClick={() => setSortByRating("best")}
-          className="p-2 rounded-xl bg-green-600 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer w-1/3 sm:block hidden"
+          className={`p-2 rounded-xl cursor-pointer w-1/3 sm:block hidden ${
+            sortByRating === "best"
+              ? "bg-black text-white"
+              : "bg-green-600 hover:bg-gray-400"
+          }`}
         >
           Migliore valutazione
         </button>
 
         <button
-          checked={sortByRating === "worst"}
           onClick={() => setSortByRating("worst")}
-          className="p-2 rounded-xl bg-green-600 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer w-1/3 sm:block hidden"
+          className={`p-2 rounded-xl cursor-pointer w-1/3 sm:block hidden ${
+            sortByRating === "worst"
+              ? "bg-black text-white"
+              : "bg-green-600 hover:bg-gray-400"
+          }`}
         >
           Peggiore valutazione
         </button>
       </div>
 
-      <div
-        checked={sortByRating === "best"}
-        onClick={() => setSortByRating("best")}
-        className="bg-green-500/20 text-center m-2 lg:hidden block"
-      >
-        <button className="p-2 rounded-xl bg-green-600 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer w-1/2">
+      <div className="bg-green-500/20 text-center p-2 lg:hidden flex gap-2">
+        <button
+          onClick={() => setSortByRating("best")}
+          className={`p-2 rounded-xl cursor-pointer w-1/2 ${
+            sortByRating === "best"
+              ? "bg-black text-white"
+              : "bg-green-600 hover:bg-gray-400"
+          }`}
+        >
           Migliore valutazione
         </button>
         <button
-          checked={sortByRating === "worst"}
           onClick={() => setSortByRating("worst")}
-          className="p-2 rounded-xl bg-green-600 hover:bg-gray-400 focus:bg-black focus:text-white cursor-pointer w-1/2 "
+          className={`p-2 rounded-xl cursor-pointer w-1/2 ${
+            sortByRating === "worst"
+              ? "bg-black text-white"
+              : "bg-green-600 hover:bg-gray-400"
+          }`}
         >
           Peggiore valutazione
         </button>
       </div>
-      <div className="bg-green-500/20  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+      <div className="bg-green-500/20 flex justify-end">
+        <button
+          onClick={resetAllFilters}
+          className="m-2 text-sm bg-red-500 hover:bg-red-600 cursor-pointer text-white px-2 py-1 rounded-xl"
+        >
+          Resetta filtri
+        </button>
+      </div>
+
+      <div className="bg-green-500/20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         {!isLoading && !error && filteredCompanies.length === 0 && (
           <p className="col-span-full text-center">Nessuna azienda trovata.</p>
         )}
         {!isLoading &&
           !error &&
-          filteredCompanies.map((company) => (
-            <CardAziendeRicerca key={company.id} company={company} />
-          ))}
+          filteredCompanies.map((company) => {
+            return (
+              <CardAziendeRicerca
+                key={company.id}
+                company={company}
+                rating={company.averageRating}
+              />
+            );
+          })}
         {error && (
           <p className="col-span-full text-center">
             Errore durante il caricamento

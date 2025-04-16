@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-function CardAziendeRicerca({ company }) {
+function CardAziendeRicerca({ company, rating }) {
   return (
-    <div className=" sm:flex-col ml-2 mr-2 mt-2 p-2 bg-white rounded-lg">
+    <div className="sm:flex-col ml-2 mr-2 mt-2 p-2 bg-white rounded-lg">
       <Link
         to={`/company-page/${company.slug}`}
         className="bg-white flex p-2 gap-2"
@@ -17,6 +17,16 @@ function CardAziendeRicerca({ company }) {
           <div className="text-sm text-gray-500 dark:text-gray-400">
             {company.description}
           </div>
+          {rating !== null && (
+            <div className="text-sm text-yellow-600">
+              ⭐ {rating.toFixed(1)} / 5
+            </div>
+          )}
+          {rating === null && (
+            <div className="text-sm text-gray-400 italic">
+              Nessuna valutazione
+            </div>
+          )}
         </div>
       </Link>
     </div>
