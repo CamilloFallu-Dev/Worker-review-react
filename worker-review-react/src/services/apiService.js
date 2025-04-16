@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export const apiService = createApi ({
+export const apiService = createApi({
   reducerPath: "apiService",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000" }),
   endpoints: (builder) => ({
@@ -17,7 +17,7 @@ export const apiService = createApi ({
     }),
 
     getReviews: builder.query({
-      query: (companyId) => `reviews?companyId=${companyId}`,
+      query: () => `reviews`,
     }),
 
     getStats: builder.query({
@@ -29,7 +29,8 @@ export const apiService = createApi ({
     }),
 
     login: builder.query({
-      query: ({ email, password }) => `users?email=${email}&password=${password}`,
+      query: ({ email, password }) =>
+        `users?email=${email}&password=${password}`,
     }),
 
     register: builder.mutation({
@@ -41,7 +42,7 @@ export const apiService = createApi ({
     }),
 
     getUsers: builder.query({
-      query: () => 'users',
+      query: () => "users",
     }),
 
     registerCompany: builder.mutation({

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Avatar from "react-avatar";
 
-function CardAziendeRicerca({ company }) {
+function CardAziendeRicerca({ company, rating }) {
   return (
     <div className="sm:flex-col ml-2 mr-2 mt-2 p-2 bg-white rounded-lg">
       <Link
@@ -26,7 +26,23 @@ function CardAziendeRicerca({ company }) {
         )}
         <div className="space-y-1 font-medium text-left sm:ms-3">
           <div className="text-black font-semibold">{company.name}</div>
+
           <div className="text-sm text-gray-500">{company.description}</div>
+
+          <div className="text-sm text-gray-500 dark:text-gray-400">
+            {company.description}
+          </div>
+          {rating !== null && (
+            <div className="text-sm text-yellow-600">
+              ⭐ {rating.toFixed(1)} / 5
+            </div>
+          )}
+          {rating === null && (
+            <div className="text-sm text-gray-400 italic">
+              Nessuna valutazione
+            </div>
+          )}
+
         </div>
       </Link>
     </div>
