@@ -20,6 +20,10 @@ export const apiService = createApi({
       query: () => `reviews`,
     }),
 
+    getReviewsByCompanyId: builder.query({
+      query: (companyId) => `reviews?companyId=${companyId}`,
+    }),
+
     getStats: builder.query({
       query: () => `stats`,
     }),
@@ -84,6 +88,7 @@ export const {
   useGetCompaniesQuery,
   useGetCompanyBySlugQuery,
   useGetReviewsQuery,
+  useGetReviewsByCompanyIdQuery,
   useAddReviewMutation,
   useLazyLoginQuery,
   useRegisterMutation,

@@ -255,6 +255,15 @@
       "password": "airbnb123",
       "description": "Airbnb è una piattaforma che consente di prenotare soggiorni in case e appartamenti privati.",
       "slug": "airbnb"
+    },
+    {
+      "id": "ac30",
+      "name": "Nintendo",
+      "address": "Giappone",
+      "workSector": "Games",
+      "email": "nintendo@nintendo.it",
+      "password": "nintendo",
+      "description": "Bello pokemon"
     }
   ],
   "users": [
@@ -1277,7 +1286,6 @@
       "vote": 4,
       "date": "2025-04-09T08:00:00.000Z",
       "companyId": "20"
-
     },
     {
       "id": "84ca",
@@ -1287,7 +1295,6 @@
       "vote": 5,
       "date": "2025-04-15T16:29:26.576Z",
       "companyId": "6"
-
     }
   ],
   "stats": [
