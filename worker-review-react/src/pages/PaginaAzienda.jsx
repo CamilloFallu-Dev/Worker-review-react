@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ReviewCard from "../components/ReviewCard";
 import {
   useGetCompanyBySlugQuery,
-  useGetReviewsQuery,
+  useGetReviewsByCompanyIdQuery,
 } from "../services/apiService";
 import { useAddReviewMutation } from "../services/apiService";
 import { toast } from "react-hot-toast";
@@ -18,7 +18,7 @@ export default function PaginaAzienda() {
   const [voto, setVoto] = useState(1);
   const { data, error, isLoading } = useGetCompanyBySlugQuery(slug);
   const [addReview] = useAddReviewMutation();
-  const { refetch } = useGetReviewsQuery(azienda?.id, { skip: !azienda });
+  const { refetch } = useGetReviewsByCompanyIdQuery(azienda?.id, { skip: !azienda });
 
   useEffect(() => {
     if (data) {
@@ -33,7 +33,7 @@ export default function PaginaAzienda() {
     data: reviewsData,
     error: reviewsError,
     isLoading: reviewsLoading,
-  } = useGetReviewsQuery(azienda?.id, {
+  } = useGetReviewsByCompanyIdQuery(azienda?.id, {
     skip: !azienda,
   });
 
